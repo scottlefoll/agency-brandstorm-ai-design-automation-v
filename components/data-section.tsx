@@ -38,15 +38,15 @@ export function DataSection() {
           <div>
             <div className="grid grid-cols-2 gap-4">
               <Image
-                src="/placeholder.svg?height=250&width=250"
-                alt="Data chart 1"
+                src="/images/data-chart1.png"
+                alt="Business analytics dashboard"
                 width={250}
                 height={250}
                 className="w-full rounded-lg shadow-lg"
               />
               <Image
-                src="/placeholder.svg?height=250&width=250"
-                alt="Data chart 2"
+                src="/images/data-chart2.png"
+                alt="Revenue growth chart"
                 width={250}
                 height={250}
                 className="w-full rounded-lg shadow-lg"

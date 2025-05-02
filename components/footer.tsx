@@ -8,7 +8,7 @@ export function Footer() {
       <div className="container">
         <div className="grid md:grid-cols-4 gap-8 mb-12">
           <div>
-            <Link href="/" className="inline-block mb-6">
+            <Link href="/" className="inline-block mb-2">
               <Image
                 src="/images/brandstorm-logo.png"
                 alt="BRANDSTORM.AI Logo"
@@ -17,6 +17,7 @@ export function Footer() {
                 className="h-12 w-auto"
               />
             </Link>
+            <p className="text-gray-400 text-sm mb-4">Powered by Umbrella Local</p>
             <p className="text-gray-300 mb-6">
               Creating unstoppable growth for local businesses through exceptional branding and digital marketing.
             </p>
@@ -116,6 +117,11 @@ export function Footer() {
             <h3 className="font-bold text-lg mb-6">Services</h3>
             <ul className="space-y-4">
               <li>
+                <Link href="/services/ai-employees" className="text-gray-300 hover:text-white transition-colors">
+                  AI Employees
+                </Link>
+              </li>
+              <li>
                 <Link
                   href="/services/google-business-profile"
                   className="text-gray-300 hover:text-white transition-colors"
@@ -129,18 +135,21 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/services/web-design" className="text-gray-300 hover:text-white transition-colors">
-                  Web Design
-                </Link>
-              </li>
-              <li>
                 <Link href="/services/sales-automation" className="text-gray-300 hover:text-white transition-colors">
                   Sales Automation
                 </Link>
               </li>
               <li>
-                <Link href="/services/ai-employees" className="text-gray-300 hover:text-white transition-colors">
-                  AI Employees
+                <Link
+                  href="/services/search-box-optimization"
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  Search Box Optimization
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/web-design" className="text-gray-300 hover:text-white transition-colors">
+                  Web Design
                 </Link>
               </li>
             </ul>
@@ -180,7 +189,7 @@ export function Footer() {
           <div>
             <h3 className="font-bold text-lg mb-6">Contact</h3>
             <ul className="space-y-4">
-              <li className="text-gray-300">Boston, Massachusetts</li>
+              <li className="text-gray-300">Milan, New Hampshire</li>
               <li>
                 <Link href="/call" className="text-gray-300 hover:text-white transition-colors">
                   1-888-383-2473

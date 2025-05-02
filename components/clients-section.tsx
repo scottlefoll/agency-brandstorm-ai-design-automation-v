@@ -5,21 +5,21 @@ export function ClientsSection() {
     {
       title: "HOME SERVICES",
       services: [
-        { name: "ROOFING", image: "/placeholder.svg?height=200&width=200" },
-        { name: "HOME SERVICES", image: "/placeholder.svg?height=200&width=200" },
-        { name: "LANDSCAPING", image: "/placeholder.svg?height=200&width=200" },
-        { name: "CONSTRUCTION", image: "/placeholder.svg?height=200&width=200" },
-        { name: "HOME RENOVATION", image: "/placeholder.svg?height=200&width=200" },
+        { name: "ROOFING", image: "/images/clients/roofing.png" },
+        { name: "HOME SERVICES", image: "/images/clients/home-services.png" },
+        { name: "LANDSCAPING", image: "/images/clients/landscaping.png" },
+        { name: "CONSTRUCTION", image: "/images/clients/construction.png" },
+        { name: "HOME RENOVATION", image: "/images/clients/renovation.png" },
       ],
     },
     {
       title: "PROFESSIONAL SERVICES",
       services: [
-        { name: "ACCOUNTANTS", image: "/placeholder.svg?height=200&width=200" },
-        { name: "ATTORNEYS", image: "/placeholder.svg?height=200&width=200" },
-        { name: "CONSULTANT SERVICES", image: "/placeholder.svg?height=200&width=200" },
-        { name: "MEDICAL PRACTICES", image: "/placeholder.svg?height=200&width=200" },
-        { name: "SCHOOLS AND EDUCATION", image: "/placeholder.svg?height=200&width=200" },
+        { name: "ACCOUNTANTS", image: "/images/clients/accountant.png" },
+        { name: "ATTORNEYS", image: "/images/clients/attorney.png" },
+        { name: "CONSULTANT SERVICES", image: "/images/clients/consultant.png" },
+        { name: "MEDICAL PRACTICES", image: "/images/clients/medical.png" },
+        { name: "SCHOOLS AND EDUCATION", image: "/images/clients/education.png" },
       ],
     },
   ]

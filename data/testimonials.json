@@ -1,0 +1,97 @@
+[
+  {
+    "id": 1,
+    "text": "Great Company to partner with Solves all your business needs!",
+    "name": "Albert J Shaw (AJ)",
+    "date": "Feb 7, 2025",
+    "platform": "Google",
+    "image": "/images/testimonials/person1.png",
+    "stars": 5
+  },
+  {
+    "id": 2,
+    "text": "Incredible results in just 3 months. Our leads have doubled!",
+    "name": "Sarah Johnson",
+    "date": "Jan 15, 2025",
+    "platform": "Google",
+    "image": "/images/testimonials/person2.png",
+    "stars": 5
+  },
+  {
+    "id": 3,
+    "text": "The team is responsive and their strategies actually work.",
+    "name": "Michael Rodriguez",
+    "date": "Mar 2, 2025",
+    "platform": "Google",
+    "image": "/images/testimonials/person3.png",
+    "stars": 5
+  },
+  {
+    "id": 4,
+    "text": "Best marketing investment we've made in 10 years of business.",
+    "name": "Jennifer Williams",
+    "date": "Feb 22, 2025",
+    "platform": "Google",
+    "image": "/images/testimonials/person4.png",
+    "stars": 5
+  },
+  {
+    "id": 5,
+    "text": "Their AI solutions have transformed how we handle customer inquiries.",
+    "name": "David Chen",
+    "date": "Jan 30, 2025",
+    "platform": "Google",
+    "image": "/images/testimonials/person5.png",
+    "stars": 5
+  },
+  {
+    "id": 6,
+    "text": "Since working with Brandstorm AI, our business has grown by 127%. We're now the #1 plumbing service in our area according to Google Maps.",
+    "name": "John Smith",
+    "business": "Smith Plumbing Services",
+    "date": "Dec 15, 2024",
+    "platform": "Google",
+    "image": "/images/testimonials/person6.png",
+    "stars": 5
+  },
+  {
+    "id": 7,
+    "text": "The team at Brandstorm AI transformed our online presence. Our website conversion rate increased by 85% and we're getting quality leads daily.",
+    "name": "Emily Johnson",
+    "business": "Johnson Law Firm",
+    "date": "Nov 22, 2024",
+    "platform": "Google",
+    "image": "/images/testimonials/person7.png",
+    "stars": 5
+  },
+  {
+    "id": 8,
+    "text": "The ROI we've seen from Brandstorm AI's services has been incredible. Our Google Business Profile now generates 40+ leads per month.",
+    "name": "Michael Davis",
+    "business": "Davis Roofing",
+    "date": "Jan 5, 2025",
+    "platform": "Google",
+    "image": "/images/testimonials/person8.png",
+    "stars": 5
+  },
+  {
+    "id": 9,
+    "text": "Our local visibility has skyrocketed since working with Brandstorm. We're now showing up in the top 3 for all our target keywords.",
+    "name": "Rebecca Martinez",
+    "business": "Martinez Dental",
+    "date": "Feb 18, 2025",
+    "platform": "Google",
+    "image": "/images/testimonials/person9.png",
+    "stars": 5
+  },
+  {
+    "id": 10,
+    "text": "The AI call handling system has been a game-changer. We haven't missed a single lead since implementing it.",
+    "name": "Thomas Wilson",
+    "business": "Wilson HVAC Services",
+    "date": "Mar 10, 2025",
+    "platform": "Google",
+    "image": "/images/testimonials/person10.png",
+    "stars": 5
+  }
+]

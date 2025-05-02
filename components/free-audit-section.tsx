@@ -58,12 +58,12 @@ export function FreeAuditSection() {
   }
 
   return (
-    <section className="w-full bg-black py-12">
+    <section className="w-full py-12">
       <div className="container">
         <div className="bg-gradient-to-r from-purple-900 to-blue-900 rounded-lg p-8 text-white">
           <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold mb-2">FREE Digital Marketing Audit</h2>
-            <p className="text-lg">Find out how to dominate your local market</p>
+            <h2 className="text-2xl md:text-3xl font-bold mb-2">Get your FREE Website Audit</h2>
+            <p className="text-lg">Check your ranking and conversion score, and lead your local market.</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">

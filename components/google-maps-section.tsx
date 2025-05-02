@@ -3,21 +3,21 @@ import { CTAButton } from "@/components/cta-button"
 
 export function GoogleMapsSection() {
   return (
-    <section className="w-full py-16 bg-gray-50">
+    <section className="w-full py-16 bg-[#F5F5F5]">
       <div className="container">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div className="order-2 md:order-1">
             <div className="grid grid-cols-2 gap-4">
               <Image
-                src="/placeholder.svg?height=300&width=250"
-                alt="Google Maps screenshot 1"
+                src="/images/google-maps-screenshot1.png"
+                alt="Google Maps local search results"
                 width={250}
                 height={300}
                 className="w-full rounded-lg shadow-lg"
               />
               <Image
-                src="/placeholder.svg?height=300&width=250"
-                alt="Google Maps screenshot 2"
+                src="/images/google-maps-screenshot2.png"
+                alt="Google Maps business profile on mobile"
                 width={250}
                 height={300}
                 className="w-full rounded-lg shadow-lg"

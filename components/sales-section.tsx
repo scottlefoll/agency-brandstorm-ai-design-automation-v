@@ -3,16 +3,16 @@ import { CTAButton } from "@/components/cta-button"
 
 export function SalesSection() {
   return (
-    <section className="w-full py-16 bg-gray-50">
+    <section className="w-full py-16 bg-[#F5F5F5]">
       <div className="container">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div className="order-2 md:order-1">
             <Image
-              src="/placeholder.svg?height=500&width=300"
-              alt="Mobile device with sales automation"
+              src="/images/sales-automation-mobile.png"
+              alt="Smartphone displaying sales automation dashboard"
               width={300}
               height={500}
-              className="w-full max-w-xs mx-auto"
+              className="w-full max-w-xs mx-auto rounded-lg shadow-md"
             />
           </div>
 

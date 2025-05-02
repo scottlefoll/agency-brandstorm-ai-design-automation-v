@@ -65,8 +65,11 @@ export function PartnerLogos() {
   }, [])
 
   return (
-    <section className="w-full bg-gradient-to-r from-blue-800 to-blue-700 via-teal-800 py-1.5 overflow-hidden">
-      <div className="relative" ref={containerRef}>
+    <section
+      className="w-full bg-gradient-to-r from-blue-800 to-blue-700 via-teal-800 overflow-hidden"
+      style={{ height: "72px" }} // Reduced by 20% from 90px to 72px
+    >
+      <div className="relative h-full flex items-center" ref={containerRef}>
         <div ref={scrollRef} className="flex items-center gap-10" style={{ whiteSpace: "nowrap" }}>
           {logos.map((logo, index) => (
             <div key={`${logo.name}-${index}`} className="flex items-center justify-center flex-shrink-0">
@@ -78,8 +81,10 @@ export function PartnerLogos() {
                   height={logo.height}
                   className="w-auto h-auto brightness-0 invert opacity-90"
                   style={{
-                    maxHeight: logo.name === "Medium" ? "52px" : logo.name === "NBC" ? "28px" : "18px",
+                    maxHeight: logo.name === "Medium" ? "104px" : logo.name === "NBC" ? "56px" : "36px",
                     background: "transparent",
+                    // Using transform to adjust vertical position without changing size
+                    transform: "scale(1)", // Keeping the same size
                   }}
                 />
               </div>

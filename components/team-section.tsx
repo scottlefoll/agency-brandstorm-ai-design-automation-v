@@ -6,25 +6,25 @@ export function TeamSection() {
     {
       name: "Alex Johnson",
       role: "Founder & CEO",
-      image: "/placeholder.svg?height=300&width=300",
+      image: "/images/team/alex-johnson.png",
       bio: "15+ years of experience in digital marketing and business growth strategies.",
     },
     {
       name: "Maria Rodriguez",
       role: "Chief Marketing Officer",
-      image: "/placeholder.svg?height=300&width=300",
+      image: "/images/team/maria-rodriguez.png",
       bio: "Former Google employee with expertise in local SEO and business profile optimization.",
     },
     {
       name: "David Chen",
       role: "Web Development Director",
-      image: "/placeholder.svg?height=300&width=300",
+      image: "/images/team/david-chen.png",
       bio: "Award-winning web designer with a focus on conversion-optimized websites.",
     },
     {
       name: "Sarah Williams",
       role: "AI Implementation Specialist",
-      image: "/placeholder.svg?height=300&width=300",
+      image: "/images/team/sarah-williams.png",
       bio: "Pioneering the integration of AI solutions for small and medium businesses.",
     },
   ]

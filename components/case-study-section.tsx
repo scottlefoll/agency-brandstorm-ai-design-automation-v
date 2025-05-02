@@ -34,7 +34,13 @@ export function CaseStudySection() {
           {caseStudies.map((study, index) => (
             <div key={index} className="bg-white rounded-lg overflow-hidden shadow-lg">
               <Image
-                src={study.image || "/placeholder.svg"}
+                src={
+                  index === 0
+                    ? "/images/case-study-plumbing.png"
+                    : index === 1
+                      ? "/images/case-study-law.png"
+                      : "/images/case-study-roofing.png"
+                }
                 alt={study.title}
                 width={500}
                 height={300}

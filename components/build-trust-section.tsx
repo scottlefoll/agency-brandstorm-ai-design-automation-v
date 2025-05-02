@@ -41,8 +41,8 @@ export function BuildTrustSection() {
 
           <div>
             <Image
-              src="/placeholder.svg?height=400&width=500"
-              alt="Review dashboard"
+              src="/images/review-dashboard.png"
+              alt="Review management dashboard"
               width={500}
               height={400}
               className="w-full rounded-lg shadow-lg"

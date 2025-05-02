@@ -1,10 +1,10 @@
 export function WhyChooseSection() {
   return (
-    <section className="w-full py-16 bg-black text-white">
+    <section className="w-full py-16 text-white">
       <div className="container">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-            WHY CHOOSE BRAND BUILDER AI
+            WHY CHOOSE BRANDSTORM AI
           </h2>
 
           <p className="text-lg max-w-3xl mx-auto">

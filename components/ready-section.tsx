@@ -3,7 +3,7 @@ import Image from "next/image"
 
 export function ReadySection() {
   return (
-    <section className="w-full py-16 bg-gray-100" id="book-call">
+    <section className="w-full py-16 pb-[51px] bg-gray-100" id="book-call">
       <div className="container text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-6 text-purple-800">
           READY TO DOMINATE

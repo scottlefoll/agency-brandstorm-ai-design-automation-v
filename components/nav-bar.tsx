@@ -4,6 +4,8 @@ import Image from "next/image"
 import Link from "next/link"
 import { Phone, ChevronDown } from "lucide-react"
 import { useState, useRef, useEffect } from "react"
+import { CTAButton } from "@/components/cta-button"
+import { useMobile } from "@/hooks/use-mobile"
 
 const navItems = [
   { name: "System", href: "/system" },
@@ -12,11 +14,12 @@ const navItems = [
     name: "Services",
     href: "/services",
     dropdown: [
+      { name: "AI Employees", href: "/services/ai-employees" },
       { name: "Google Business Profile", href: "/services/google-business-profile" },
       { name: "Google Maps Ranking", href: "/services/google-maps-ranking" },
-      { name: "Web Design", href: "/services/web-design" },
       { name: "Sales Automation", href: "/services/sales-automation" },
-      { name: "AI Employees", href: "/services/ai-employees" },
+      { name: "Search Box Optimization", href: "/services/search-box-optimization" },
+      { name: "Web Design", href: "/services/web-design" },
     ],
   },
   { name: "Case Study", href: "/case-study" },
@@ -24,15 +27,14 @@ const navItems = [
 
 export function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
   const [isScrolled, setIsScrolled] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
+  const isMobile = useMobile()
 
   // Close dropdown when clicking outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setActiveDropdown(null)
       }
     }
 
@@ -58,8 +60,49 @@ export function NavBar() {
     }
   }, [])
 
-  const toggleDropdown = (name: string) => {
-    setActiveDropdown(activeDropdown === name ? null : name)
+  // Render different buttons based on device type
+  const renderCallButton = () => {
+    if (isMobile) {
+      // Mobile: Use tel: link for direct calling
+      return (
+        <a
+          href="tel:18883832473"
+          className="flex flex-col items-center justify-center gap-0.5 bg-purple-800 hover:bg-purple-900 text-white rounded-md shadow-sm"
+          style={{
+            paddingTop: "0.625rem",
+            paddingBottom: "0.625rem",
+            paddingLeft: "1.875rem",
+            paddingRight: "1.875rem",
+          }}
+        >
+          <div className="flex items-center gap-2">
+            <Phone className="h-4 w-4" />
+            <span className="font-semibold">CALL US</span>
+          </div>
+          <span className="text-xs">1-888-383-2473</span>
+        </a>
+      )
+    } else {
+      // Desktop: Use CTAButton for callback request
+      return (
+        <CTAButton
+          className="flex flex-col items-center justify-center gap-0.5 bg-purple-800 hover:bg-purple-900 text-white rounded-md shadow-sm"
+          style={{
+            paddingTop: "1.875rem",
+            paddingBottom: "1.875rem",
+            paddingLeft: "1.875rem",
+            paddingRight: "1.875rem",
+          }}
+          source="Header - Get a Callback"
+        >
+          <div className="flex items-center gap-2">
+            <Phone className="h-4 w-4" />
+            <span className="font-semibold">GET A DEMO CALL</span>
+          </div>
+          <span className="text-xs">from our AI Assistant</span>
+        </CTAButton>
+      )
+    }
   }
 
   return (
@@ -68,14 +111,15 @@ export function NavBar() {
         isScrolled ? "bg-white/80 backdrop-blur-md shadow-md" : "bg-white/40 backdrop-blur-sm"
       }`}
     >
-      <div className="container px-4 flex h-24 items-center justify-between">
+      <div className="container px-4 flex items-center justify-between" style={{ height: "134px" }}>
         <Link href="/" className="flex items-center">
           <Image
             src="/images/brandstorm-logo.png"
             alt="BRANDSTORM.AI Logo"
-            width={220}
-            height={60}
-            className="h-14 w-auto"
+            width={275}
+            height={75}
+            className="w-auto"
+            style={{ height: "65px" }}
             priority
           />
         </Link>
@@ -84,33 +128,36 @@ export function NavBar() {
           {navItems.map((item) => (
             <div key={item.name} className="relative" ref={item.dropdown ? dropdownRef : undefined}>
               {item.dropdown ? (
-                <>
-                  <button
-                    onClick={() => toggleDropdown(item.name)}
-                    className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 px-4"
+                <div className="group relative">
+                  <Link
+                    href={item.href}
+                    className="flex items-center font-semibold text-gray-700 hover:text-gray-900 px-4"
+                    style={{ fontSize: "1.035rem" }}
                   >
                     {item.name}
                     <ChevronDown className="ml-1 h-4 w-4" />
-                  </button>
-                  {activeDropdown === item.name && (
-                    <div className="absolute top-full left-0 mt-1 w-64 bg-white/90 backdrop-blur-md rounded-md shadow-lg z-50 border border-gray-100">
-                      <div className="py-1">
-                        {item.dropdown.map((dropdownItem) => (
-                          <Link
-                            key={dropdownItem.name}
-                            href={dropdownItem.href}
-                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100/80"
-                            onClick={() => setActiveDropdown(null)}
-                          >
-                            {dropdownItem.name}
-                          </Link>
-                        ))}
-                      </div>
+                  </Link>
+                  <div className="absolute top-full left-0 mt-1 w-64 bg-white/90 backdrop-blur-md rounded-md shadow-lg z-50 border border-gray-100 hidden group-hover:block">
+                    <div className="py-1">
+                      {item.dropdown.map((dropdownItem) => (
+                        <Link
+                          key={dropdownItem.name}
+                          href={dropdownItem.href}
+                          className="block px-4 py-2 font-semibold text-gray-700 hover:bg-gray-100/80"
+                          style={{ fontSize: "1.035rem" }}
+                        >
+                          {dropdownItem.name}
+                        </Link>
+                      ))}
                     </div>
-                  )}
-                </>
+                  </div>
+                </div>
               ) : (
-                <Link href={item.href} className="text-sm font-medium text-gray-700 hover:text-gray-900 px-4">
+                <Link
+                  href={item.href}
+                  className="font-semibold text-gray-700 hover:text-gray-900 px-4"
+                  style={{ fontSize: "1.035rem" }}
+                >
                   {item.name}
                 </Link>
               )}
@@ -118,16 +165,7 @@ export function NavBar() {
           ))}
         </nav>
 
-        <Link
-          href="/call"
-          className="hidden md:flex flex-col items-center justify-center gap-0.5 bg-purple-800 hover:bg-purple-900 text-white rounded-md p-2.5 shadow-sm"
-        >
-          <div className="flex items-center gap-2">
-            <Phone className="h-4 w-4" />
-            <span>CALL US</span>
-          </div>
-          <span className="text-xs">1-888-383-2473</span>
-        </Link>
+        <div className="hidden md:block">{renderCallButton()}</div>
 
         <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
           <svg
@@ -155,36 +193,36 @@ export function NavBar() {
                 {item.dropdown ? (
                   <>
                     <button
-                      onClick={() => toggleDropdown(item.name)}
-                      className="flex items-center justify-between text-sm font-medium text-gray-700 hover:text-gray-900 py-2"
+                      onClick={() => setIsMenuOpen(!isMenuOpen)}
+                      className="flex items-center justify-between font-semibold text-gray-700 hover:text-gray-900 py-2"
+                      style={{ fontSize: "1.035rem" }} /* Increased by 15% from 0.9rem (text-sm) */
                     >
                       {item.name}
-                      <ChevronDown
-                        className={`h-4 w-4 transition-transform ${activeDropdown === item.name ? "rotate-180" : ""}`}
-                      />
+                      <ChevronDown className={`h-4 w-4 transition-transform`} />
                     </button>
-                    {activeDropdown === item.name && (
-                      <div className="ml-4 mt-2 flex flex-col gap-2">
-                        {item.dropdown.map((dropdownItem) => (
-                          <Link
-                            key={dropdownItem.name}
-                            href={dropdownItem.href}
-                            className="text-sm text-gray-600 hover:text-gray-900 py-1"
-                            onClick={() => {
-                              setActiveDropdown(null)
-                              setIsMenuOpen(false)
-                            }}
-                          >
-                            {dropdownItem.name}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
+                    {/* {activeDropdown === item.name && ( */}
+                    <div className="ml-4 mt-2 flex flex-col gap-2">
+                      {item.dropdown.map((dropdownItem) => (
+                        <Link
+                          key={dropdownItem.name}
+                          href={dropdownItem.href}
+                          className="font-semibold text-gray-600 hover:text-gray-900 py-1"
+                          style={{ fontSize: "1.035rem" }} /* Increased by 15% from 0.9rem (text-sm) */
+                          onClick={() => {
+                            setIsMenuOpen(false)
+                          }}
+                        >
+                          {dropdownItem.name}
+                        </Link>
+                      ))}
+                    </div>
+                    {/* )} */}
                   </>
                 ) : (
                   <Link
                     href={item.href}
-                    className="text-sm font-medium text-gray-700 hover:text-gray-900 py-2"
+                    className="font-semibold text-gray-700 hover:text-gray-900 py-2"
+                    style={{ fontSize: "1.035rem" }} /* Increased by 15% from 0.9rem (text-sm) */
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.name}
@@ -192,17 +230,7 @@ export function NavBar() {
                 )}
               </div>
             ))}
-            <Link
-              href="/call"
-              className="flex items-center justify-center gap-2 bg-purple-800 hover:bg-purple-900 text-white rounded-md p-2.5 mt-2 shadow-sm"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <Phone className="h-4 w-4" />
-              <div className="flex flex-col gap-0.5">
-                <span>CALL US</span>
-                <span className="text-xs">1-888-383-2473</span>
-              </div>
-            </Link>
+            <div className="mt-2">{renderCallButton()}</div>
           </div>
         </div>
       )}

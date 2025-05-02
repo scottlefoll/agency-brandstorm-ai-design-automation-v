@@ -42,8 +42,8 @@ export function BrandingSection() {
 
           <div>
             <Image
-              src="/placeholder.svg?height=500&width=500"
-              alt="Branding and web design"
+              src="/images/branding-web-design.png"
+              alt="Professional branding and web design mockup"
               width={500}
               height={500}
               className="w-full rounded-lg shadow-lg"
