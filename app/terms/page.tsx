@@ -1,5 +1,11 @@
 import { NavBar } from "@/components/nav-bar"
 import { Footer } from "@/components/footer"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Terms of Service - Brandstorm AI",
+  description: "Read our terms of service and conditions for using Brandstorm AI services.",
+}
 
 export default function TermsOfServicePage() {
   return (

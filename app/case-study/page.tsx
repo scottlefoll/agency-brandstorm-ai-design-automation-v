@@ -1,5 +1,11 @@
 import { NavBar } from "@/components/nav-bar"
 import { Footer } from "@/components/footer"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Case Studies - Brandstorm AI",
+  description: "Explore our success stories and see how we've helped businesses achieve remarkable growth.",
+}
 
 export default function CaseStudyPage() {
   return (

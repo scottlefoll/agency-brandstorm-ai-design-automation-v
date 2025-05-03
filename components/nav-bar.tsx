@@ -12,7 +12,7 @@ const navItems = [
   { name: "Reviews", href: "/reviews" },
   {
     name: "Services",
-    href: "/services",
+    // Remove href to prevent navigation
     dropdown: [
       { name: "AI Employees", href: "/services/ai-employees" },
       { name: "Google Business Profile", href: "/services/google-business-profile" },
@@ -28,6 +28,7 @@ const navItems = [
 export function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
   const dropdownRef = useRef<HTMLDivElement>(null)
   const isMobile = useMobile()
 
@@ -35,6 +36,7 @@ export function NavBar() {
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setActiveDropdown(null)
       }
     }
 
@@ -59,6 +61,11 @@ export function NavBar() {
       window.removeEventListener("scroll", handleScroll)
     }
   }, [])
+
+  // Toggle dropdown for mobile
+  const toggleDropdown = (name: string) => {
+    setActiveDropdown(activeDropdown === name ? null : name)
+  }
 
   // Render different buttons based on device type
   const renderCallButton = () => {
@@ -129,15 +136,17 @@ export function NavBar() {
             <div key={item.name} className="relative" ref={item.dropdown ? dropdownRef : undefined}>
               {item.dropdown ? (
                 <div className="group relative">
-                  <Link
-                    href={item.href}
-                    className="flex items-center font-semibold text-gray-700 hover:text-gray-900 px-4"
+                  {/* Replace Link with button for Services */}
+                  <button
+                    className="flex items-center font-semibold text-gray-700 hover:text-gray-900 px-4 py-2 bg-transparent"
                     style={{ fontSize: "1.035rem" }}
                   >
                     {item.name}
                     <ChevronDown className="ml-1 h-4 w-4" />
-                  </Link>
-                  <div className="absolute top-full left-0 mt-1 w-64 bg-white/90 backdrop-blur-md rounded-md shadow-lg z-50 border border-gray-100 hidden group-hover:block">
+                  </button>
+                  {/* Add a hidden spacer div to bridge any gap between the nav item and dropdown */}
+                  <div className="absolute h-4 w-full top-full left-0"></div>
+                  <div className="absolute top-full left-0 mt-0 w-64 bg-white/90 backdrop-blur-md rounded-md shadow-lg z-50 border border-gray-100 hidden group-hover:block">
                     <div className="py-1">
                       {item.dropdown.map((dropdownItem) => (
                         <Link
@@ -193,36 +202,39 @@ export function NavBar() {
                 {item.dropdown ? (
                   <>
                     <button
-                      onClick={() => setIsMenuOpen(!isMenuOpen)}
+                      onClick={() => toggleDropdown(item.name)}
                       className="flex items-center justify-between font-semibold text-gray-700 hover:text-gray-900 py-2"
-                      style={{ fontSize: "1.035rem" }} /* Increased by 15% from 0.9rem (text-sm) */
+                      style={{ fontSize: "1.035rem" }}
                     >
                       {item.name}
-                      <ChevronDown className={`h-4 w-4 transition-transform`} />
+                      <ChevronDown
+                        className={`h-4 w-4 transition-transform ${activeDropdown === item.name ? "rotate-180" : ""}`}
+                      />
                     </button>
-                    {/* {activeDropdown === item.name && ( */}
-                    <div className="ml-4 mt-2 flex flex-col gap-2">
-                      {item.dropdown.map((dropdownItem) => (
-                        <Link
-                          key={dropdownItem.name}
-                          href={dropdownItem.href}
-                          className="font-semibold text-gray-600 hover:text-gray-900 py-1"
-                          style={{ fontSize: "1.035rem" }} /* Increased by 15% from 0.9rem (text-sm) */
-                          onClick={() => {
-                            setIsMenuOpen(false)
-                          }}
-                        >
-                          {dropdownItem.name}
-                        </Link>
-                      ))}
-                    </div>
-                    {/* )} */}
+                    {activeDropdown === item.name && (
+                      <div className="ml-4 mt-2 flex flex-col gap-2">
+                        {item.dropdown.map((dropdownItem) => (
+                          <Link
+                            key={dropdownItem.name}
+                            href={dropdownItem.href}
+                            className="font-semibold text-gray-600 hover:text-gray-900 py-1"
+                            style={{ fontSize: "1.035rem" }}
+                            onClick={() => {
+                              setIsMenuOpen(false)
+                              setActiveDropdown(null)
+                            }}
+                          >
+                            {dropdownItem.name}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
                   </>
                 ) : (
                   <Link
                     href={item.href}
                     className="font-semibold text-gray-700 hover:text-gray-900 py-2"
-                    style={{ fontSize: "1.035rem" }} /* Increased by 15% from 0.9rem (text-sm) */
+                    style={{ fontSize: "1.035rem" }}
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.name}

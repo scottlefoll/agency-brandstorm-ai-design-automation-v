@@ -1,5 +1,11 @@
 import { NavBar } from "@/components/nav-bar"
 import { Footer } from "@/components/footer"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Search Box Optimization - Brandstorm AI",
+  description: "Be the first business that appears when customers start typing in Google's search box.",
+}
 
 export default function SearchBoxOptimizationPage() {
   return (

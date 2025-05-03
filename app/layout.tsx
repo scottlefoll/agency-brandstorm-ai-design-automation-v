@@ -12,7 +12,7 @@ const montserrat = Montserrat({
 })
 
 export const metadata = {
-  title: "Brand Builder AI - Dominate Your Local Market",
+  title: "Brandstorm AI - Own Your Local Market",
   description:
     "Creating unstoppable growth for your company with Exceptional Branding and Web Design, Google Business Profile Optimization, Google Maps Ranking, Sales Automation and AI Employees.",
     generator: 'v0.dev'
@@ -27,6 +27,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body className={`${inter.className} ${montserrat.variable}`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>

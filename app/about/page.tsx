@@ -1,5 +1,11 @@
 import { NavBar } from "@/components/nav-bar"
 import { Footer } from "@/components/footer"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "About Us - Brandstorm AI",
+  description: "Learn about Brandstorm AI and our mission to help businesses dominate their local markets.",
+}
 
 export default function AboutPage() {
   return (

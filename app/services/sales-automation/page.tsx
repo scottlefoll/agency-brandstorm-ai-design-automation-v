@@ -1,5 +1,12 @@
 import { NavBar } from "@/components/nav-bar"
 import { Footer } from "@/components/footer"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Sales Automation - Brandstorm AI",
+  description:
+    "Streamline your sales process with automated systems that nurture leads and close deals while you focus on growth.",
+}
 
 export default function SalesAutomationPage() {
   return (

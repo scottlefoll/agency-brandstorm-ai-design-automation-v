@@ -86,3 +86,15 @@
     background-position: 0% 50%;
   }
 }
+
+@layer utilities {
+  /* Dropdown menu improvements */
+  .group:hover .group-hover\:block {
+    display: block;
+  }
+
+  /* Add a small transition delay for smoother dropdown experience */
+  .group-hover\:block {
+    transition-delay: 0.1s;
+  }
+}

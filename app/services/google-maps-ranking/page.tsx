@@ -1,5 +1,11 @@
 import { NavBar } from "@/components/nav-bar"
 import { Footer } from "@/components/footer"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Google Maps Ranking - Brandstorm AI",
+  description: "Dominate the local map pack and be the first business customers see when searching in your area.",
+}
 
 export default function GoogleMapsRankingPage() {
   return (

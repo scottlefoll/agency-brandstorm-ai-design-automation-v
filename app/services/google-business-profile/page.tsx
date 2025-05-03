@@ -1,5 +1,12 @@
 import { NavBar } from "@/components/nav-bar"
 import { Footer } from "@/components/footer"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Google Business Profile - Brandstorm AI",
+  description:
+    "Maximize your local visibility with a fully optimized Google Business Profile that attracts more customers.",
+}
 
 export default function GoogleBusinessProfilePage() {
   return (

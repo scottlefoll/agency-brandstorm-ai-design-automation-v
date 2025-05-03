@@ -1,5 +1,11 @@
 import { NavBar } from "@/components/nav-bar"
 import { Footer } from "@/components/footer"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Sitemap - Brandstorm AI",
+  description: "Navigate our website with ease using our sitemap.",
+}
 
 export default function SitemapPage() {
   return (

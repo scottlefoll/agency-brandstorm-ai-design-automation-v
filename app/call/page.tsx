@@ -6,6 +6,7 @@ import { useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { Phone } from "lucide-react"
 import { useMobile } from "@/hooks/use-mobile"
+import Head from "next/head"
 
 export default function CallPage() {
   const router = useRouter()
@@ -26,30 +27,35 @@ export default function CallPage() {
   }, [router, isMobile])
 
   return (
-    <main className="flex min-h-screen flex-col">
-      <NavBar />
-      <div className="flex-1 flex items-center justify-center bg-gray-50">
-        <div className="text-center p-8 max-w-md">
-          <div className="bg-purple-100 p-6 rounded-lg shadow-md">
-            <div className="flex justify-center mb-6">
-              <div className="bg-purple-800 text-white p-4 rounded-full">
-                <Phone className="h-8 w-8" />
+    <>
+      <Head>
+        <title>Call Us - Brandstorm AI</title>
+      </Head>
+      <main className="flex min-h-screen flex-col">
+        <NavBar />
+        <div className="flex-1 flex items-center justify-center bg-gray-50">
+          <div className="text-center p-8 max-w-md">
+            <div className="bg-purple-100 p-6 rounded-lg shadow-md">
+              <div className="flex justify-center mb-6">
+                <div className="bg-purple-800 text-white p-4 rounded-full">
+                  <Phone className="h-8 w-8" />
+                </div>
               </div>
+              <h1 className="text-2xl font-bold text-purple-800 mb-4">
+                {isMobile ? "Calling Brandstorm AI now" : "Request a Callback"}
+              </h1>
+              <p className="text-xl text-gray-600 mb-4">1-888-383-2473</p>
+              <p className="text-sm text-gray-500">
+                {isMobile
+                  ? "Initiating call..."
+                  : "We'll call you back shortly. Please fill out the form to schedule your callback."}
+              </p>
+              <p className="text-sm text-gray-500 mt-4">Redirecting to home page in 5 seconds...</p>
             </div>
-            <h1 className="text-2xl font-bold text-purple-800 mb-4">
-              {isMobile ? "Calling Brandstorm AI now" : "Request a Callback"}
-            </h1>
-            <p className="text-xl text-gray-600 mb-4">1-888-383-2473</p>
-            <p className="text-sm text-gray-500">
-              {isMobile
-                ? "Initiating call..."
-                : "We'll call you back shortly. Please fill out the form to schedule your callback."}
-            </p>
-            <p className="text-sm text-gray-500 mt-4">Redirecting to home page in 5 seconds...</p>
           </div>
         </div>
-      </div>
-      <Footer />
-    </main>
+        <Footer />
+      </main>
+    </>
   )
 }

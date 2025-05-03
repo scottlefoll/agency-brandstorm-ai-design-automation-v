@@ -1,5 +1,11 @@
 import { NavBar } from "@/components/nav-bar"
 import { Footer } from "@/components/footer"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Privacy Policy - Brandstorm AI",
+  description: "Learn about how Brandstorm AI collects, uses, and protects your personal information.",
+}
 
 export default function PrivacyPolicyPage() {
   return (
