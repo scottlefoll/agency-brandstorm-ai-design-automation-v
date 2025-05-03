@@ -13,6 +13,9 @@ const montserrat = Montserrat({
 
 export const metadata = {
   title: "Brandstorm AI - Own Your Local Market",
+  icons: {
+    icon: '/favicon.ico',
+  },
   description:
     "Creating unstoppable growth for your company with Exceptional Branding and Web Design, Google Business Profile Optimization, Google Maps Ranking, Sales Automation and AI Employees.",
     generator: 'v0.dev'
