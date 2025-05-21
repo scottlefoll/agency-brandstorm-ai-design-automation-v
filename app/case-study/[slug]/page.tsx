@@ -412,10 +412,7 @@ export default function CaseStudyPage({ params }: Props) {
                   {study.slug === "128-plumbing" || study.slug === "jjs-best" || study.slug === "burtons-grill" ? (
                     <ul className="space-y-4 mb-6">
                       {study.detailedResults?.map((result, index) => (
-                        <li
-                          key={index}
-                          className="flex items-start bg-green-50 p-4 rounded-lg border-l-4 border-green-500"
-                        >
+                        <li key={index} className="flex items-start p-4 rounded-lg">
                           <span className="text-green-600 mr-3 text-xl">✅</span>
                           <span className="text-lg font-medium text-gray-800">{result}</span>
                         </li>
@@ -475,10 +472,7 @@ export default function CaseStudyPage({ params }: Props) {
                   <h2 className="text-3xl font-bold text-gray-900 mb-6">The Results</h2>
                   <ul className="space-y-4 mb-6">
                     {study.detailedResults?.map((result, index) => (
-                      <li
-                        key={index}
-                        className="flex items-start bg-green-50 p-4 rounded-lg border-l-4 border-green-500"
-                      >
+                      <li key={index} className="flex items-start p-4 rounded-lg">
                         <span className="text-green-600 mr-3 text-xl">✅</span>
                         <span className="text-lg font-medium text-gray-800">{result}</span>
                       </li>
