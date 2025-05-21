@@ -17,7 +17,7 @@ export function Footer() {
                 className="h-12 w-auto"
               />
             </Link>
-            <p className="text-gray-400 text-sm mb-4">Powered by Umbrella Local</p>
+            <p className="text-gray-300 text-base font-bold mb-4">Powered by Umbrella Local</p>
             <p className="text-gray-300 mb-6">
               Creating unstoppable growth for local businesses through exceptional branding and digital marketing.
             </p>
@@ -207,12 +207,21 @@ export function Footer() {
         <div className="border-t border-blue-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm">© 2024 BRANDSTORM.AI. All rights reserved.</p>
-            <div className="flex gap-6">
+            <div className="flex flex-wrap gap-4 justify-center">
               <Link href="/privacy" className="text-gray-400 text-sm hover:text-white transition-colors">
                 Privacy Policy
               </Link>
               <Link href="/terms" className="text-gray-400 text-sm hover:text-white transition-colors">
                 Terms of Service
+              </Link>
+              <Link href="/acceptable-use" className="text-gray-400 text-sm hover:text-white transition-colors">
+                Acceptable Use Policy
+              </Link>
+              <Link href="/eula" className="text-gray-400 text-sm hover:text-white transition-colors">
+                EULA
+              </Link>
+              <Link href="/dmca" className="text-gray-400 text-sm hover:text-white transition-colors">
+                DMCA
               </Link>
               <Link href="/sitemap" className="text-gray-400 text-sm hover:text-white transition-colors">
                 Sitemap

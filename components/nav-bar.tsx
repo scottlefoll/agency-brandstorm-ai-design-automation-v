@@ -14,15 +14,26 @@ const navItems = [
     name: "Services",
     // Remove href to prevent navigation
     dropdown: [
+      { name: "Ad Management", href: "/services/ad-management" },
       { name: "AI Employees", href: "/services/ai-employees" },
+      { name: "Analytics & Reporting", href: "/services/analytics-reporting" },
+      { name: "Content Marketing", href: "/services/content-marketing" },
+      { name: "CRM", href: "/services/crm" },
+      { name: "Email Marketing", href: "/services/email-marketing" },
       { name: "Google Business Profile", href: "/services/google-business-profile" },
       { name: "Google Maps Ranking", href: "/services/google-maps-ranking" },
+      { name: "PPC Advertising", href: "/services/ppc-advertising" },
+      { name: "Reputation Management", href: "/services/reputation-management" },
+      { name: "Review Management", href: "/services/review-management" },
       { name: "Sales Automation", href: "/services/sales-automation" },
       { name: "Search Box Optimization", href: "/services/search-box-optimization" },
+      { name: "SEO", href: "/services/seo" },
+      { name: "Social Media Management", href: "/services/social-media-management" },
+      { name: "Social Media Marketing", href: "/services/social-media-marketing" },
       { name: "Web Design", href: "/services/web-design" },
     ],
   },
-  { name: "Case Study", href: "/case-study" },
+  { name: "Case Studies", href: "/case-study" },
 ]
 
 export function NavBar() {
@@ -119,7 +130,7 @@ export function NavBar() {
       }`}
     >
       <div className="container px-4 flex items-center justify-between" style={{ height: "134px" }}>
-        <Link href="/" className="flex items-center">
+        <Link href="/" className="flex flex-col items-center relative">
           <Image
             src="/images/brandstorm-logo.png"
             alt="BRANDSTORM.AI Logo"
@@ -129,6 +140,13 @@ export function NavBar() {
             style={{ height: "65px" }}
             priority
           />
+          <div className="flex items-center mt-2 w-full pl-[20%]">
+            <div className="h-px w-10 bg-gradient-to-r from-transparent to-gray-400"></div>
+            <span className="font-semibold text-gray-700 px-3 text-center" style={{ fontSize: "0.88rem" }}>
+              An Umbrella Local agency
+            </span>
+            <div className="h-px w-10 bg-gradient-to-l from-transparent to-gray-400"></div>
+          </div>
         </Link>
 
         <nav className="hidden md:flex items-center absolute left-1/2 transform -translate-x-1/2">
