@@ -127,25 +127,27 @@ const caseStudiesData = [
     id: 4,
     title: "AIRE Ancient Baths",
     services: ["Website Accessibility"],
-    results: ["$50K saved in fines", "Boosted market reach"],
+    results: ["Expanded Reach", "Legal Protection"],
     image: "/images/case-studies/4-aire.webp",
     slug: "aire-ancient-baths",
     industry: "Wellness & Spa",
+    clientOverview:
+      "AIRE Ancient Baths is a globally recognized luxury wellness brand with multiple locations worldwide. They offer a serene and immersive experience rooted in the ancient traditions of thermal baths, complemented by massages and therapeutic treatments designed to rejuvenate the mind and body.",
     challenge:
-      "AIRE Ancient Baths faced potential legal issues due to their website not being ADA compliant. They needed to make their website accessible to users with disabilities while maintaining their luxury brand aesthetic.",
+      "As AIRE continued to expand its digital presence, they recognized the need to ensure their website was inclusive and compliant with modern accessibility standards. With nearly 20% of Americans living with a disability, failure to meet accessibility requirements meant not only limiting access to a significant user base but also risking non-compliance with federal regulations.",
     solution:
-      "We conducted a comprehensive accessibility audit and implemented WCAG 2.1 AA compliance measures. Our solution included adding proper alt text, ensuring keyboard navigation, improving color contrast, and implementing ARIA attributes while preserving their distinctive visual identity.",
-    detailedResults: [
-      "Saved $50K in potential ADA non-compliance fines",
-      "Boosted market reach by making services accessible to all users",
-      "Improved overall user experience and site performance",
-      "Achieved 100% WCAG 2.1 AA compliance",
+      "AIRE partnered with Umbrella Local to implement a robust and affordable web accessibility solution. Our team delivered:",
+    strategyPoints: [
+      "A comprehensive audit of AIRE's website for ADA compliance",
+      "Full implementation of accessibility best practices to meet WCAG 2.1 standards",
+      "Ongoing support to ensure long-term compliance as regulations evolve",
     ],
-    testimonial: {
-      quote:
-        "Brandstorm AI transformed our website into an accessible experience for all users without compromising our unique aesthetic. They saved us from potential legal issues while actually improving our overall user experience.",
-      author: "Digital Director, AIRE Ancient Baths",
-    },
+    detailedResults: [
+      "Expanded Reach: Accessibility upgrades opened the digital experience to a broader audience, improving inclusivity",
+      "Legal Protection: Compliance with ADA regulations helped reduce the risk of potential lawsuits or penalties",
+      "Increased Engagement: Enhanced usability led to improved conversions and time-on-site metrics across key markets",
+      "Brand Trust: Demonstrated commitment to inclusivity reinforced AIRE's luxury and customer-first brand values",
+    ],
   },
   {
     id: 5,
@@ -451,19 +453,33 @@ export default function CaseStudyPage({ params }: Props) {
                 {/* Solution Section for other case studies */}
                 <div className="mb-12">
                   <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Solution</h2>
-                  <p className="text-lg text-gray-700">{study.solution}</p>
+                  <p className="text-lg text-gray-700 mb-4">{study.solution}</p>
+                  {study.strategyPoints && (
+                    <ul className="space-y-2">
+                      {study.strategyPoints.map((point, index) => (
+                        <li key={index} className="flex items-start">
+                          <span className="text-purple-600 mr-2 mt-1.5">•</span>
+                          <span className="text-lg text-gray-700">{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
 
                 {/* Results Section for other case studies */}
                 <div className="mb-12">
                   <h2 className="text-3xl font-bold text-gray-900 mb-6">The Results</h2>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                  <ul className="space-y-4 mb-6">
                     {study.detailedResults?.map((result, index) => (
-                      <div key={index} className="bg-purple-50 p-6 rounded-lg">
-                        <p className="text-lg font-medium text-purple-900">{result}</p>
-                      </div>
+                      <li
+                        key={index}
+                        className="flex items-start bg-green-50 p-4 rounded-lg border-l-4 border-green-500"
+                      >
+                        <span className="text-green-600 mr-3 text-xl">✅</span>
+                        <span className="text-lg font-medium text-gray-800">{result}</span>
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                 </div>
               </>
             )}
