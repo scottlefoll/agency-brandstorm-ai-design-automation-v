@@ -408,11 +408,14 @@ export default function CaseStudyPage({ params }: Props) {
                 <div className="mb-12">
                   <h2 className="text-3xl font-bold text-gray-900 mb-6">The Results</h2>
                   {study.slug === "128-plumbing" ? (
-                    <ul className="space-y-2 mb-6">
+                    <ul className="space-y-4 mb-6">
                       {study.detailedResults?.map((result, index) => (
-                        <li key={index} className="flex items-start">
-                          <span className="text-green-600 mr-2 mt-1.5">✅</span>
-                          <span className="text-lg text-gray-700">{result}</span>
+                        <li
+                          key={index}
+                          className="flex items-start bg-green-50 p-4 rounded-lg border-l-4 border-green-500"
+                        >
+                          <span className="text-green-600 mr-3 text-xl">✅</span>
+                          <span className="text-lg font-medium text-gray-800">{result}</span>
                         </li>
                       ))}
                     </ul>
