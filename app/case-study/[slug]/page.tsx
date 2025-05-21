@@ -407,7 +407,7 @@ export default function CaseStudyPage({ params }: Props) {
                 {/* Results Section */}
                 <div className="mb-12">
                   <h2 className="text-3xl font-bold text-gray-900 mb-6">The Results</h2>
-                  {study.slug === "128-plumbing" ? (
+                  {study.slug === "128-plumbing" || study.slug === "jjs-best" ? (
                     <ul className="space-y-4 mb-6">
                       {study.detailedResults?.map((result, index) => (
                         <li
