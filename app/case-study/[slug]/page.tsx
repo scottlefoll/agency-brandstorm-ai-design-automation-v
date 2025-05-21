@@ -93,21 +93,35 @@ const caseStudiesData = [
     image: "/images/case-studies/3-128-plumbing.webp",
     slug: "128-plumbing",
     industry: "Home Services",
+    clientOverview:
+      "128 Plumbing, Heating, Cooling & Electric has been a staple in the North Shore area for over 27 years, known for delivering unmatched quality, efficiency, and reliability in home services. They have earned a reputation as the region's most trusted provider of plumbing, electrical, heating, and air conditioning services. Their customer-first approach and dedication to walking clients through every step of a job set them apart in a competitive market.",
     challenge:
-      "128 Plumbing needed to establish a dominant online presence in a highly competitive market. They were looking to increase their service calls and expand their customer base through both organic and paid search channels.",
-    solution:
-      "We implemented a dual-strategy approach combining aggressive SEO and targeted PPC campaigns. Our comprehensive solution included local service ads, Google Ads campaigns, technical SEO optimization, and content marketing focused on plumbing, heating, cooling, and electrical services.",
-    detailedResults: [
-      "Achieved first page rankings for 74 service-related search phrases",
-      "Maintained an 11-year successful partnership",
-      "Developed a cost-effective PPC strategy with conversion rates 3x industry average",
-      "Expanded service area coverage through targeted local SEO",
+      "Despite their strong local reputation, 128 Plumbing needed to translate that success into digital dominance. With increasing competition in the home services space, they aimed to:",
+    challengePoints: [
+      "Increase visibility for service-related search terms in high-converting local markets",
+      "Drive qualified leads through SEO without paying upfront",
+      "Maximize ROI from both organic and paid marketing efforts",
     ],
-    testimonial: {
-      quote:
-        "After 11 years working with Brandstorm AI, we continue to be impressed by their results. They've helped us dominate local search results and our phones are constantly ringing with new service calls.",
-      author: "Operations Manager, 128 Plumbing",
-    },
+    strategy:
+      "We launched a Pay-Per-Result SEO campaign, combined with strategic paid advertising, to position 128 Plumbing at the top of local search results. Over an 11-year partnership, we focused on:",
+    strategyPoints: [
+      "Optimizing web pages and Google Business Profiles for local service terms",
+      "Creating localized content targeting city-specific keywords",
+      "Improving conversion rates by reinforcing trust and service reliability",
+      "Integrating SEO efforts with high-performing paid advertising campaigns",
+    ],
+    keyPhrasesRanked: "128 Plumbing currently ranks on Page 1 of Google for 74 high-volume search phrases, including:",
+    keyPhrasesList: ["Plumber in Wakefield MA", "HVAC repair North Shore", "Electrician in Reading MA"],
+    keyPhrasesNote:
+      'For example, for just the single keyword "Plumber in Wakefield MA", they appear in 4 of the top 18 organic and map results, generating approximately $27,000 in potential new business per month.',
+    detailedResults: [
+      "#1 Local Ranking: Now recognized as the leading-ranked HVAC company in the Northeast",
+      "74 Keywords on Page 1: Sustained visibility across the region's most competitive service searches",
+      "Ongoing Paid Ad Success: High ROI from combined SEO + paid strategy",
+      "Year-over-Year Growth: Consistent increase in revenue and job volume",
+    ],
+    conclusion:
+      "128 Plumbing's long-term investment in performance-based digital marketing has positioned them as the undisputed leader in their market. With top-tier visibility, an integrated SEO and PPC strategy, and a decade-plus partnership, their online presence now matches their real-world reputation for excellence.",
   },
   {
     id: 4,
@@ -333,7 +347,7 @@ export default function CaseStudyPage({ params }: Props) {
       <div className="bg-white py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            {study.slug === "burtons-grill" || study.slug === "jjs-best" ? (
+            {study.slug === "burtons-grill" || study.slug === "jjs-best" || study.slug === "128-plumbing" ? (
               <>
                 {/* Client Overview Section */}
                 <div className="mb-12">
@@ -369,10 +383,12 @@ export default function CaseStudyPage({ params }: Props) {
                   </ul>
                 </div>
 
-                {/* Key Phrases Ranked Section - Only for JJ's Best */}
-                {study.slug === "jjs-best" && study.keyPhrasesRanked && (
+                {/* Key Phrases Ranked Section - For JJ's Best and 128 Plumbing */}
+                {(study.slug === "jjs-best" || study.slug === "128-plumbing") && study.keyPhrasesRanked && (
                   <div className="mb-12">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-6">Key Phrases Ranked</h2>
+                    <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                      {study.slug === "jjs-best" ? "Key Phrases Ranked" : "Key Rankings Achieved"}
+                    </h2>
                     <p className="text-lg text-gray-700 mb-4">{study.keyPhrasesRanked}</p>
                     <ul className="space-y-2 mb-4">
                       {study.keyPhrasesList?.map((phrase, index) => (
@@ -391,15 +407,28 @@ export default function CaseStudyPage({ params }: Props) {
                 {/* Results Section */}
                 <div className="mb-12">
                   <h2 className="text-3xl font-bold text-gray-900 mb-6">The Results</h2>
-                  <p className="text-lg text-gray-700 mb-4">Our SEO efforts produced measurable impact:</p>
-                  <ul className="space-y-2 mb-6">
-                    {study.detailedResults?.map((result, index) => (
-                      <li key={index} className="flex items-start">
-                        <span className="text-purple-600 mr-2 mt-1.5">•</span>
-                        <span className="text-lg text-gray-700">{result}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  {study.slug === "128-plumbing" ? (
+                    <ul className="space-y-2 mb-6">
+                      {study.detailedResults?.map((result, index) => (
+                        <li key={index} className="flex items-start">
+                          <span className="text-green-600 mr-2 mt-1.5">✅</span>
+                          <span className="text-lg text-gray-700">{result}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <>
+                      <p className="text-lg text-gray-700 mb-4">Our SEO efforts produced measurable impact:</p>
+                      <ul className="space-y-2 mb-6">
+                        {study.detailedResults?.map((result, index) => (
+                          <li key={index} className="flex items-start">
+                            <span className="text-purple-600 mr-2 mt-1.5">•</span>
+                            <span className="text-lg text-gray-700">{result}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </>
+                  )}
                 </div>
 
                 {/* Conclusion Section */}
