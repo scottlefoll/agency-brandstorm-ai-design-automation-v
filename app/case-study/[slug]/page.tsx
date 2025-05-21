@@ -148,11 +148,6 @@ const caseStudiesData = [
       "Increased Engagement: Enhanced usability led to improved conversions and time-on-site metrics across key markets",
       "Brand Trust: Demonstrated commitment to inclusivity reinforced AIRE's luxury and customer-first brand values",
     ],
-    testimonial: {
-      quote:
-        "Brandstorm AI transformed our website into an accessible experience for all users without compromising our unique aesthetic. They saved us from potential legal issues while actually improving our overall user experience.",
-      author: "Digital Director, AIRE Ancient Baths",
-    },
   },
   {
     id: 5,
