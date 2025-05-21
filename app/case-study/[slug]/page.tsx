@@ -148,6 +148,11 @@ const caseStudiesData = [
       "Increased Engagement: Enhanced usability led to improved conversions and time-on-site metrics across key markets",
       "Brand Trust: Demonstrated commitment to inclusivity reinforced AIRE's luxury and customer-first brand values",
     ],
+    testimonial: {
+      quote:
+        "Brandstorm AI transformed our website into an accessible experience for all users without compromising our unique aesthetic. They saved us from potential legal issues while actually improving our overall user experience.",
+      author: "Digital Director, AIRE Ancient Baths",
+    },
   },
   {
     id: 5,
@@ -442,31 +447,35 @@ export default function CaseStudyPage({ params }: Props) {
                   <p className="text-lg text-gray-700">{study.conclusion}</p>
                 </div>
               </>
-            ) : (
+            ) : study.slug === "aire-ancient-baths" ? (
               <>
-                {/* Challenge Section for other case studies */}
+                {/* About the Client Section for AIRE */}
                 <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">The Challenge</h2>
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">About the Client</h2>
+                  <p className="text-lg text-gray-700">{study.clientOverview}</p>
+                </div>
+
+                {/* Challenge Section for AIRE */}
+                <div className="mb-12">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">Challenge</h2>
                   <p className="text-lg text-gray-700">{study.challenge}</p>
                 </div>
 
-                {/* Solution Section for other case studies */}
+                {/* Solution Section for AIRE */}
                 <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Solution</h2>
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">The Solution</h2>
                   <p className="text-lg text-gray-700 mb-4">{study.solution}</p>
-                  {study.strategyPoints && (
-                    <ul className="space-y-2">
-                      {study.strategyPoints.map((point, index) => (
-                        <li key={index} className="flex items-start">
-                          <span className="text-purple-600 mr-2 mt-1.5">•</span>
-                          <span className="text-lg text-gray-700">{point}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
+                  <ul className="space-y-2">
+                    {study.strategyPoints?.map((point, index) => (
+                      <li key={index} className="flex items-start">
+                        <span className="text-purple-600 mr-2 mt-1.5">•</span>
+                        <span className="text-lg text-gray-700">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
-                {/* Results Section for other case studies */}
+                {/* Results Section for AIRE */}
                 <div className="mb-12">
                   <h2 className="text-3xl font-bold text-gray-900 mb-6">The Results</h2>
                   <ul className="space-y-4 mb-6">
@@ -480,6 +489,32 @@ export default function CaseStudyPage({ params }: Props) {
                       </li>
                     ))}
                   </ul>
+                </div>
+              </>
+            ) : (
+              <>
+                {/* Challenge Section for other case studies */}
+                <div className="mb-12">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">The Challenge</h2>
+                  <p className="text-lg text-gray-700">{study.challenge}</p>
+                </div>
+
+                {/* Solution Section for other case studies */}
+                <div className="mb-12">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Solution</h2>
+                  <p className="text-lg text-gray-700">{study.solution}</p>
+                </div>
+
+                {/* Results Section for other case studies */}
+                <div className="mb-12">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">The Results</h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    {study.detailedResults?.map((result, index) => (
+                      <div key={index} className="bg-purple-50 p-6 rounded-lg">
+                        <p className="text-lg font-medium text-purple-900">{result}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </>
             )}
