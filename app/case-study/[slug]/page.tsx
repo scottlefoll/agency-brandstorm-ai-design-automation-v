@@ -33,6 +33,18 @@ const caseStudiesData = [
       'Targeted niche, high-volume keywords related to cuisine and dietary preferences (e.g., "American cuisine Hingham MA", "gluten free Hingham MA", "vegetarian restaurants Hingham MA")',
       "Implemented technical and on-page SEO improvements to ensure long-term performance",
     ],
+    additionalImages: [
+      {
+        src: "/images/case-studies/burtons1.jpg",
+        alt: "Interior of Burton's Grill & Bar restaurant showing elegant dining area",
+        caption: "Burton's Grill & Bar's upscale dining environment",
+      },
+      {
+        src: "/images/case-studies/burtons2.jpg",
+        alt: "Burton's Grill & Bar website showing multiple restaurant locations",
+        caption: "Burton's multi-location presence optimized for local search",
+      },
+    ],
     detailedResults: [
       "283 high-volume local keywords now rank on Page 1 of Google",
       "Location-specific keywords generated increased foot traffic and reservations",
@@ -76,6 +88,18 @@ const caseStudiesData = [
     ],
     keyPhrasesNote:
       "One of these core phrases alone carries a potential business value of over $9 million per month in loan origination volume.",
+    additionalImages: [
+      {
+        src: "/images/case-studies/jjs1.webp",
+        alt: "Classic blue Corvette front view",
+        caption: "Classic cars like this Corvette are financed through J.J. BEST BANC & CO.",
+      },
+      {
+        src: "/images/case-studies/jjs2.jpg",
+        alt: "Classic cars on display including vintage Corvette",
+        caption: "J.J. Best specializes in financing collector cars and vintage automobiles",
+      },
+    ],
     detailedResults: [
       "26 high-volume keywords ranking on Page 1 of Google",
       "Significant increase in inbound leads for high-value loan requests",
@@ -114,6 +138,18 @@ const caseStudiesData = [
     keyPhrasesList: ["Plumber in Wakefield MA", "HVAC repair North Shore", "Electrician in Reading MA"],
     keyPhrasesNote:
       'For example, for just the single keyword "Plumber in Wakefield MA", they appear in 4 of the top 18 organic and map results, generating approximately $27,000 in potential new business per month.',
+    additionalImages: [
+      {
+        src: "/images/case-studies/128-1.webp",
+        alt: "128 Plumbing team photo outside their building",
+        caption: "The 128 Plumbing, Heating, Cooling & Electric team",
+      },
+      {
+        src: "/images/case-studies/128-2.webp",
+        alt: "Google search results showing 128 Plumbing ranking prominently for 'plumber in wakefield ma'",
+        caption: "128 Plumbing's dominant search presence for key local terms",
+      },
+    ],
     detailedResults: [
       "#1 Local Ranking: Now recognized as the leading-ranked HVAC company in the Northeast",
       "74 Keywords on Page 1: Sustained visibility across the region's most competitive service searches",
@@ -136,12 +172,24 @@ const caseStudiesData = [
     challenge:
       "As AIRE continued to grow its digital presence, the company needed to ensure its website met modern accessibility standards. With nearly 20% of Americans living with some form of disability, the absence of accessible design limited reach, created potential usability issues, and risked non-compliance with federal accessibility laws, specifically the Americans with Disabilities Act (ADA).",
     solution:
-      "AIRE partnered with Umbrella Local to implement a full-scale accessibility upgrade for its website. Our team delivered a seamless, affordable solution that aligned with ADA 2020 compliance requirements and WCAG 2.1 accessibility standards. This included:",
+      "We partnered with AIRE to implement a full-scale accessibility upgrade for its website. Our team delivered a seamless, affordable solution that aligned with ADA 2020 compliance requirements and WCAG 2.1 accessibility standards. This included:",
     strategyPoints: [
       "A comprehensive audit of the site's accessibility issues",
       "Remediation of all high-priority compliance gaps",
       "Deployment of accessibility tools and assistive technologies",
       "Ongoing monitoring and support to maintain compliance",
+    ],
+    additionalImages: [
+      {
+        src: "/images/case-studies/aire-1.jpg",
+        alt: "AIRE Ancient Baths website showing thermal bath and 'Recover your balance' tagline",
+        caption: "AIRE's elegant website design reflecting their luxury spa experience",
+      },
+      {
+        src: "/images/case-studies/aire-2.jpg",
+        alt: "AIRE website with accessibility panel showing various accessibility features",
+        caption: "Accessibility features implemented on the AIRE website, including navigation and color adjustments",
+      },
     ],
     detailedResults: [
       "ADA Compliance Achieved: Website brought into full compliance with U.S. accessibility regulations",
@@ -163,11 +211,11 @@ const caseStudiesData = [
       "The Knupp Agency is a locally owned and operated Farmers Insurance branch based in Salisbury, Maryland. The agency provides comprehensive insurance solutions throughout Maryland and Virginia's Eastern Shore—covering homeowners, auto, life, boat, motorcycle, specialty lines, and commercial insurance products.",
     challenge:
       "Agency owner Tiffany Knupp was seeking a more effective and efficient way to enhance both client communication and internal sales operations. The traditional approach—relying heavily on phone calls and voicemails—was leading to missed connections, delayed follow-ups, and lost opportunities.",
-    strategy: "Tiffany partnered with Umbrella Local to modernize communication at her agency. We:",
+    strategy: "We partnered with Tiffany to modernize communication at her agency. Our approach included:",
     strategyPoints: [
-      "Text-enabled the agency's landline, allowing clients to send and receive messages directly",
-      "Integrated a smart conversational texting platform to automate and personalize client communication",
-      "Streamlined appointment reminders, payment alerts, and service follow-ups through SMS",
+      "Text-enabling the agency's landline, allowing clients to send and receive messages directly",
+      "Integrating a smart conversational texting platform to automate and personalize client communication",
+      "Streamlining appointment reminders, payment alerts, and service follow-ups through SMS",
     ],
     detailedResults: [
       "3x Sales Growth: The agency tripled its sales volume within just a few months of implementing smart texting",
@@ -181,7 +229,7 @@ const caseStudiesData = [
       author: "Tiffany Knupp, Owner, The Knupp Agency",
     },
     conclusion:
-      "The implementation of conversational SMS not only streamlined operations for The Knupp Agency but also dramatically improved client responsiveness and sales performance. By embracing a smarter, faster way to communicate, the agency set a new standard for efficiency and customer engagement in the insurance space. Umbrella Local's solution proved to be a scalable, high-ROI investment that continues to pay dividends.",
+      "The implementation of conversational SMS not only streamlined operations for The Knupp Agency but also dramatically improved client responsiveness and sales performance. By embracing a smarter, faster way to communicate, the agency set a new standard for efficiency and customer engagement in the insurance space. Our solution proved to be a scalable, high-ROI investment that continues to pay dividends.",
     additionalImages: [
       {
         src: "/images/case-studies/tiffany-farmers.webp",
@@ -208,13 +256,25 @@ const caseStudiesData = [
     challenge:
       "Bridge City Limos wanted to increase visibility, build trust with prospective clients, and generate more bookings. However, they faced challenges in standing out in a highly competitive local market—especially in terms of online reputation and reviews.",
     strategy:
-      "To address this, Bridge City Limos partnered with Umbrella Local to implement a strategic Reputation Management Campaign. This included:",
+      "To address this, we partnered with Bridge City Limos to implement a strategic Reputation Management Campaign. This included:",
     strategyPoints: [
       "Encouraging satisfied clients to leave reviews on key platforms",
       "Monitoring and managing review responses to build credibility",
       "Leveraging positive reviews in marketing collateral and SEO",
     ],
     keyPhrasesRanked: "This case study focused on reputation and revenue growth rather than keyword rankings.",
+    additionalImages: [
+      {
+        src: "/images/case-studies/bridge1.jpg",
+        alt: "Luxury black Mercedes limousine on a scenic road",
+        caption: "One of Bridge City Limos' luxury vehicles available for client events",
+      },
+      {
+        src: "/images/case-studies/bridge2.webp",
+        alt: "Mobile phone showing Bridge City Limos review request",
+        caption: "Bridge City Limos' review generation system that helped build their online reputation",
+      },
+    ],
     detailedResults: [
       "400% Revenue Growth: Bridge City Limos saw a fourfold increase in revenue since implementation",
       "85+ Verified Reviews: Accumulated a steady stream of high-quality reviews, reinforcing social proof",
@@ -222,7 +282,7 @@ const caseStudiesData = [
       "Strengthened Brand Trust: Established a leading reputation in the Portland luxury transport market",
     ],
     conclusion:
-      "By focusing on strategic reputation management, Bridge City Limos dramatically boosted its online credibility and bottom line. The consistent inflow of positive customer reviews became a key driver of trust and conversions. Umbrella Local's targeted review-generation and brand reputation services provided the lift needed to dominate a saturated market and accelerate long-term business growth.",
+      "By focusing on strategic reputation management, Bridge City Limos dramatically boosted its online credibility and bottom line. The consistent inflow of positive customer reviews became a key driver of trust and conversions. Our targeted review-generation and brand reputation services provided the lift needed to dominate a saturated market and accelerate long-term business growth.",
     testimonial: {
       quote:
         "The results speak for themselves - 400% revenue growth and a completely transformed online reputation. Brandstorm AI's strategies have positioned us as the premier luxury transportation service in our market.",
@@ -242,13 +302,25 @@ const caseStudiesData = [
     challenge:
       "BMW of San Francisco sought a targeted and cost-effective way to re-engage previous BMW owners and leasers in their area. The goal was to generate lease inquiries and showroom traffic for their seasonal New Year promotion—without wasting spend on unqualified leads.",
     strategy:
-      "Umbrella Local utilized its proprietary 150 million+ opt-in consumer email list with over 700 advanced targeting parameters to deliver a hyper-specific campaign. We:",
+      "We utilized our proprietary 150 million+ opt-in consumer email list with over 700 advanced targeting parameters to deliver a hyper-specific campaign. Our approach included:",
     strategyPoints: [
-      "Targeted BMW owners/leasers with aging vehicles in the dealership's service region",
-      'Created a compelling "New Year, New Lease Specials" promotional email',
-      "Focused on maximizing open rates and click-through rates to drive warm traffic",
+      "Targeting BMW owners/leasers with aging vehicles in the dealership's service region",
+      'Creating a compelling "New Year, New Lease Specials" promotional email',
+      "Focusing on maximizing open rates and click-through rates to drive warm traffic",
     ],
     keyPhrasesRanked: "This campaign focused on targeted outreach and conversions, not search engine rankings.",
+    additionalImages: [
+      {
+        src: "/images/case-studies/bmw1.jpg",
+        alt: "BMW of San Francisco dealership exterior with BMW vehicle in foreground",
+        caption: "BMW of San Francisco dealership location on Howard Street",
+      },
+      {
+        src: "/images/case-studies/bmw2.jpg",
+        alt: "BMW promotional email showing PICK 'EM! demo and service loaner sale",
+        caption: "Example of the targeted email campaign that achieved 11.87% open rate",
+      },
+    ],
     detailedResults: [
       "11.87% open rate – far above industry average for automotive campaigns",
       "1.32% click-through rate, generating highly qualified dealership leads",
@@ -256,12 +328,7 @@ const caseStudiesData = [
       "Optimized lead targeting using behavioral and ownership-based filters",
     ],
     conclusion:
-      "By combining precision email targeting with a timely seasonal offer, BMW of San Francisco saw a strong response from qualified prospects. Umbrella Local's campaign not only delivered industry-leading engagement rates but also demonstrated the power of smart, data-driven promotion to generate measurable dealership results.",
-    testimonial: {
-      quote:
-        "Brandstorm AI's email marketing strategy has significantly improved our customer engagement. The open rates and click-through rates consistently exceed industry benchmarks, and we're seeing a direct impact on showroom visits and service appointments.",
-      author: "Marketing Manager, BMW San Francisco",
-    },
+      "By combining precision email targeting with a timely seasonal offer, BMW of San Francisco saw a strong response from qualified prospects. Our campaign not only delivered industry-leading engagement rates but also demonstrated the power of smart, data-driven promotion to generate measurable dealership results.",
   },
   {
     id: 8,
@@ -276,13 +343,30 @@ const caseStudiesData = [
     challenge:
       "In an era where organic reach on social media platforms has significantly declined, Throwback Vault needed a paid advertising strategy that could cut through the noise and drive both traffic and sales. Their objective was to increase visibility, site engagement, and return on ad spend through Meta's ad platforms.",
     strategy:
-      "Throwback Vault partnered with Umbrella Local to launch a targeted Facebook and Instagram advertising campaign designed to:",
+      "We partnered with Throwback Vault to launch a targeted Facebook and Instagram advertising campaign designed to:",
     strategyPoints: [
       "Drive highly qualified traffic to product landing pages",
       "Boost brand visibility and engagement with fashion-forward audiences",
       "Optimize for high return on investment through continuous A/B testing and audience refinement",
     ],
     keyPhrasesRanked: "This campaign focused on paid social ROI and engagement, not SEO rankings.",
+    additionalImages: [
+      {
+        src: "/images/case-studies/throwback1.webp",
+        alt: "Vintage Champion tracksuit with Canadian maple leaf design",
+        caption: "Example of Throwback Vault's curated vintage sportswear collection",
+      },
+      {
+        src: "/images/case-studies/throwback2.webp",
+        alt: "Instagram post showing various vintage sports jerseys and apparel",
+        caption: "Throwback Vault's Instagram content showcasing their unique vintage inventory",
+      },
+      {
+        src: "/images/case-studies/throwback3.webp",
+        alt: "Performance metrics dashboard showing campaign results",
+        caption: "Campaign performance metrics showing 427% ROI and over 300,000 users reached",
+      },
+    ],
     detailedResults: [
       "427% ROI on Meta advertising campaigns",
       "302,464 users reached across Facebook and Instagram",
@@ -292,12 +376,7 @@ const caseStudiesData = [
       "3.9% engagement rate, well above average for fashion retail",
     ],
     conclusion:
-      "Umbrella Local's paid media strategy enabled Throwback Vault to thrive in a space where organic social visibility continues to decline. With a compelling creative approach and precision audience targeting, the campaign produced exceptional results in reach, engagement, and return on ad spend—firmly positioning Throwback Vault as a leader in the online vintage fashion space.",
-    testimonial: {
-      quote:
-        "The social media strategy developed by Brandstorm AI has transformed our business. We're seeing an incredible 427% ROI on our ad spend, and our brand reach has exploded to over 365,000 potential customers.",
-      author: "Founder, Throwback Vault",
-    },
+      "Our paid media strategy enabled Throwback Vault to thrive in a space where organic social visibility continues to decline. With a compelling creative approach and precision audience targeting, the campaign produced exceptional results in reach, engagement, and return on ad spend—firmly positioning Throwback Vault as a leader in the online vintage fashion space.",
   },
   {
     id: 9,
@@ -312,13 +391,25 @@ const caseStudiesData = [
     challenge:
       "With growing competition in the footwear industry, Xero Shoes needed a way to expand reach, boost sales, and drive traffic—without increasing upfront ad spend. They were seeking a performance-based model that would scale efficiently while minimizing financial risk.",
     strategy:
-      "Umbrella Local launched a Pay Per Revenue Cash-Back Advertising Campaign, placing Xero Shoes' offers across hundreds of high-traffic websites and apps. Key components of the campaign included:",
+      "We launched a Pay Per Revenue Cash-Back Advertising Campaign, placing Xero Shoes' offers across hundreds of high-traffic websites and apps. Key components of our campaign included:",
     strategyPoints: [
       "Promoting a 15% cash-back incentive to attract motivated buyers",
       "Distributing offers on a broad network of partner platforms",
       "Structuring payments based strictly on actual sales performance",
     ],
     keyPhrasesRanked: "This campaign was focused on revenue and conversion outcomes, not SEO keyword rankings.",
+    additionalImages: [
+      {
+        src: "/images/case-studies/xero1.webp",
+        alt: "Side-by-side comparison of Xero sandal and running shoe on feet",
+        caption: "Xero Shoes' minimalist, barefoot-style footwear designs",
+      },
+      {
+        src: "/images/case-studies/xero2.jpg",
+        alt: "Xero Shoes website with 15% cash back offer popup",
+        caption: "The cash-back offer that drove significant sales through partner platforms",
+      },
+    ],
     detailedResults: [
       "6X Return on Investment (ROI)",
       "$49,910 in revenue generated through pay-per-sale offers",
@@ -326,12 +417,7 @@ const caseStudiesData = [
       "Ongoing campaign success, delivering steady monthly returns",
     ],
     conclusion:
-      "By leveraging Umbrella Local's performance-based advertising model, Xero Shoes successfully scaled their customer acquisition strategy without spending on traditional ads. The campaign continues to perform, providing measurable ROI and revenue growth while positioning Xero Shoes for sustained market expansion.",
-    testimonial: {
-      quote:
-        "Working with Brandstorm AI has been a game-changer for our e-commerce business. Their data-driven approach to CRO and digital advertising has resulted in a significant increase in sales and an impressive 6X ROI.",
-      author: "Marketing Director, Xero Shoes",
-    },
+      "By leveraging our performance-based advertising model, Xero Shoes successfully scaled their customer acquisition strategy without spending on traditional ads. The campaign continues to perform, providing measurable ROI and revenue growth while positioning Xero Shoes for sustained market expansion.",
   },
 ]
 
@@ -455,6 +541,25 @@ export default function CaseStudyPage({ params }: Props) {
                   </ul>
                 </div>
 
+                {/* Additional Images for Burton's */}
+                {study.slug === "burtons-grill" && study.additionalImages && (
+                  <div className="mb-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {study.additionalImages.map((image, index) => (
+                      <div key={index} className="bg-gray-50 p-4 rounded-lg">
+                        <div className="relative w-full h-[300px] mb-3">
+                          <Image
+                            src={image.src || "/placeholder.svg"}
+                            alt={image.alt}
+                            fill
+                            className="object-contain rounded-md"
+                          />
+                        </div>
+                        <p className="text-center text-gray-600 italic">{image.caption}</p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
                 {/* Key Phrases Ranked Section - For JJ's Best and 128 Plumbing */}
                 {(study.slug === "jjs-best" || study.slug === "128-plumbing") && study.keyPhrasesRanked && (
                   <div className="mb-12">
@@ -473,6 +578,44 @@ export default function CaseStudyPage({ params }: Props) {
                     {study.keyPhrasesNote && (
                       <p className="text-lg text-gray-700 mt-4 italic">{study.keyPhrasesNote}</p>
                     )}
+                  </div>
+                )}
+
+                {/* Additional Images for JJ's Best */}
+                {study.slug === "jjs-best" && study.additionalImages && (
+                  <div className="mb-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {study.additionalImages.map((image, index) => (
+                      <div key={index} className="bg-gray-50 p-4 rounded-lg">
+                        <div className="relative w-full h-[300px] mb-3">
+                          <Image
+                            src={image.src || "/placeholder.svg"}
+                            alt={image.alt}
+                            fill
+                            className="object-contain rounded-md"
+                          />
+                        </div>
+                        <p className="text-center text-gray-600 italic">{image.caption}</p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {/* Additional Images for 128 Plumbing */}
+                {study.slug === "128-plumbing" && study.additionalImages && (
+                  <div className="mb-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {study.additionalImages.map((image, index) => (
+                      <div key={index} className="bg-gray-50 p-4 rounded-lg">
+                        <div className="relative w-full h-[300px] mb-3">
+                          <Image
+                            src={image.src || "/placeholder.svg"}
+                            alt={image.alt}
+                            fill
+                            className="object-contain rounded-md"
+                          />
+                        </div>
+                        <p className="text-center text-gray-600 italic">{image.caption}</p>
+                      </div>
+                    ))}
                   </div>
                 )}
 
@@ -527,8 +670,8 @@ export default function CaseStudyPage({ params }: Props) {
                 <div className="mb-12">
                   <h2 className="text-3xl font-bold text-gray-900 mb-6">The Strategy</h2>
                   <p className="text-lg text-gray-700 mb-4">
-                    AIRE partnered with <strong>Umbrella Local</strong> to implement a full-scale accessibility upgrade
-                    for its website. Our team delivered a seamless, affordable solution that aligned with{" "}
+                    We partnered with AIRE to implement a full-scale accessibility upgrade for its website. Our team
+                    delivered a seamless, affordable solution that aligned with{" "}
                     <strong>ADA 2020 compliance requirements</strong> and{" "}
                     <strong>WCAG 2.1 accessibility standards</strong>. This included:
                   </p>
@@ -541,6 +684,25 @@ export default function CaseStudyPage({ params }: Props) {
                     ))}
                   </ul>
                 </div>
+
+                {/* Additional Images for AIRE */}
+                {study.additionalImages && (
+                  <div className="mb-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {study.additionalImages.map((image, index) => (
+                      <div key={index} className="bg-gray-50 p-4 rounded-lg">
+                        <div className="relative w-full h-[300px] mb-3">
+                          <Image
+                            src={image.src || "/placeholder.svg"}
+                            alt={image.alt}
+                            fill
+                            className="object-contain rounded-md"
+                          />
+                        </div>
+                        <p className="text-center text-gray-600 italic">{image.caption}</p>
+                      </div>
+                    ))}
+                  </div>
+                )}
 
                 {/* Results Section for AIRE */}
                 <div className="mb-12">
@@ -675,6 +837,25 @@ export default function CaseStudyPage({ params }: Props) {
                   </ul>
                 </div>
 
+                {/* Additional Images for Bridge City Limo */}
+                {study.additionalImages && (
+                  <div className="mb-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {study.additionalImages.map((image, index) => (
+                      <div key={index} className="bg-gray-50 p-4 rounded-lg">
+                        <div className="relative w-full h-[300px] mb-3">
+                          <Image
+                            src={image.src || "/placeholder.svg"}
+                            alt={image.alt}
+                            fill
+                            className="object-contain rounded-md"
+                          />
+                        </div>
+                        <p className="text-center text-gray-600 italic">{image.caption}</p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
                 {/* Key Rankings Section for Bridge City Limo */}
                 {study.keyPhrasesRanked && (
                   <div className="mb-12">
@@ -729,6 +910,25 @@ export default function CaseStudyPage({ params }: Props) {
                     ))}
                   </ul>
                 </div>
+
+                {/* Additional Images for BMW */}
+                {study.additionalImages && (
+                  <div className="mb-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {study.additionalImages.map((image, index) => (
+                      <div key={index} className="bg-gray-50 p-4 rounded-lg">
+                        <div className="relative w-full h-[300px] mb-3">
+                          <Image
+                            src={image.src || "/placeholder.svg"}
+                            alt={image.alt}
+                            fill
+                            className="object-contain rounded-md"
+                          />
+                        </div>
+                        <p className="text-center text-gray-600 italic">{image.caption}</p>
+                      </div>
+                    ))}
+                  </div>
+                )}
 
                 {/* Key Rankings Section for BMW */}
                 {study.keyPhrasesRanked && (
@@ -785,6 +985,51 @@ export default function CaseStudyPage({ params }: Props) {
                   </ul>
                 </div>
 
+                {/* Additional Images for Throwback Vault */}
+                {study.additionalImages && (
+                  <div className="mb-12">
+                    {/* First image - standalone */}
+                    <div className="mb-6 bg-gray-50 p-4 rounded-lg">
+                      <div className="relative w-full h-[400px] mb-3">
+                        <Image
+                          src={study.additionalImages[0].src || "/placeholder.svg"}
+                          alt={study.additionalImages[0].alt}
+                          fill
+                          className="object-contain rounded-md"
+                        />
+                      </div>
+                      <p className="text-center text-gray-600 italic">{study.additionalImages[0].caption}</p>
+                    </div>
+
+                    {/* Second and third images - companion images with second above third */}
+                    <div className="space-y-6">
+                      <div className="bg-gray-50 p-4 rounded-lg">
+                        <div className="relative w-full h-[400px] mb-3">
+                          <Image
+                            src={study.additionalImages[1].src || "/placeholder.svg"}
+                            alt={study.additionalImages[1].alt}
+                            fill
+                            className="object-contain rounded-md"
+                          />
+                        </div>
+                        <p className="text-center text-gray-600 italic">{study.additionalImages[1].caption}</p>
+                      </div>
+
+                      <div className="bg-gray-50 p-4 rounded-lg">
+                        <div className="relative w-full h-[300px] mb-3">
+                          <Image
+                            src={study.additionalImages[2].src || "/placeholder.svg"}
+                            alt={study.additionalImages[2].alt}
+                            fill
+                            className="object-contain rounded-md"
+                          />
+                        </div>
+                        <p className="text-center text-gray-600 italic">{study.additionalImages[2].caption}</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
                 {/* Key Rankings Section for Throwback Vault */}
                 {study.keyPhrasesRanked && (
                   <div className="mb-12">
@@ -839,6 +1084,25 @@ export default function CaseStudyPage({ params }: Props) {
                     ))}
                   </ul>
                 </div>
+
+                {/* Additional Images for Xero Shoes */}
+                {study.additionalImages && (
+                  <div className="mb-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {study.additionalImages.map((image, index) => (
+                      <div key={index} className="bg-gray-50 p-4 rounded-lg">
+                        <div className="relative w-full h-[300px] mb-3">
+                          <Image
+                            src={image.src || "/placeholder.svg"}
+                            alt={image.alt}
+                            fill
+                            className="object-contain rounded-md"
+                          />
+                        </div>
+                        <p className="text-center text-gray-600 italic">{image.caption}</p>
+                      </div>
+                    ))}
+                  </div>
+                )}
 
                 {/* Key Rankings Section for Xero Shoes */}
                 {study.keyPhrasesRanked && (
@@ -895,18 +1159,23 @@ export default function CaseStudyPage({ params }: Props) {
               </>
             )}
 
-            {/* Testimonial Section */}
-            {study.testimonial && study.slug !== "tiffany-knupp-insurance" && (
-              <div className="mb-16 bg-gray-50 p-8 rounded-xl border border-gray-100">
-                <div className="flex flex-col items-center text-center">
-                  <svg className="w-12 h-12 text-purple-300 mb-4" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                  </svg>
-                  <blockquote className="text-xl italic text-gray-800 mb-4">"{study.testimonial.quote}"</blockquote>
-                  <p className="text-gray-600 font-medium">{study.testimonial.author}</p>
+            {/* Testimonial Section - Only show for case studies that should have testimonials */}
+            {study.testimonial &&
+              study.slug !== "xero-shoes" &&
+              study.slug !== "bmw-san-francisco" &&
+              study.slug !== "throwback-vault" &&
+              study.slug !== "bridge-city-limo" &&
+              study.slug !== "tiffany-knupp-insurance" && (
+                <div className="mb-16 bg-gray-50 p-8 rounded-xl border border-gray-100">
+                  <div className="flex flex-col items-center text-center">
+                    <svg className="w-12 h-12 text-purple-300 mb-4" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                    </svg>
+                    <blockquote className="text-xl italic text-gray-800 mb-4">"{study.testimonial.quote}"</blockquote>
+                    <p className="text-gray-600 font-medium">{study.testimonial.author}</p>
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
 
             {/* CTA Section */}
             <div className="bg-purple-800 text-white p-8 rounded-xl text-center mb-16">
