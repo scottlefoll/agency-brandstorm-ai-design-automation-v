@@ -127,51 +127,73 @@ const caseStudiesData = [
     id: 4,
     title: "AIRE Ancient Baths",
     services: ["Website Accessibility"],
-    results: ["Expanded Reach", "Legal Protection"],
+    results: ["ADA Compliance", "Expanded Audience Reach"],
     image: "/images/case-studies/4-aire.webp",
     slug: "aire-ancient-baths",
     industry: "Wellness & Spa",
     clientOverview:
-      "AIRE Ancient Baths is a globally recognized luxury wellness brand with multiple locations worldwide. They offer a serene and immersive experience rooted in the ancient traditions of thermal baths, complemented by massages and therapeutic treatments designed to rejuvenate the mind and body.",
+      "AIRE Ancient Baths is a globally renowned wellness brand offering luxurious, sensory-rich experiences across multiple international locations. Known for their signature thermal baths, massage therapies, and holistic treatments, AIRE blends ancient bathing traditions with modern relaxation techniques to deliver a one-of-a-kind rejuvenating experience.",
     challenge:
-      "As AIRE continued to expand its digital presence, they recognized the need to ensure their website was inclusive and compliant with modern accessibility standards. With nearly 20% of Americans living with a disability, failure to meet accessibility requirements meant not only limiting access to a significant user base but also risking non-compliance with federal regulations.",
+      "As AIRE continued to grow its digital presence, the company needed to ensure its website met modern accessibility standards. With nearly 20% of Americans living with some form of disability, the absence of accessible design limited reach, created potential usability issues, and risked non-compliance with federal accessibility laws, specifically the Americans with Disabilities Act (ADA).",
     solution:
-      "AIRE partnered with Umbrella Local to implement a robust and affordable web accessibility solution. Our team delivered:",
+      "AIRE partnered with Umbrella Local to implement a full-scale accessibility upgrade for its website. Our team delivered a seamless, affordable solution that aligned with ADA 2020 compliance requirements and WCAG 2.1 accessibility standards. This included:",
     strategyPoints: [
-      "A comprehensive audit of AIRE's website for ADA compliance",
-      "Full implementation of accessibility best practices to meet WCAG 2.1 standards",
-      "Ongoing support to ensure long-term compliance as regulations evolve",
+      "A comprehensive audit of the site's accessibility issues",
+      "Remediation of all high-priority compliance gaps",
+      "Deployment of accessibility tools and assistive technologies",
+      "Ongoing monitoring and support to maintain compliance",
     ],
     detailedResults: [
-      "Expanded Reach: Accessibility upgrades opened the digital experience to a broader audience, improving inclusivity",
-      "Legal Protection: Compliance with ADA regulations helped reduce the risk of potential lawsuits or penalties",
-      "Increased Engagement: Enhanced usability led to improved conversions and time-on-site metrics across key markets",
-      "Brand Trust: Demonstrated commitment to inclusivity reinforced AIRE's luxury and customer-first brand values",
+      "ADA Compliance Achieved: Website brought into full compliance with U.S. accessibility regulations",
+      "Expanded Audience Reach: Now accessible to the 61+ million Americans living with a disability",
+      "Improved Conversion Rates: Easier site navigation led to measurable increases in engagement and bookings",
+      "Legal Risk Mitigated: Reduced exposure to ADA-related lawsuits and penalties",
+      "Enhanced Brand Reputation: Reinforced AIRE's commitment to inclusivity and customer care",
     ],
   },
   {
     id: 5,
-    title: "Tiffany Knupp Insurance Agency",
-    services: ["Conversational Texting", "Conversion Rate Optimization"],
-    results: ["300% Increased Sales", "98% Open Rate"],
+    title: "The Knupp Agency – Farmers Insurance",
+    services: ["Conversational Texting", "Business Communication"],
+    results: ["3x Sales Growth", "99% Response Rate"],
     image: "/images/case-studies/5-tiffany.webp",
     slug: "tiffany-knupp-insurance",
     industry: "Insurance",
+    clientOverview:
+      "The Knupp Agency is a locally owned and operated Farmers Insurance branch based in Salisbury, Maryland. The agency provides comprehensive insurance solutions throughout Maryland and Virginia's Eastern Shore—covering homeowners, auto, life, boat, motorcycle, specialty lines, and commercial insurance products.",
     challenge:
-      "Tiffany Knupp Insurance Agency was struggling with low response rates from traditional communication channels. They needed a more effective way to engage with prospects and convert them into customers.",
-    solution:
-      "We implemented a conversational texting strategy combined with comprehensive conversion rate optimization. Our approach included automated SMS workflows, personalized messaging, A/B testing, and optimized landing pages designed to convert insurance leads.",
+      "Agency owner Tiffany Knupp was seeking a more effective and efficient way to enhance both client communication and internal sales operations. The traditional approach—relying heavily on phone calls and voicemails—was leading to missed connections, delayed follow-ups, and lost opportunities.",
+    strategy: "Tiffany partnered with Umbrella Local to modernize communication at her agency. We:",
+    strategyPoints: [
+      "Text-enabled the agency's landline, allowing clients to send and receive messages directly",
+      "Integrated a smart conversational texting platform to automate and personalize client communication",
+      "Streamlined appointment reminders, payment alerts, and service follow-ups through SMS",
+    ],
     detailedResults: [
-      "Achieved a 300% increase in sales conversion",
-      "Maintained a 98% open rate on text messages",
-      "Reduced response time from hours to minutes",
-      "Implemented an omnichannel communication strategy",
+      "3x Sales Growth: The agency tripled its sales volume within just a few months of implementing smart texting",
+      "99% Response Rate: Nearly all client texts are responded to within hours—dramatically improving engagement",
+      "Reduced No-Shows & Phone Tag: Fewer missed appointments and faster resolutions for client inquiries",
+      "Faster Collections: On-time payments improved due to automated, friendly SMS reminders",
     ],
     testimonial: {
       quote:
-        "The conversational texting strategy completely transformed our business. We're seeing open rates we never thought possible, and our sales have tripled since implementing Brandstorm AI's recommendations.",
-      author: "Tiffany Knupp, Agency Owner",
+        "There's no better form of communication than texting. Our clients respond almost instantly—and that's transformed our business.",
+      author: "Tiffany Knupp, Owner, The Knupp Agency",
     },
+    conclusion:
+      "The implementation of conversational SMS not only streamlined operations for The Knupp Agency but also dramatically improved client responsiveness and sales performance. By embracing a smarter, faster way to communicate, the agency set a new standard for efficiency and customer engagement in the insurance space. Umbrella Local's solution proved to be a scalable, high-ROI investment that continues to pay dividends.",
+    additionalImages: [
+      {
+        src: "/images/case-studies/tiffany-farmers.webp",
+        alt: "Tiffany Knupp standing in front of Farmers Insurance sign",
+        caption: "Tiffany Knupp, Owner of The Knupp Agency - Farmers Insurance",
+      },
+      {
+        src: "/images/case-studies/texting-stats.webp",
+        alt: "Texting statistics showing 98% open rate and generational preferences for business texting",
+        caption: "Texting achieves a 98% open rate, with strong preference across all generations",
+      },
+    ],
   },
   {
     id: 6,
@@ -181,16 +203,26 @@ const caseStudiesData = [
     image: "/images/case-studies/6-bridge.webp",
     slug: "bridge-city-limo",
     industry: "Transportation",
+    clientOverview:
+      "Bridge City Limos is a premier luxury transportation company based in Portland, Oregon. Specializing in party bus and limo rentals, they provide stylish, high-quality service for events such as wine tours, brewery crawls, sports outings, and bachelor/bachelorette parties. With a strong focus on customer satisfaction, the company has built its brand on reliability, professionalism, and upscale experiences.",
     challenge:
-      "Bridge City Limo was struggling with a low website conversion rate and needed to improve their online reputation to stand out in a competitive luxury transportation market.",
-    solution:
-      "We implemented a comprehensive conversion rate optimization strategy and reputation management system. Our approach included redesigning key landing pages, streamlining the booking process, implementing a review generation campaign, and actively managing online reviews across multiple platforms.",
-    detailedResults: [
-      "Achieved 400% revenue growth through improved conversions",
-      "Generated 85+ additional positive reviews across platforms",
-      "Increased average star rating from 3.6 to 4.8",
-      "Improved website conversion rate from 1.2% to 5.8%",
+      "Bridge City Limos wanted to increase visibility, build trust with prospective clients, and generate more bookings. However, they faced challenges in standing out in a highly competitive local market—especially in terms of online reputation and reviews.",
+    strategy:
+      "To address this, Bridge City Limos partnered with Umbrella Local to implement a strategic Reputation Management Campaign. This included:",
+    strategyPoints: [
+      "Encouraging satisfied clients to leave reviews on key platforms",
+      "Monitoring and managing review responses to build credibility",
+      "Leveraging positive reviews in marketing collateral and SEO",
     ],
+    keyPhrasesRanked: "This case study focused on reputation and revenue growth rather than keyword rankings.",
+    detailedResults: [
+      "400% Revenue Growth: Bridge City Limos saw a fourfold increase in revenue since implementation",
+      "85+ Verified Reviews: Accumulated a steady stream of high-quality reviews, reinforcing social proof",
+      "Increased Conversion Rates: Positive feedback helped convert more website visitors into paying clients",
+      "Strengthened Brand Trust: Established a leading reputation in the Portland luxury transport market",
+    ],
+    conclusion:
+      "By focusing on strategic reputation management, Bridge City Limos dramatically boosted its online credibility and bottom line. The consistent inflow of positive customer reviews became a key driver of trust and conversions. Umbrella Local's targeted review-generation and brand reputation services provided the lift needed to dominate a saturated market and accelerate long-term business growth.",
     testimonial: {
       quote:
         "The results speak for themselves - 400% revenue growth and a completely transformed online reputation. Brandstorm AI's strategies have positioned us as the premier luxury transportation service in our market.",
@@ -205,16 +237,26 @@ const caseStudiesData = [
     image: "/images/case-studies/7-bmw.webp",
     slug: "bmw-san-francisco",
     industry: "Automotive",
+    clientOverview:
+      "BMW of San Francisco is a premier full-service dealership serving the San Francisco Bay Area. In addition to new vehicle sales, they offer lease and financing options, high-quality pre-owned inventory, and certified repair and maintenance services. With a strong commitment to customer service and excellence, BMW San Francisco is a trusted destination for BMW owners and enthusiasts alike.",
     challenge:
-      "BMW San Francisco needed to improve engagement with their customer database and drive more showroom visits and test drives through email marketing.",
-    solution:
-      "We developed a sophisticated email marketing strategy with segmented campaigns, personalized content, and automated workflows. Our approach included creating model-specific content, service reminders, exclusive event invitations, and targeted offers based on customer behavior and preferences.",
-    detailedResults: [
-      "Achieved 11.87% open rate (industry average: 8%)",
-      "Maintained 1.32% click-through rate (industry average: 0.6%)",
-      "Increased showroom visits by 27% through email campaigns",
-      "Implemented automated service reminder system with 22% conversion rate",
+      "BMW of San Francisco sought a targeted and cost-effective way to re-engage previous BMW owners and leasers in their area. The goal was to generate lease inquiries and showroom traffic for their seasonal New Year promotion—without wasting spend on unqualified leads.",
+    strategy:
+      "Umbrella Local utilized its proprietary 150 million+ opt-in consumer email list with over 700 advanced targeting parameters to deliver a hyper-specific campaign. We:",
+    strategyPoints: [
+      "Targeted BMW owners/leasers with aging vehicles in the dealership's service region",
+      'Created a compelling "New Year, New Lease Specials" promotional email',
+      "Focused on maximizing open rates and click-through rates to drive warm traffic",
     ],
+    keyPhrasesRanked: "This campaign focused on targeted outreach and conversions, not search engine rankings.",
+    detailedResults: [
+      "11.87% open rate – far above industry average for automotive campaigns",
+      "1.32% click-through rate, generating highly qualified dealership leads",
+      "Increased showroom activity and lease inquiries during campaign period",
+      "Optimized lead targeting using behavioral and ownership-based filters",
+    ],
+    conclusion:
+      "By combining precision email targeting with a timely seasonal offer, BMW of San Francisco saw a strong response from qualified prospects. Umbrella Local's campaign not only delivered industry-leading engagement rates but also demonstrated the power of smart, data-driven promotion to generate measurable dealership results.",
     testimonial: {
       quote:
         "Brandstorm AI's email marketing strategy has significantly improved our customer engagement. The open rates and click-through rates consistently exceed industry benchmarks, and we're seeing a direct impact on showroom visits and service appointments.",
@@ -229,16 +271,28 @@ const caseStudiesData = [
     image: "/images/case-studies/8-vault.webp",
     slug: "throwback-vault",
     industry: "Retail",
+    clientOverview:
+      "Throwback Vault is a Toronto-based fashion brand specializing in curated vintage and streetwear apparel. Known for its wide variety of one-of-a-kind pieces, the company is dedicated to sourcing and delivering the trendiest, most unique styles for customers seeking distinctive fashion.",
     challenge:
-      "Throwback Vault, a vintage apparel retailer, needed to increase brand awareness and drive online sales through social media channels.",
-    solution:
-      "We developed an integrated social media strategy combining organic content, Facebook Ads, and Instagram Ads. Our approach included creating engaging lifestyle content, implementing retargeting campaigns, developing lookalike audiences, and optimizing ad creative and targeting based on performance data.",
-    detailedResults: [
-      "Achieved 427% return on ad spend",
-      "Reached over 365,000 potential customers",
-      "Increased social media following by 215%",
-      "Generated 42% of total online revenue through social channels",
+      "In an era where organic reach on social media platforms has significantly declined, Throwback Vault needed a paid advertising strategy that could cut through the noise and drive both traffic and sales. Their objective was to increase visibility, site engagement, and return on ad spend through Meta's ad platforms.",
+    strategy:
+      "Throwback Vault partnered with Umbrella Local to launch a targeted Facebook and Instagram advertising campaign designed to:",
+    strategyPoints: [
+      "Drive highly qualified traffic to product landing pages",
+      "Boost brand visibility and engagement with fashion-forward audiences",
+      "Optimize for high return on investment through continuous A/B testing and audience refinement",
     ],
+    keyPhrasesRanked: "This campaign focused on paid social ROI and engagement, not SEO rankings.",
+    detailedResults: [
+      "427% ROI on Meta advertising campaigns",
+      "302,464 users reached across Facebook and Instagram",
+      "365,391 total ad impressions generated",
+      "7,292 landing page views driven from campaign traffic",
+      "11,905 user interactions including likes, shares, and comments",
+      "3.9% engagement rate, well above average for fashion retail",
+    ],
+    conclusion:
+      "Umbrella Local's paid media strategy enabled Throwback Vault to thrive in a space where organic social visibility continues to decline. With a compelling creative approach and precision audience targeting, the campaign produced exceptional results in reach, engagement, and return on ad spend—firmly positioning Throwback Vault as a leader in the online vintage fashion space.",
     testimonial: {
       quote:
         "The social media strategy developed by Brandstorm AI has transformed our business. We're seeing an incredible 427% ROI on our ad spend, and our brand reach has exploded to over 365,000 potential customers.",
@@ -253,16 +307,26 @@ const caseStudiesData = [
     image: "/images/case-studies/9-xero.webp",
     slug: "xero-shoes",
     industry: "Retail",
+    clientOverview:
+      "Xero Shoes is a rapidly growing minimalist footwear brand founded by Steven Sashen (CEO) and Lena Phoenix (CFO). Known for creating lightweight, barefoot-style shoes for walking, running, and athletic performance, Xero Shoes gained national attention after appearing on ABC's Shark Tank. The brand has since earned accolades such as being named one of Business Insider's Top 5 Barefoot Shoes of 2018.",
     challenge:
-      "Xero Shoes needed to optimize their digital advertising spend and improve their website conversion rate to increase online sales of their minimalist footwear.",
-    solution:
-      "We implemented a comprehensive strategy combining conversion rate optimization, pay-per-revenue advertising, and targeted PPC campaigns. Our approach included redesigning product pages, implementing A/B testing, optimizing the checkout process, and developing performance-based advertising campaigns.",
-    detailedResults: [
-      "Generated $50,000 in increased monthly sales",
-      "Achieved 6X return on investment",
-      "Improved website conversion rate by 87%",
-      "Reduced cost per acquisition by 42%",
+      "With growing competition in the footwear industry, Xero Shoes needed a way to expand reach, boost sales, and drive traffic—without increasing upfront ad spend. They were seeking a performance-based model that would scale efficiently while minimizing financial risk.",
+    strategy:
+      "Umbrella Local launched a Pay Per Revenue Cash-Back Advertising Campaign, placing Xero Shoes' offers across hundreds of high-traffic websites and apps. Key components of the campaign included:",
+    strategyPoints: [
+      "Promoting a 15% cash-back incentive to attract motivated buyers",
+      "Distributing offers on a broad network of partner platforms",
+      "Structuring payments based strictly on actual sales performance",
     ],
+    keyPhrasesRanked: "This campaign was focused on revenue and conversion outcomes, not SEO keyword rankings.",
+    detailedResults: [
+      "6X Return on Investment (ROI)",
+      "$49,910 in revenue generated through pay-per-sale offers",
+      "Zero upfront ad costs – only paid commissions on completed sales",
+      "Ongoing campaign success, delivering steady monthly returns",
+    ],
+    conclusion:
+      "By leveraging Umbrella Local's performance-based advertising model, Xero Shoes successfully scaled their customer acquisition strategy without spending on traditional ads. The campaign continues to perform, providing measurable ROI and revenue growth while positioning Xero Shoes for sustained market expansion.",
     testimonial: {
       quote:
         "Working with Brandstorm AI has been a game-changer for our e-commerce business. Their data-driven approach to CRO and digital advertising has resulted in a significant increase in sales and an impressive 6X ROI.",
@@ -326,8 +390,14 @@ export default function CaseStudyPage({ params }: Props) {
 
       {/* Hero Section */}
       <div className="relative w-full h-[40vh] md:h-[50vh] lg:h-[60vh] mt-8">
-        <div className="absolute inset-0 bg-black/50 z-10"></div>
-        <Image src={study.image || "/placeholder.svg"} alt={study.title} fill className="object-cover" priority />
+        <div className="absolute inset-0 bg-black/30 z-10"></div>
+        <Image
+          src={study.image || "/placeholder.svg"}
+          alt={`${study.title} service vehicle - ${study.services.join(", ")} services`}
+          fill
+          className="object-cover object-center"
+          priority
+        />
         <div className="relative z-20 container mx-auto px-4 h-full flex flex-col justify-end pb-12">
           <div className="max-w-4xl">
             <div className="flex flex-wrap gap-2 mb-4">
@@ -409,10 +479,10 @@ export default function CaseStudyPage({ params }: Props) {
                 {/* Results Section */}
                 <div className="mb-12">
                   <h2 className="text-3xl font-bold text-gray-900 mb-6">The Results</h2>
-                  {study.slug === "128-plumbing" || study.slug === "jjs-best" || study.slug === "burtons-grill" ? (
-                    <ul className="space-y-4 mb-6">
+                  {study.slug === "burtons-grill" || study.slug === "jjs-best" || study.slug === "128-plumbing" ? (
+                    <ul className="space-y-1 mb-6">
                       {study.detailedResults?.map((result, index) => (
-                        <li key={index} className="flex items-start p-4 rounded-lg">
+                        <li key={index} className="flex items-start p-2 rounded-lg">
                           <span className="text-green-600 mr-3 text-xl">✅</span>
                           <span className="text-lg font-medium text-gray-800">{result}</span>
                         </li>
@@ -443,20 +513,25 @@ export default function CaseStudyPage({ params }: Props) {
               <>
                 {/* About the Client Section for AIRE */}
                 <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">About the Client</h2>
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">Client Overview</h2>
                   <p className="text-lg text-gray-700">{study.clientOverview}</p>
                 </div>
 
                 {/* Challenge Section for AIRE */}
                 <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">Challenge</h2>
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">The Challenge</h2>
                   <p className="text-lg text-gray-700">{study.challenge}</p>
                 </div>
 
                 {/* Solution Section for AIRE */}
                 <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">The Solution</h2>
-                  <p className="text-lg text-gray-700 mb-4">{study.solution}</p>
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">The Strategy</h2>
+                  <p className="text-lg text-gray-700 mb-4">
+                    AIRE partnered with <strong>Umbrella Local</strong> to implement a full-scale accessibility upgrade
+                    for its website. Our team delivered a seamless, affordable solution that aligned with{" "}
+                    <strong>ADA 2020 compliance requirements</strong> and{" "}
+                    <strong>WCAG 2.1 accessibility standards</strong>. This included:
+                  </p>
                   <ul className="space-y-2">
                     {study.strategyPoints?.map((point, index) => (
                       <li key={index} className="flex items-start">
@@ -469,15 +544,327 @@ export default function CaseStudyPage({ params }: Props) {
 
                 {/* Results Section for AIRE */}
                 <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">The Results</h2>
-                  <ul className="space-y-4 mb-6">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">Results</h2>
+                  <ul className="space-y-1 mb-6">
                     {study.detailedResults?.map((result, index) => (
-                      <li key={index} className="flex items-start p-4 rounded-lg">
+                      <li key={index} className="flex items-start p-2 rounded-lg">
                         <span className="text-green-600 mr-3 text-xl">✅</span>
                         <span className="text-lg font-medium text-gray-800">{result}</span>
                       </li>
                     ))}
                   </ul>
+                </div>
+              </>
+            ) : study.slug === "tiffany-knupp-insurance" ? (
+              <>
+                {/* Client Overview Section for Tiffany Knupp */}
+                <div className="mb-12">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">Client Overview</h2>
+                  <p className="text-lg text-gray-700">{study.clientOverview}</p>
+                </div>
+
+                {/* Challenge Section for Tiffany Knupp */}
+                <div className="mb-12">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">The Challenge</h2>
+                  <p className="text-lg text-gray-700">{study.challenge}</p>
+                </div>
+
+                {/* Strategy Section for Tiffany Knupp */}
+                <div className="mb-12">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">The Strategy</h2>
+                  <p className="text-lg text-gray-700 mb-4">{study.strategy}</p>
+                  <ul className="space-y-2">
+                    {study.strategyPoints?.map((point, index) => (
+                      <li key={index} className="flex items-start">
+                        <span className="text-purple-600 mr-2 mt-1.5">•</span>
+                        <span className="text-lg text-gray-700">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* First Additional Image - Tiffany at Farmers */}
+                <div className="mb-12">
+                  <div className="bg-gray-50 p-6 rounded-lg">
+                    <div className="relative w-full h-[400px] mb-4">
+                      <Image
+                        src="/images/case-studies/tiffany-farmers.webp"
+                        alt="Tiffany Knupp standing in front of Farmers Insurance sign"
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+                    <p className="text-center text-gray-600 italic">
+                      Tiffany Knupp, Owner of The Knupp Agency - Farmers Insurance
+                    </p>
+                  </div>
+                </div>
+
+                {/* Results Section for Tiffany Knupp */}
+                <div className="mb-12">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">Results</h2>
+                  <ul className="space-y-1 mb-6">
+                    {study.detailedResults?.map((result, index) => (
+                      <li key={index} className="flex items-start p-2 rounded-lg">
+                        <span className="text-green-600 mr-3 text-xl">✅</span>
+                        <span className="text-lg font-medium text-gray-800">{result}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Second Additional Image - Texting Stats */}
+                <div className="mb-12">
+                  <div className="bg-gray-50 p-6 rounded-lg">
+                    <div className="relative w-full h-[400px] mb-4">
+                      <Image
+                        src="/images/case-studies/texting-stats.webp"
+                        alt="Texting statistics showing 98% open rate and generational preferences for business texting"
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+                    <p className="text-center text-gray-600 italic">
+                      Texting achieves a 98% open rate, with strong preference across all generations
+                    </p>
+                  </div>
+                </div>
+
+                {/* Testimonial Section for Tiffany Knupp */}
+                <div className="mb-12 bg-gray-50 p-8 rounded-xl border border-gray-100">
+                  <div className="flex flex-col items-center text-center">
+                    <svg className="w-12 h-12 text-purple-300 mb-4" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                    </svg>
+                    <blockquote className="text-xl italic text-gray-800 mb-4">"{study.testimonial?.quote}"</blockquote>
+                    <p className="text-gray-600 font-medium">{study.testimonial?.author}</p>
+                  </div>
+                </div>
+
+                {/* Conclusion Section for Tiffany Knupp */}
+                <div className="mb-12">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">Conclusion</h2>
+                  <p className="text-lg text-gray-700">{study.conclusion}</p>
+                </div>
+              </>
+            ) : study.slug === "bridge-city-limo" ? (
+              <>
+                {/* Client Overview Section for Bridge City Limo */}
+                <div className="mb-12">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">Client Overview</h2>
+                  <p className="text-lg text-gray-700">{study.clientOverview}</p>
+                </div>
+
+                {/* Challenge Section for Bridge City Limo */}
+                <div className="mb-12">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">The Challenge</h2>
+                  <p className="text-lg text-gray-700">{study.challenge}</p>
+                </div>
+
+                {/* Strategy Section for Bridge City Limo */}
+                <div className="mb-12">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">The Strategy</h2>
+                  <p className="text-lg text-gray-700 mb-4">{study.strategy}</p>
+                  <ul className="space-y-2">
+                    {study.strategyPoints?.map((point, index) => (
+                      <li key={index} className="flex items-start">
+                        <span className="text-purple-600 mr-2 mt-1.5">•</span>
+                        <span className="text-lg text-gray-700">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Key Rankings Section for Bridge City Limo */}
+                {study.keyPhrasesRanked && (
+                  <div className="mb-12">
+                    <h2 className="text-3xl font-bold text-gray-900 mb-6">Key Rankings Achieved</h2>
+                    <p className="text-lg text-gray-700 italic">{study.keyPhrasesRanked}</p>
+                  </div>
+                )}
+
+                {/* Results Section for Bridge City Limo */}
+                <div className="mb-12">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">The Results</h2>
+                  <ul className="space-y-1 mb-6">
+                    {study.detailedResults?.map((result, index) => (
+                      <li key={index} className="flex items-start p-2 rounded-lg">
+                        <span className="text-green-600 mr-3 text-xl">✅</span>
+                        <span className="text-lg font-medium text-gray-800">{result}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Conclusion Section for Bridge City Limo */}
+                <div className="mb-12">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">Conclusion</h2>
+                  <p className="text-lg text-gray-700">{study.conclusion}</p>
+                </div>
+              </>
+            ) : study.slug === "bmw-san-francisco" ? (
+              <>
+                {/* Client Overview Section for BMW */}
+                <div className="mb-12">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">Client Overview</h2>
+                  <p className="text-lg text-gray-700">{study.clientOverview}</p>
+                </div>
+
+                {/* Challenge Section for BMW */}
+                <div className="mb-12">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">The Challenge</h2>
+                  <p className="text-lg text-gray-700">{study.challenge}</p>
+                </div>
+
+                {/* Strategy Section for BMW */}
+                <div className="mb-12">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">The Strategy</h2>
+                  <p className="text-lg text-gray-700 mb-4">{study.strategy}</p>
+                  <ul className="space-y-2">
+                    {study.strategyPoints?.map((point, index) => (
+                      <li key={index} className="flex items-start">
+                        <span className="text-purple-600 mr-2 mt-1.5">•</span>
+                        <span className="text-lg text-gray-700">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Key Rankings Section for BMW */}
+                {study.keyPhrasesRanked && (
+                  <div className="mb-12">
+                    <h2 className="text-3xl font-bold text-gray-900 mb-6">Key Rankings Achieved</h2>
+                    <p className="text-lg text-gray-700 italic">{study.keyPhrasesRanked}</p>
+                  </div>
+                )}
+
+                {/* Results Section for BMW */}
+                <div className="mb-12">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">The Results</h2>
+                  <ul className="space-y-1 mb-6">
+                    {study.detailedResults?.map((result, index) => (
+                      <li key={index} className="flex items-start p-2 rounded-lg">
+                        <span className="text-green-600 mr-3 text-xl">✅</span>
+                        <span className="text-lg font-medium text-gray-800">{result}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Conclusion Section for BMW */}
+                <div className="mb-12">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">Conclusion</h2>
+                  <p className="text-lg text-gray-700">{study.conclusion}</p>
+                </div>
+              </>
+            ) : study.slug === "throwback-vault" ? (
+              <>
+                {/* Client Overview Section for Throwback Vault */}
+                <div className="mb-12">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">Client Overview</h2>
+                  <p className="text-lg text-gray-700">{study.clientOverview}</p>
+                </div>
+
+                {/* Challenge Section for Throwback Vault */}
+                <div className="mb-12">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">The Challenge</h2>
+                  <p className="text-lg text-gray-700">{study.challenge}</p>
+                </div>
+
+                {/* Strategy Section for Throwback Vault */}
+                <div className="mb-12">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">The Strategy</h2>
+                  <p className="text-lg text-gray-700 mb-4">{study.strategy}</p>
+                  <ul className="space-y-2">
+                    {study.strategyPoints?.map((point, index) => (
+                      <li key={index} className="flex items-start">
+                        <span className="text-purple-600 mr-2 mt-1.5">•</span>
+                        <span className="text-lg text-gray-700">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Key Rankings Section for Throwback Vault */}
+                {study.keyPhrasesRanked && (
+                  <div className="mb-12">
+                    <h2 className="text-3xl font-bold text-gray-900 mb-6">Key Rankings Achieved</h2>
+                    <p className="text-lg text-gray-700 italic">{study.keyPhrasesRanked}</p>
+                  </div>
+                )}
+
+                {/* Results Section for Throwback Vault */}
+                <div className="mb-12">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">The Results</h2>
+                  <ul className="space-y-1 mb-6">
+                    {study.detailedResults?.map((result, index) => (
+                      <li key={index} className="flex items-start p-2 rounded-lg">
+                        <span className="text-green-600 mr-3 text-xl">✅</span>
+                        <span className="text-lg font-medium text-gray-800">{result}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Conclusion Section for Throwback Vault */}
+                <div className="mb-12">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">Conclusion</h2>
+                  <p className="text-lg text-gray-700">{study.conclusion}</p>
+                </div>
+              </>
+            ) : study.slug === "xero-shoes" ? (
+              <>
+                {/* Client Overview Section for Xero Shoes */}
+                <div className="mb-12">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">Client Overview</h2>
+                  <p className="text-lg text-gray-700">{study.clientOverview}</p>
+                </div>
+
+                {/* Challenge Section for Xero Shoes */}
+                <div className="mb-12">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">The Challenge</h2>
+                  <p className="text-lg text-gray-700">{study.challenge}</p>
+                </div>
+
+                {/* Strategy Section for Xero Shoes */}
+                <div className="mb-12">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">The Strategy</h2>
+                  <p className="text-lg text-gray-700 mb-4">{study.strategy}</p>
+                  <ul className="space-y-2">
+                    {study.strategyPoints?.map((point, index) => (
+                      <li key={index} className="flex items-start">
+                        <span className="text-purple-600 mr-2 mt-1.5">•</span>
+                        <span className="text-lg text-gray-700">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Key Rankings Section for Xero Shoes */}
+                {study.keyPhrasesRanked && (
+                  <div className="mb-12">
+                    <h2 className="text-3xl font-bold text-gray-900 mb-6">Key Rankings Achieved</h2>
+                    <p className="text-lg text-gray-700 italic">{study.keyPhrasesRanked}</p>
+                  </div>
+                )}
+
+                {/* Results Section for Xero Shoes */}
+                <div className="mb-12">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">The Results</h2>
+                  <ul className="space-y-1 mb-6">
+                    {study.detailedResults?.map((result, index) => (
+                      <li key={index} className="flex items-start p-2 rounded-lg">
+                        <span className="text-green-600 mr-3 text-xl">✅</span>
+                        <span className="text-lg font-medium text-gray-800">{result}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Conclusion Section for Xero Shoes */}
+                <div className="mb-12">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">Conclusion</h2>
+                  <p className="text-lg text-gray-700">{study.conclusion}</p>
                 </div>
               </>
             ) : (
@@ -509,7 +896,7 @@ export default function CaseStudyPage({ params }: Props) {
             )}
 
             {/* Testimonial Section */}
-            {study.testimonial && (
+            {study.testimonial && study.slug !== "tiffany-knupp-insurance" && (
               <div className="mb-16 bg-gray-50 p-8 rounded-xl border border-gray-100">
                 <div className="flex flex-col items-center text-center">
                   <svg className="w-12 h-12 text-purple-300 mb-4" fill="currentColor" viewBox="0 0 24 24">
@@ -549,7 +936,7 @@ export default function CaseStudyPage({ params }: Props) {
                   <div className="relative h-48 w-full">
                     <Image
                       src={relatedStudy.image || "/placeholder.svg"}
-                      alt={relatedStudy.title}
+                      alt={`${relatedStudy.title} - ${relatedStudy.services.join(", ")} case study`}
                       fill
                       className="object-cover"
                     />

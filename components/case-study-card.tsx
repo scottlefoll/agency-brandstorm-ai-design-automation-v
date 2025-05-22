@@ -15,9 +15,9 @@ export function CaseStudyCard({ title, services, results, image, slug }: CaseStu
       <div className="relative h-48 w-full">
         <Image
           src={image || "/placeholder.svg"}
-          alt={title}
+          alt={`${title} - ${services.join(", ")} case study`}
           fill
-          className="object-cover"
+          className="object-cover object-center"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </div>
