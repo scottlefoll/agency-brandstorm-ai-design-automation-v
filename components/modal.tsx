@@ -43,24 +43,25 @@ export function Modal({ isOpen, onClose, children, title }: ModalProps) {
   if (!isOpen) return null
 
   const ModalContent = () => (
-    <div
-      className="fixed inset-0 bg-black/50 flex items-center justify-center z-[9999] p-4"
-      onClick={handleBackdropClick}
-    >
-      <div
-        ref={modalRef}
-        className="bg-white rounded-lg shadow-xl max-w-md w-full relative p-6 max-h-[90vh] overflow-auto mt-[-15vh]"
-      >
-        <button
-          onClick={onClose}
-          className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
-          aria-label="Close"
-        >
-          <X className="h-6 w-6" />
-        </button>
+    <div className="fixed inset-0 z-[9999] overflow-y-auto">
+      <div className="flex min-h-screen items-center justify-center p-4 text-center sm:p-0">
+        <div className="fixed inset-0 bg-black/50 transition-opacity" onClick={handleBackdropClick}></div>
 
-        {title && <h3 className="text-xl font-bold mb-4">{title}</h3>}
-        {children}
+        <div
+          ref={modalRef}
+          className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-md p-6 max-h-[90vh] overflow-auto"
+        >
+          <button
+            onClick={onClose}
+            className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
+            aria-label="Close"
+          >
+            <X className="h-6 w-6" />
+          </button>
+
+          {title && <h3 className="text-xl font-bold mb-4">{title}</h3>}
+          {children}
+        </div>
       </div>
     </div>
   )

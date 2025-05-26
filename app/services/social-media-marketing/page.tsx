@@ -12,9 +12,9 @@ export const metadata: Metadata = {
 
 export default function SocialMediaMarketingPage() {
   return (
-    <main className="flex min-h-screen flex-col">
+    <main className="flex min-h-screen flex-col bg-gray-50">
       <NavBar />
-      <div className="flex-1 bg-gray-50 pt-32">
+      <div className="flex-1 pt-32">
         <div className="container max-w-6xl mx-auto px-4 py-12">
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold text-purple-800 mb-4">Social Media Marketing</h1>
@@ -45,18 +45,23 @@ export default function SocialMediaMarketingPage() {
                 analysis, you'll always understand the impact of your social media marketing investment and how it
                 contributes to your broader business goals.
               </p>
-              <CTAButton source="Social Media Marketing Page" className="mt-4">
+              <CTAButton
+                source="Social Media Marketing Page"
+                className="bg-purple-700 hover:bg-purple-800 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 mt-4"
+              >
                 Launch Your Social Media Strategy
               </CTAButton>
             </div>
             <div className="flex justify-center">
-              <Image
-                src="/placeholder.svg?height=400&width=600&query=social media marketing campaign with audience targeting and engagement metrics"
-                alt="Social media marketing campaign dashboard with audience targeting and engagement metrics"
-                width={600}
-                height={400}
-                className="rounded-lg shadow-lg object-contain"
-              />
+              <div className="bg-purple-700 p-8 rounded-lg shadow-lg">
+                <Image
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Services16-SMMarketing-DMx2mi3ukXNSurJzSeN5EUB37CGosU.webp"
+                  alt="Network of connected data nodes with spotlight representing strategic social media campaign growth"
+                  width={600}
+                  height={400}
+                  className="rounded-lg object-contain"
+                />
+              </div>
             </div>
           </div>
 

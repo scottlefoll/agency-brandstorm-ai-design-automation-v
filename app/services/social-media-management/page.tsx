@@ -12,9 +12,9 @@ export const metadata: Metadata = {
 
 export default function SocialMediaManagementPage() {
   return (
-    <main className="flex min-h-screen flex-col">
+    <main className="flex min-h-screen flex-col bg-gray-50">
       <NavBar />
-      <div className="flex-1 bg-gray-50 pt-32">
+      <div className="flex-1 pt-32">
         <div className="container max-w-6xl mx-auto px-4 py-12">
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold text-purple-800 mb-4">Social Media Management</h1>
@@ -25,13 +25,15 @@ export default function SocialMediaManagementPage() {
 
           <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
             <div className="order-2 md:order-1 flex justify-center">
-              <Image
-                src="/images/ai-assistant-demo.png"
-                alt="Social media management dashboard with content calendar and engagement metrics"
-                width={600}
-                height={400}
-                className="rounded-lg shadow-lg object-contain"
-              />
+              <div className="bg-purple-700 p-8 rounded-lg shadow-lg">
+                <Image
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Services15-SMManagement-xrLKqOtvVjPjGnZEsfnxqHSbgC47zK.webp"
+                  alt="Mobile phone displaying social media analytics dashboard with engagement metrics and growth potential"
+                  width={600}
+                  height={400}
+                  className="rounded-lg object-contain"
+                />
+              </div>
             </div>
             <div className="order-1 md:order-2">
               <h2 className="text-2xl font-bold text-purple-700 mb-4">Consistent, Strategic Social Presence</h2>
@@ -57,7 +59,10 @@ export default function SocialMediaManagementPage() {
                 social media presence becomes a valuable asset that builds brand awareness, engages your audience, and
                 drives business results.
               </p>
-              <CTAButton source="Social Media Management Page" className="mt-4">
+              <CTAButton
+                source="Social Media Management Page"
+                className="bg-purple-700 hover:bg-purple-800 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 mt-4"
+              >
                 Elevate Your Social Presence
               </CTAButton>
             </div>

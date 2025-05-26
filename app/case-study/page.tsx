@@ -87,9 +87,9 @@ const caseStudies = [
 
 export default function CaseStudyPage() {
   return (
-    <main className="flex min-h-screen flex-col">
+    <main className="flex min-h-screen flex-col bg-gray-50">
       <NavBar />
-      <div className="flex-1 flex flex-col items-center justify-center bg-gray-50">
+      <div className="flex-1 flex flex-col items-center justify-center">
         <div className="container max-w-7xl mx-auto px-4 pt-24 mt-16">
           <h1 className="text-4xl font-bold text-purple-800 mb-6 text-center">Case Studies</h1>
           <div className="text-lg text-gray-600 space-y-4 text-center max-w-4xl mx-auto mb-16">

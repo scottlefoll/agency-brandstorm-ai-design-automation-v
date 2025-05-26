@@ -12,9 +12,9 @@ export const metadata: Metadata = {
 
 export default function AnalyticsReportingPage() {
   return (
-    <main className="flex min-h-screen flex-col">
+    <main className="flex min-h-screen flex-col bg-gray-50">
       <NavBar />
-      <div className="flex-1 bg-gray-50 pt-32">
+      <div className="flex-1 pt-32">
         <div className="container max-w-6xl mx-auto px-4 py-12">
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold text-purple-800 mb-4">Analytics & Reporting</h1>
@@ -26,8 +26,8 @@ export default function AnalyticsReportingPage() {
           <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
             <div className="order-2 md:order-1 flex justify-center">
               <Image
-                src="/placeholder.svg?key=wnxi7"
-                alt="Comprehensive analytics dashboard with business metrics"
+                src="/images/services/analytics-reporting.webp"
+                alt="Comprehensive analytics dashboard with business metrics and data visualization"
                 width={600}
                 height={400}
                 className="rounded-lg shadow-lg"
@@ -52,7 +52,10 @@ export default function AnalyticsReportingPage() {
                 ensuring you understand exactly how to leverage the insights to improve your marketing strategy and
                 business outcomes.
               </p>
-              <CTAButton source="Analytics & Reporting Page" className="mt-4">
+              <CTAButton
+                source="Analytics & Reporting Page"
+                className="bg-purple-700 hover:bg-purple-800 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 mt-4"
+              >
                 Unlock Your Data Potential
               </CTAButton>
             </div>

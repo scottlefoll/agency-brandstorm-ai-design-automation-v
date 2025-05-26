@@ -11,9 +11,9 @@ export const metadata: Metadata = {
 
 export default function SearchBoxOptimizationPage() {
   return (
-    <main className="flex min-h-screen flex-col">
+    <main className="flex min-h-screen flex-col bg-gray-50">
       <NavBar />
-      <div className="flex-1 bg-gray-50 pt-32">
+      <div className="flex-1 pt-32">
         <div className="container max-w-6xl mx-auto px-4 py-12">
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold text-purple-800 mb-4">Search Box Optimization</h1>
@@ -24,13 +24,15 @@ export default function SearchBoxOptimizationPage() {
 
           <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
             <div className="order-2 md:order-1 flex justify-center">
-              <Image
-                src="/placeholder.svg?height=400&width=600&query=google search box with business appearing in autocomplete suggestions"
-                alt="Google search box with business appearing in autocomplete suggestions"
-                width={600}
-                height={400}
-                className="rounded-lg shadow-lg object-contain"
-              />
+              <div className="bg-purple-700 p-8 rounded-lg shadow-lg">
+                <Image
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Services13-SBO-JotyfH9zgLHct5xx3UgQQ7Mw7dBOsX.webp"
+                  alt="Laptop showing Google search interface with autocomplete suggestions and customer attention messaging"
+                  width={600}
+                  height={400}
+                  className="rounded-lg object-contain"
+                />
+              </div>
             </div>
             <div className="order-1 md:order-2">
               <h2 className="text-2xl font-bold text-purple-700 mb-4">Win the Race for Customer Attention</h2>
@@ -54,7 +56,10 @@ export default function SearchBoxOptimizationPage() {
                 suggestions. By capturing potential customers at this critical early stage of their search journey, you
                 can significantly increase your visibility, traffic, and conversions.
               </p>
-              <CTAButton source="Search Box Optimization Page" className="mt-4">
+              <CTAButton
+                source="Search Box Optimization Page"
+                className="bg-purple-700 hover:bg-purple-800 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 mt-4"
+              >
                 Dominate Search Suggestions
               </CTAButton>
             </div>

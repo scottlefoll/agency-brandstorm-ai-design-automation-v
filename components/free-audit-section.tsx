@@ -5,6 +5,7 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { Checkbox } from "@/components/ui/checkbox"
 import { sendContactEmail } from "@/lib/actions"
 
 export function FreeAuditSection() {
@@ -13,7 +14,10 @@ export function FreeAuditSection() {
     email: "",
     phone: "",
     website: "",
+    company: "",
   })
+  const [transactionalConsent, setTransactionalConsent] = useState(false)
+  const [marketingConsent, setMarketingConsent] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -25,6 +29,13 @@ export function FreeAuditSection() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+
+    // Validate required checkboxes
+    if (!transactionalConsent || !marketingConsent) {
+      setError("Please check both consent boxes to proceed.")
+      return
+    }
+
     setIsSubmitting(true)
     setError(null)
 
@@ -32,7 +43,8 @@ export function FreeAuditSection() {
       // Simplified form submission
       await sendContactEmail({
         ...formData,
-        company: formData.website,
+        transactionalConsent,
+        marketingConsent,
         ctaSource: "Free Digital Marketing Audit",
       })
 
@@ -46,7 +58,10 @@ export function FreeAuditSection() {
           email: "",
           phone: "",
           website: "",
+          company: "",
         })
+        setTransactionalConsent(false)
+        setMarketingConsent(false)
         setIsSubmitted(false)
       }, 3000)
     } catch (error) {
@@ -73,7 +88,7 @@ export function FreeAuditSection() {
 
                 <div>
                   <Label htmlFor="audit-name" className="text-white">
-                    Name
+                    Name <span className="text-red-300">*</span>
                   </Label>
                   <Input
                     id="audit-name"
@@ -87,7 +102,7 @@ export function FreeAuditSection() {
 
                 <div>
                   <Label htmlFor="audit-email" className="text-white">
-                    Email
+                    Email <span className="text-red-300">*</span>
                   </Label>
                   <Input
                     id="audit-email"
@@ -102,13 +117,27 @@ export function FreeAuditSection() {
 
                 <div>
                   <Label htmlFor="audit-phone" className="text-white">
-                    Phone
+                    Phone <span className="text-red-300">*</span>
                   </Label>
                   <Input
                     id="audit-phone"
                     name="phone"
                     type="tel"
                     value={formData.phone}
+                    onChange={handleChange}
+                    className="bg-white/10 border-white/20 text-white placeholder-white/50"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <Label htmlFor="audit-company" className="text-white">
+                    Company Name <span className="text-red-300">*</span>
+                  </Label>
+                  <Input
+                    id="audit-company"
+                    name="company"
+                    value={formData.company}
                     onChange={handleChange}
                     className="bg-white/10 border-white/20 text-white placeholder-white/50"
                     required
@@ -126,13 +155,50 @@ export function FreeAuditSection() {
                     value={formData.website}
                     onChange={handleChange}
                     className="bg-white/10 border-white/20 text-white placeholder-white/50"
+                  />
+                </div>
+
+                {/* Transactional Consent Checkbox */}
+                <div className="flex items-start space-x-2 mt-4">
+                  <Checkbox
+                    id="audit-transactional-consent"
+                    checked={transactionalConsent}
+                    onCheckedChange={(checked) => setTransactionalConsent(checked as boolean)}
+                    className="mt-1 bg-white/20 border-white/30"
                     required
                   />
+                  <Label
+                    htmlFor="audit-transactional-consent"
+                    className="text-xs text-white/90 font-normal cursor-pointer"
+                  >
+                    <span className="text-red-300">*</span> By checking this box, I consent to receive transactional,
+                    non-marketing text messages related to my account from Scott LeFoll, dba Wirestorm Digital and dba
+                    Brandstorm AI. These messages may include appointment reminders, order confirmations, and account
+                    notifications. Message frequency may vary. Message & Data rates may apply. Reply HELP for help or
+                    STOP to opt-out. Brandstorm AI.
+                  </Label>
+                </div>
+
+                {/* Marketing Consent Checkbox */}
+                <div className="flex items-start space-x-2">
+                  <Checkbox
+                    id="audit-marketing-consent"
+                    checked={marketingConsent}
+                    onCheckedChange={(checked) => setMarketingConsent(checked as boolean)}
+                    className="mt-1 bg-white/20 border-white/30"
+                    required
+                  />
+                  <Label htmlFor="audit-marketing-consent" className="text-xs text-white/90 font-normal cursor-pointer">
+                    <span className="text-red-300">*</span> By checking this box, I consent to receive marketing and
+                    promotional messages, from Scott LeFoll, dba Wirestorm Digital and dba Brandstorm AI. Message
+                    frequency may vary. Message & Data rates may apply. Reply HELP for help or STOP to opt-out.
+                    Brandstorm AI.
+                  </Label>
                 </div>
 
                 <Button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold"
+                  className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold mt-4"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? "Processing..." : "GET MY FREE AUDIT"}

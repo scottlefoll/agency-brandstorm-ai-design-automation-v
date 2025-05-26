@@ -12,9 +12,9 @@ export const metadata: Metadata = {
 
 export default function GoogleBusinessProfilePage() {
   return (
-    <main className="flex min-h-screen flex-col">
+    <main className="flex min-h-screen flex-col bg-gray-50">
       <NavBar />
-      <div className="flex-1 bg-gray-50 pt-32">
+      <div className="flex-1 pt-32">
         <div className="container max-w-6xl mx-auto px-4 py-12">
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold text-purple-800 mb-4">Google Business Profile</h1>
@@ -26,7 +26,7 @@ export default function GoogleBusinessProfilePage() {
           <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
             <div className="order-2 md:order-1 flex justify-center">
               <Image
-                src="/placeholder.svg?height=400&width=600&query=google business profile with high ratings and customer reviews"
+                src="/google-business-profile.png"
                 alt="Optimized Google Business Profile with customer reviews"
                 width={600}
                 height={400}
@@ -52,7 +52,10 @@ export default function GoogleBusinessProfilePage() {
                 your profile active and engaging. With ongoing monitoring and performance analysis, we continuously
                 refine your profile to maximize visibility and conversion rates.
               </p>
-              <CTAButton source="Google Business Profile Page" className="mt-4">
+              <CTAButton
+                source="Google Business Profile Page"
+                className="bg-purple-700 hover:bg-purple-800 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 mt-4"
+              >
                 Optimize Your Google Presence
               </CTAButton>
             </div>

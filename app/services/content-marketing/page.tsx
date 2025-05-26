@@ -11,9 +11,9 @@ export const metadata: Metadata = {
 
 export default function ContentMarketingPage() {
   return (
-    <main className="flex min-h-screen flex-col">
+    <main className="flex min-h-screen flex-col bg-gray-50">
       <NavBar />
-      <div className="flex-1 bg-gray-50 pt-32">
+      <div className="flex-1 pt-32">
         <div className="container max-w-6xl mx-auto px-4 py-12">
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold text-purple-800 mb-4">Content Marketing</h1>
@@ -41,14 +41,17 @@ export default function ContentMarketingPage() {
                 and valuable but also optimized for search engines and designed to drive specific business outcomes.
                 With consistent measurement and refinement, we continuously improve your content performance over time.
               </p>
-              <CTAButton source="Content Marketing Page" className="mt-4">
+              <CTAButton
+                source="Content Marketing Page"
+                className="bg-purple-700 hover:bg-purple-800 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 mt-4"
+              >
                 Start Your Content Strategy
               </CTAButton>
             </div>
             <div className="flex justify-center">
               <Image
-                src="/placeholder.svg?key=bieum"
-                alt="Content marketing strategy visualization"
+                src="/images/services/content-marketing.webp"
+                alt="Content marketing team collaborating on strategy and content creation"
                 width={600}
                 height={400}
                 className="rounded-lg shadow-lg"

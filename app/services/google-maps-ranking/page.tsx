@@ -11,9 +11,9 @@ export const metadata: Metadata = {
 
 export default function GoogleMapsRankingPage() {
   return (
-    <main className="flex min-h-screen flex-col">
+    <main className="flex min-h-screen flex-col bg-gray-50">
       <NavBar />
-      <div className="flex-1 bg-gray-50 pt-32">
+      <div className="flex-1 pt-32">
         <div className="container max-w-6xl mx-auto px-4 py-12">
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold text-purple-800 mb-4">Google Maps Ranking</h1>
@@ -44,14 +44,17 @@ export default function GoogleMapsRankingPage() {
                 for when determining map rankings. With ongoing monitoring and adjustments, we continuously work to
                 improve and maintain your position in the local map pack.
               </p>
-              <CTAButton source="Google Maps Ranking Page" className="mt-4">
+              <CTAButton
+                source="Google Maps Ranking Page"
+                className="bg-purple-700 hover:bg-purple-800 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 mt-4"
+              >
                 Boost Your Local Visibility
               </CTAButton>
             </div>
             <div className="flex justify-center">
               <Image
-                src="/placeholder.svg?height=400&width=600&query=google maps local pack showing business in top position"
-                alt="Google Maps local pack with business in top position"
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Services8-GoogleMaps-zq0nbJeKnkqTX7kSdes8JvgV6WjgZM.webp"
+                alt="3D Google Maps pin over miniature city showing local business visibility and map positioning"
                 width={600}
                 height={400}
                 className="rounded-lg shadow-lg"

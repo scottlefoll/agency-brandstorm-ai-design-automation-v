@@ -25,7 +25,7 @@ export function Footer() {
               {/* Top row - 4 icons */}
               <div className="flex justify-between w-full">
                 <a
-                  href="https://facebook.com/wirestormagency"
+                  href="https://facebook.com/brandstormai"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-blue-800 p-2 rounded-full hover:bg-blue-700 transition-colors"
@@ -34,16 +34,16 @@ export function Footer() {
                   <Facebook className="h-5 w-5" />
                 </a>
                 <a
-                  href="https://twitter.com/@wirestorm_digi"
+                  href="https://x.com/brandstorm_ai"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-blue-800 p-2 rounded-full hover:bg-blue-700 transition-colors"
-                  title="Twitter"
+                  title="X (Twitter)"
                 >
                   <Twitter className="h-5 w-5" />
                 </a>
                 <a
-                  href="https://instagram.com/wirestorm_digital"
+                  href="https://instagram.com/brandstorm_ai"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-blue-800 p-2 rounded-full hover:bg-blue-700 transition-colors"
@@ -52,7 +52,7 @@ export function Footer() {
                   <Instagram className="h-5 w-5" />
                 </a>
                 <a
-                  href="https://linkedin.com/company/wirestorm-agency"
+                  href="https://linkedin.com/company/brandstorm-ai"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-blue-800 p-2 rounded-full hover:bg-blue-700 transition-colors"
@@ -62,10 +62,10 @@ export function Footer() {
                 </a>
               </div>
 
-              {/* Bottom row - 3 icons centered */}
+              {/* Bottom row - 2 icons centered */}
               <div className="flex justify-center w-full gap-4">
                 <a
-                  href="https://youtube.com/@WirestormDigital"
+                  href="https://www.youtube.com/channel/UC9sdzvs_N-6jyBwDVQ1uJCw"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-blue-800 p-2 rounded-full hover:bg-blue-700 transition-colors"
@@ -74,7 +74,7 @@ export function Footer() {
                   <Youtube className="h-5 w-5" />
                 </a>
                 <a
-                  href="https://pinterest.com/wirestormdigital"
+                  href="http://pinterest.com/brandstormai"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-blue-800 p-2 rounded-full hover:bg-blue-700 transition-colors"
@@ -89,24 +89,6 @@ export function Footer() {
                     className="h-5 w-5"
                   >
                     <path d="M12 0a12 12 0 0 0-4.373 23.182c-.067-.593-.132-1.504.028-2.153.145-.586.934-3.733.934-3.733s-.238-.48-.238-1.188c0-1.114.645-1.944 1.448-1.944.683 0 1.012.512 1.012 1.127 0 .686-.436 1.712-.663 2.663-.188.796.4 1.446 1.185 1.446 1.422 0 2.515-1.5 2.515-3.664 0-1.915-1.377-3.255-3.342-3.255-2.276 0-3.612 1.707-3.612 3.472 0 .688.265 1.425.595 1.826a.24.24 0 0 1 .056.23c-.061.252-.198.796-.226.907-.035.146-.117.177-.268.107-1-.465-1.624-1.926-1.624-3.1 0-2.523 1.834-4.84 5.287-4.84 2.775 0 4.932 1.977 4.932 4.62 0 2.757-1.739 4.976-4.151 4.976-.811 0-1.573-.421-1.834-.919l-.498 1.902c-.181.695-.669 1.566-.995 2.097A12 12 0 1 0 12 0z" />
-                  </svg>
-                </a>
-                <a
-                  href="https://tiktok.com/@wirestorm.digital"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-blue-800 p-2 rounded-full hover:bg-blue-700 transition-colors"
-                  title="TikTok"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="h-5 w-5"
-                  >
-                    <path d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0 1 15.54 3h-3.09v12.4a2.592 2.592 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48z" />
                   </svg>
                 </a>
               </div>

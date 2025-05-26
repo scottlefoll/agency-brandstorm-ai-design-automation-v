@@ -125,7 +125,7 @@ export function NavBar() {
 
   return (
     <header
-      className={`w-full fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`w-full fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled ? "bg-white/80 backdrop-blur-md shadow-md" : "bg-white/40 backdrop-blur-sm"
       }`}
     >
@@ -164,7 +164,7 @@ export function NavBar() {
                   </button>
                   {/* Add a hidden spacer div to bridge any gap between the nav item and dropdown */}
                   <div className="absolute h-4 w-full top-full left-0"></div>
-                  <div className="absolute top-full left-0 mt-0 w-64 bg-white/90 backdrop-blur-md rounded-md shadow-lg z-50 border border-gray-100 hidden group-hover:block">
+                  <div className="absolute top-full left-0 mt-0 w-64 bg-white/90 backdrop-blur-md rounded-md shadow-lg z-30 border border-gray-100 hidden group-hover:block">
                     <div className="py-1">
                       {item.dropdown.map((dropdownItem) => (
                         <Link

@@ -11,9 +11,9 @@ export const metadata: Metadata = {
 
 export default function ReviewManagementPage() {
   return (
-    <main className="flex min-h-screen flex-col">
+    <main className="flex min-h-screen flex-col bg-gray-50">
       <NavBar />
-      <div className="flex-1 bg-gray-50 pt-32">
+      <div className="flex-1 pt-32">
         <div className="container max-w-6xl mx-auto px-4 py-12">
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold text-purple-800 mb-4">Review Management</h1>
@@ -24,13 +24,15 @@ export default function ReviewManagementPage() {
 
           <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
             <div className="order-2 md:order-1 flex justify-center">
-              <Image
-                src="/placeholder-99mk2.png"
-                alt="Review management dashboard showing positive customer feedback"
-                width={600}
-                height={400}
-                className="rounded-lg shadow-lg object-contain"
-              />
+              <div className="bg-purple-700 p-8 rounded-lg shadow-lg">
+                <Image
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Services11-Reviews-qTpwRNY7aEsAryWlg8ubjnTfYrtDm1.webp"
+                  alt="Laptop showing review management dashboard with customer feedback and growth metrics"
+                  width={600}
+                  height={400}
+                  className="rounded-lg object-contain"
+                />
+              </div>
             </div>
             <div className="order-1 md:order-2">
               <h2 className="text-2xl font-bold text-purple-700 mb-4">Turn Customer Feedback Into Growth</h2>
@@ -52,7 +54,10 @@ export default function ReviewManagementPage() {
                 data to identify trends and insights that can help improve your products, services, and customer
                 experience, turning feedback into actionable business intelligence.
               </p>
-              <CTAButton source="Review Management Page" className="mt-4">
+              <CTAButton
+                source="Review Management Page"
+                className="bg-purple-700 hover:bg-purple-800 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 mt-4"
+              >
                 Boost Your Online Reviews
               </CTAButton>
             </div>

@@ -1,6 +1,7 @@
 import { NavBar } from "@/components/nav-bar"
 import { Footer } from "@/components/footer"
 import { TestimonialGrid } from "@/components/testimonial-grid"
+import { CTAButton } from "@/components/cta-button"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -10,9 +11,9 @@ export const metadata: Metadata = {
 
 export default function ReviewsPage() {
   return (
-    <main className="flex min-h-screen flex-col">
+    <main className="flex min-h-screen flex-col bg-gray-50">
       <NavBar />
-      <div className="flex-1 bg-gray-50 py-16 pt-36">
+      <div className="flex-1 py-16 pt-36">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold text-purple-800 mb-8 text-center">Client Success Stories</h1>
 
@@ -39,12 +40,12 @@ export default function ReviewsPage() {
 
           <div className="text-center">
             <p className="text-xl text-gray-700 mb-4">Ready to experience these results for your business?</p>
-            <a
-              href="/contact"
+            <CTAButton
               className="inline-block bg-purple-600 hover:bg-purple-700 text-white font-medium py-3 px-8 rounded-lg transition-colors duration-200"
+              source="Reviews Page - Get Started Today"
             >
               Get Started Today
-            </a>
+            </CTAButton>
           </div>
         </div>
       </div>

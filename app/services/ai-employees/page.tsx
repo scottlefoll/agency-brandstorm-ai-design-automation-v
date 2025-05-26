@@ -12,9 +12,9 @@ export const metadata: Metadata = {
 
 export default function AIEmployeesPage() {
   return (
-    <main className="flex min-h-screen flex-col">
+    <main className="flex min-h-screen flex-col bg-gray-50">
       <NavBar />
-      <div className="flex-1 bg-gray-50 pt-32">
+      <div className="flex-1 pt-32">
         <div className="container max-w-6xl mx-auto px-4 py-12">
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold text-purple-800 mb-4">AI Employees</h1>
@@ -40,14 +40,17 @@ export default function AIEmployeesPage() {
                 provide personalized responses that feel genuinely human. The result is consistent, high-quality service
                 delivery that scales with your business needs without proportionally increasing your operational costs.
               </p>
-              <CTAButton source="AI Employees Page" className="mt-4">
+              <CTAButton
+                source="AI Employees Page"
+                className="bg-purple-700 hover:bg-purple-800 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 mt-4"
+              >
                 Deploy Your AI Workforce
               </CTAButton>
             </div>
             <div className="flex justify-center">
               <Image
-                src="/placeholder.svg?key=r20jb"
-                alt="AI Employee digital interface"
+                src="/images/services/ai-employees.webp"
+                alt="AI Employee digital interface showing intelligent automation capabilities"
                 width={600}
                 height={400}
                 className="rounded-lg shadow-lg"
