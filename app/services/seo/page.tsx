@@ -55,15 +55,13 @@ export default function SEOPage() {
               </CTAButton>
             </div>
             <div className="flex justify-center">
-              <div className="bg-purple-700 p-8 rounded-lg shadow-lg">
-                <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Services14-SEO-BI7hz6hotsvOS5GYXu5ROtpcJQDg7s.webp"
-                  alt="Rocket launching through colorful data charts representing SEO growth and website optimization"
-                  width={600}
-                  height={400}
-                  className="rounded-lg object-contain"
-                />
-              </div>
+              <Image
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Services14-SEO-BI7hz6hotsvOS5GYXu5ROtpcJQDg7s.webp"
+                alt="Rocket launching through colorful data charts representing SEO growth and website optimization"
+                width={600}
+                height={400}
+                className="rounded-lg shadow-lg object-contain"
+              />
             </div>
           </div>
 

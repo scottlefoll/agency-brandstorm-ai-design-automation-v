@@ -49,15 +49,13 @@ export default function ReputationManagementPage() {
               </CTAButton>
             </div>
             <div className="flex justify-center">
-              <div className="bg-purple-700 p-8 rounded-lg shadow-lg">
-                <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Services10-Reputation-nTOqWZQJWSh9LTwWAZnBseyzrGyeEJ.webp"
-                  alt="Shield with green checkmark representing reputation protection and brand trust"
-                  width={600}
-                  height={400}
-                  className="rounded-lg object-contain"
-                />
-              </div>
+              <Image
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Services10-Reputation-nTOqWZQJWSh9LTwWAZnBseyzrGyeEJ.webp"
+                alt="Shield with green checkmark representing reputation protection and brand trust"
+                width={600}
+                height={400}
+                className="rounded-lg shadow-lg object-contain"
+              />
             </div>
           </div>
 

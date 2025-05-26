@@ -25,15 +25,13 @@ export default function WebDesignPage() {
 
           <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
             <div className="order-2 md:order-1 flex justify-center">
-              <div className="bg-purple-700 p-8 rounded-lg shadow-lg">
-                <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Services17-WebDesign-3NbS1dh38amxQMcWDJy01oJg3lK7Zg.webp"
-                  alt="Web design workflow diagram showing discovery, wireframing, design, and development process with design tools"
-                  width={600}
-                  height={400}
-                  className="rounded-lg object-contain"
-                />
-              </div>
+              <Image
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Services17-WebDesign-3NbS1dh38amxQMcWDJy01oJg3lK7Zg.webp"
+                alt="Web design workflow diagram showing discovery, wireframing, design, and development process with design tools"
+                width={600}
+                height={400}
+                className="rounded-lg shadow-lg object-contain"
+              />
             </div>
             <div className="order-1 md:order-2">
               <h2 className="text-2xl font-bold text-purple-700 mb-4">Your Website Is Your Digital Storefront</h2>

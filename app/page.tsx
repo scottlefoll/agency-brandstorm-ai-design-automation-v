@@ -18,6 +18,7 @@ import { CaseStudySection } from "@/components/case-study-section"
 import { Footer } from "@/components/footer"
 import { SearchBoxOptimizationSection } from "@/components/search-box-optimization-section"
 import { ReviewsSecondSection } from "@/components/reviews-second-section"
+import { ScrollAnimate } from "@/components/scroll-animate"
 
 export default function Home() {
   // Shared background styles for sections that need the hero background
@@ -68,8 +69,12 @@ export default function Home() {
 
         {/* Page_2: Testimonial Section */}
         <section id="page_2" className="bg-black">
-          <ScaleSection />
-          <ServiceCards />
+          <ScrollAnimate>
+            <ScaleSection />
+          </ScrollAnimate>
+          <ScrollAnimate delay={200}>
+            <ServiceCards />
+          </ScrollAnimate>
         </section>
 
         {/* Page_3: Audit Section */}
@@ -82,37 +87,51 @@ export default function Home() {
 
         {/* Page_4: AI_Voice Section */}
         <section id="page_4" className="bg-white">
-          <StopMissingCallsSection />
+          <ScrollAnimate direction="left">
+            <StopMissingCallsSection />
+          </ScrollAnimate>
         </section>
 
         {/* Page_5: Search Section */}
         <section id="page_5" className="bg-[#F5F5F5]">
-          <GetFoundSection />
+          <ScrollAnimate direction="right">
+            <GetFoundSection />
+          </ScrollAnimate>
         </section>
 
         {/* Page_6: Social_Proof Section */}
         <section id="page_6" className="bg-white">
-          <BuildTrustSection />
+          <ScrollAnimate direction="left">
+            <BuildTrustSection />
+          </ScrollAnimate>
         </section>
 
         {/* Page_7: Google_Maps Section */}
         <section id="page_7" className="bg-[#F5F5F5]">
-          <GoogleMapsSection />
+          <ScrollAnimate direction="right">
+            <GoogleMapsSection />
+          </ScrollAnimate>
         </section>
 
         {/* Page_8: Web_Design Section */}
         <section id="page_8" className="bg-white">
-          <BrandingSection />
+          <ScrollAnimate direction="left">
+            <BrandingSection />
+          </ScrollAnimate>
         </section>
 
         {/* Page_9: Conversion Section */}
         <section id="page_9" className="bg-[#F5F5F5]">
-          <SalesSection />
+          <ScrollAnimate direction="right">
+            <SalesSection />
+          </ScrollAnimate>
         </section>
 
         {/* Page_10: CRM Section */}
         <section id="page_10" className="bg-white">
-          <DataSection />
+          <ScrollAnimate direction="left">
+            <DataSection />
+          </ScrollAnimate>
         </section>
 
         {/* Page_11: Brandstorm Section */}
@@ -125,22 +144,30 @@ export default function Home() {
 
         {/* Page_12: Strategy_Call Section */}
         <section id="page_12" className="bg-gray-100">
-          <ReadySection />
+          <ScrollAnimate>
+            <ReadySection />
+          </ScrollAnimate>
         </section>
 
         {/* Page_13: Services Section */}
         <section id="page_13" className="bg-blue-900 text-white">
-          <ClientsSection />
+          <ScrollAnimate delay={100}>
+            <ClientsSection />
+          </ScrollAnimate>
         </section>
 
         {/* Page_14: Case_Study Section */}
         <section id="page_14" className="bg-gray-50">
-          <CaseStudySection />
+          <ScrollAnimate delay={200}>
+            <CaseStudySection />
+          </ScrollAnimate>
         </section>
 
         {/* Page_15: SBO Section */}
         <section id="page_15" className="bg-white">
-          <SearchBoxOptimizationSection />
+          <ScrollAnimate direction="left">
+            <SearchBoxOptimizationSection />
+          </ScrollAnimate>
         </section>
 
         {/* Page_16: Reviews_2 Section */}

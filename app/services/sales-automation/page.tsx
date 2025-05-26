@@ -52,15 +52,13 @@ export default function SalesAutomationPage() {
               </CTAButton>
             </div>
             <div className="flex justify-center">
-              <div className="bg-purple-700 p-8 rounded-lg shadow-lg">
-                <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Services12-SalesAutomation-SeO0xw2tLC3JWX2jzMqVSHRaof5N6v.webp"
-                  alt="AI brain with business automation processes including appointment booking, text back, ordering, and confirmation"
-                  width={600}
-                  height={400}
-                  className="rounded-lg object-contain"
-                />
-              </div>
+              <Image
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Services12-SalesAutomation-SeO0xw2tLC3JWX2jzMqVSHRaof5N6v.webp"
+                alt="AI brain with business automation processes including appointment booking, text back, ordering, and confirmation"
+                width={600}
+                height={400}
+                className="rounded-lg shadow-lg object-contain"
+              />
             </div>
           </div>
 

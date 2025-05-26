@@ -25,15 +25,13 @@ export default function SocialMediaManagementPage() {
 
           <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
             <div className="order-2 md:order-1 flex justify-center">
-              <div className="bg-purple-700 p-8 rounded-lg shadow-lg">
-                <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Services15-SMManagement-xrLKqOtvVjPjGnZEsfnxqHSbgC47zK.webp"
-                  alt="Mobile phone displaying social media analytics dashboard with engagement metrics and growth potential"
-                  width={600}
-                  height={400}
-                  className="rounded-lg object-contain"
-                />
-              </div>
+              <Image
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Services15-SMManagement-xrLKqOtvVjPjGnZEsfnxqHSbgC47zK.webp"
+                alt="Mobile phone displaying social media analytics dashboard with engagement metrics and growth potential"
+                width={600}
+                height={400}
+                className="rounded-lg shadow-lg object-contain"
+              />
             </div>
             <div className="order-1 md:order-2">
               <h2 className="text-2xl font-bold text-purple-700 mb-4">Consistent, Strategic Social Presence</h2>

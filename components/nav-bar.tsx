@@ -130,70 +130,78 @@ export function NavBar() {
       }`}
     >
       <div className="container px-4 flex items-center justify-between" style={{ height: "134px" }}>
-        <Link href="/" className="flex flex-col items-center relative">
-          <Image
-            src="/images/brandstorm-logo.png"
-            alt="BRANDSTORM.AI Logo"
-            width={275}
-            height={75}
-            className="w-auto"
-            style={{ height: "65px" }}
-            priority
-          />
-          <div className="flex items-center mt-2 w-full pl-[20%]">
-            <div className="h-px w-10 bg-gradient-to-r from-transparent to-gray-400"></div>
-            <span className="font-semibold text-gray-700 px-3 text-center" style={{ fontSize: "0.88rem" }}>
-              An Umbrella Local agency
-            </span>
-            <div className="h-px w-10 bg-gradient-to-l from-transparent to-gray-400"></div>
-          </div>
-        </Link>
+        {/* Left section - Logo */}
+        <div className="flex-1">
+          <Link href="/" className="flex flex-col items-center relative">
+            <Image
+              src="/images/brandstorm-logo.png"
+              alt="BRANDSTORM.AI Logo"
+              width={275}
+              height={75}
+              className="w-auto"
+              style={{ height: "65px" }}
+              priority
+            />
+            <div className="flex items-center mt-2 w-full pl-[20%]">
+              <div className="h-px w-10 bg-gradient-to-r from-transparent to-gray-400"></div>
+              <span className="font-semibold text-gray-700 px-3 text-center" style={{ fontSize: "0.88rem" }}>
+                An Umbrella Local agency
+              </span>
+              <div className="h-px w-10 bg-gradient-to-l from-transparent to-gray-400"></div>
+            </div>
+          </Link>
+        </div>
 
-        <nav className="hidden md:flex items-center absolute left-1/2 transform -translate-x-1/2">
-          {navItems.map((item) => (
-            <div key={item.name} className="relative" ref={item.dropdown ? dropdownRef : undefined}>
-              {item.dropdown ? (
-                <div className="group relative">
-                  {/* Replace Link with button for Services */}
-                  <button
-                    className="flex items-center font-semibold text-gray-700 hover:text-gray-900 px-4 py-2 bg-transparent"
+        {/* Center section - Navigation */}
+        <div className="flex-1 flex justify-center">
+          <nav className="hidden md:flex items-center">
+            {navItems.map((item) => (
+              <div key={item.name} className="relative" ref={item.dropdown ? dropdownRef : undefined}>
+                {item.dropdown ? (
+                  <div className="group relative">
+                    <button
+                      className="flex items-center font-semibold text-gray-700 hover:text-gray-900 px-4 py-2 bg-transparent"
+                      style={{ fontSize: "1.035rem" }}
+                    >
+                      {item.name}
+                      <ChevronDown className="ml-1 h-4 w-4" />
+                    </button>
+                    <div className="absolute h-4 w-full top-full left-0"></div>
+                    <div className="absolute top-full left-0 mt-0 w-64 bg-white/90 backdrop-blur-md rounded-md shadow-lg z-30 border border-gray-100 hidden group-hover:block">
+                      <div className="py-1">
+                        {item.dropdown.map((dropdownItem) => (
+                          <Link
+                            key={dropdownItem.name}
+                            href={dropdownItem.href}
+                            className="block px-4 py-2 font-semibold text-gray-700 hover:bg-gray-100/80"
+                            style={{ fontSize: "1.035rem" }}
+                          >
+                            {dropdownItem.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <Link
+                    href={item.href}
+                    className="font-semibold text-gray-700 hover:text-gray-900 px-4"
                     style={{ fontSize: "1.035rem" }}
                   >
                     {item.name}
-                    <ChevronDown className="ml-1 h-4 w-4" />
-                  </button>
-                  {/* Add a hidden spacer div to bridge any gap between the nav item and dropdown */}
-                  <div className="absolute h-4 w-full top-full left-0"></div>
-                  <div className="absolute top-full left-0 mt-0 w-64 bg-white/90 backdrop-blur-md rounded-md shadow-lg z-30 border border-gray-100 hidden group-hover:block">
-                    <div className="py-1">
-                      {item.dropdown.map((dropdownItem) => (
-                        <Link
-                          key={dropdownItem.name}
-                          href={dropdownItem.href}
-                          className="block px-4 py-2 font-semibold text-gray-700 hover:bg-gray-100/80"
-                          style={{ fontSize: "1.035rem" }}
-                        >
-                          {dropdownItem.name}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              ) : (
-                <Link
-                  href={item.href}
-                  className="font-semibold text-gray-700 hover:text-gray-900 px-4"
-                  style={{ fontSize: "1.035rem" }}
-                >
-                  {item.name}
-                </Link>
-              )}
-            </div>
-          ))}
-        </nav>
+                  </Link>
+                )}
+              </div>
+            ))}
+          </nav>
+        </div>
 
-        <div className="hidden md:block">{renderCallButton()}</div>
+        {/* Right section - CTA Button */}
+        <div className="flex-1 flex justify-end">
+          <div className="hidden md:block">{renderCallButton()}</div>
+        </div>
 
+        {/* Mobile menu button */}
         <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"

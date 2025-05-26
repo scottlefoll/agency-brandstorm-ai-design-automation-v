@@ -53,15 +53,13 @@ export default function SocialMediaMarketingPage() {
               </CTAButton>
             </div>
             <div className="flex justify-center">
-              <div className="bg-purple-700 p-8 rounded-lg shadow-lg">
-                <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Services16-SMMarketing-DMx2mi3ukXNSurJzSeN5EUB37CGosU.webp"
-                  alt="Network of connected data nodes with spotlight representing strategic social media campaign growth"
-                  width={600}
-                  height={400}
-                  className="rounded-lg object-contain"
-                />
-              </div>
+              <Image
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Services16-SMMarketing-DMx2mi3ukXNSurJzSeN5EUB37CGosU.webp"
+                alt="Network of connected data nodes with spotlight representing strategic social media campaign growth"
+                width={600}
+                height={400}
+                className="rounded-lg shadow-lg object-contain"
+              />
             </div>
           </div>
 
