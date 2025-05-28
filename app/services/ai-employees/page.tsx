@@ -3,6 +3,7 @@ import { Footer } from "@/components/footer"
 import Image from "next/image"
 import { CTAButton } from "@/components/cta-button"
 import type { Metadata } from "next"
+import { ServiceImageAnimation } from "@/components/service-image-animation"
 
 export const metadata: Metadata = {
   title: "AI Employees - Brandstorm AI",
@@ -14,15 +15,18 @@ export default function AIEmployeesPage() {
   return (
     <main className="flex min-h-screen flex-col bg-gray-50">
       <NavBar />
+      <ServiceImageAnimation />
       <div className="flex-1 pt-32">
         <div className="container max-w-6xl mx-auto px-4 py-12">
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-purple-800 mb-4">AI Employees</h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">The future of business automation is here</p>
+            <h1 className="text-4xl font-bold text-purple-800 mb-4 hero-title">AI Employees</h1>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto hero-subtitle">
+              The future of business automation is here
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-            <div>
+            <div className="hero-description">
               <h2 className="text-2xl font-bold text-purple-700 mb-4">Your Tireless Digital Workforce</h2>
               <p className="text-lg mb-6">
                 AI Employees represent the cutting edge of business automation, providing your company with intelligent
@@ -53,7 +57,7 @@ export default function AIEmployeesPage() {
                 alt="AI Employee digital interface showing intelligent automation capabilities"
                 width={600}
                 height={400}
-                className="rounded-lg shadow-lg"
+                className="rounded-lg shadow-lg service-image"
               />
             </div>
           </div>
@@ -61,7 +65,7 @@ export default function AIEmployeesPage() {
           <div className="bg-white p-8 rounded-lg shadow-md">
             <h2 className="text-2xl font-bold text-purple-700 mb-6 text-center">Key Benefits of AI Employees</h2>
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center">
+              <div className="text-center feature-card">
                 <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -85,7 +89,7 @@ export default function AIEmployeesPage() {
                   unqualified, regardless of time zone or holidays.
                 </p>
               </div>
-              <div className="text-center">
+              <div className="text-center feature-card">
                 <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -108,7 +112,7 @@ export default function AIEmployeesPage() {
                   training, and management challenges.
                 </p>
               </div>
-              <div className="text-center">
+              <div className="text-center feature-card">
                 <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

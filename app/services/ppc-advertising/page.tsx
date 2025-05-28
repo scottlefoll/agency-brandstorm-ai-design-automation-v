@@ -2,6 +2,7 @@ import { NavBar } from "@/components/nav-bar"
 import Image from "next/image"
 import { CTAButton } from "@/components/cta-button"
 import type { Metadata } from "next"
+import { ServiceImageAnimation } from "@/components/service-image-animation"
 
 export const metadata: Metadata = {
   title: "PPC Advertising - Brandstorm AI",
@@ -13,11 +14,12 @@ export default function PPCAdvertisingPage() {
   return (
     <main className="flex min-h-screen flex-col">
       <NavBar />
+      <ServiceImageAnimation />
       <div className="flex-1 bg-gray-50 pt-32">
         <div className="container max-w-6xl mx-auto px-4 py-12">
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-purple-800 mb-4">PPC Advertising</h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h1 className="text-4xl font-bold text-purple-800 mb-4 hero-title">PPC Advertising</h1>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto hero-subtitle">
               Targeted pay-per-click campaigns that deliver immediate results
             </p>
           </div>
@@ -29,10 +31,10 @@ export default function PPCAdvertisingPage() {
                 alt="PPC advertising campaign dashboard with performance metrics"
                 width={600}
                 height={400}
-                className="rounded-lg shadow-lg"
+                className="rounded-lg shadow-lg service-image"
               />
             </div>
-            <div className="order-1 md:order-2">
+            <div className="order-1 md:order-2 hero-description">
               <h2 className="text-2xl font-bold text-purple-700 mb-4">Immediate Visibility, Measurable Results</h2>
               <p className="text-lg mb-6">
                 Pay-Per-Click (PPC) advertising offers immediate visibility and traffic for your business, allowing you
@@ -62,7 +64,7 @@ export default function PPCAdvertisingPage() {
           <div className="bg-white p-8 rounded-lg shadow-md">
             <h2 className="text-2xl font-bold text-purple-700 mb-6 text-center">Our PPC Services</h2>
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center">
+              <div className="text-center feature-card">
                 <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -86,7 +88,7 @@ export default function PPCAdvertisingPage() {
                   your products or services.
                 </p>
               </div>
-              <div className="text-center">
+              <div className="text-center feature-card">
                 <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -110,7 +112,7 @@ export default function PPCAdvertisingPage() {
                   websites in the Google Display Network.
                 </p>
               </div>
-              <div className="text-center">
+              <div className="text-center feature-card">
                 <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -138,7 +140,7 @@ export default function PPCAdvertisingPage() {
               </div>
             </div>
             <div className="grid md:grid-cols-3 gap-8 mt-8">
-              <div className="text-center">
+              <div className="text-center feature-card">
                 <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -163,7 +165,7 @@ export default function PPCAdvertisingPage() {
                   increasing conversion rates and ROI.
                 </p>
               </div>
-              <div className="text-center">
+              <div className="text-center feature-card">
                 <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -193,7 +195,7 @@ export default function PPCAdvertisingPage() {
                   images, prices, and business information.
                 </p>
               </div>
-              <div className="text-center">
+              <div className="text-center feature-card">
                 <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

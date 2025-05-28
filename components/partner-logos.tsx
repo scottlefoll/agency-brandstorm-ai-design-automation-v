@@ -8,7 +8,7 @@ export function PartnerLogos() {
   const baseLogos = [
     { name: "YouTube", file: "/images/youtube-logo.svg", width: 120, height: 40 },
     { name: "Medium", file: "/images/medium-logo.png", width: 540, height: 180 },
-    { name: "NBC", file: "/images/nbc-logo.svg", width: 187, height: 94 },
+    { name: "NBC", file: "/images/nbc-logo.svg", width: 120, height: 60 },
     { name: "MarketWatch", file: "/images/marketwatch-logo.svg", width: 120, height: 40 },
     { name: "Wired", file: "/images/wired-logo.svg", width: 120, height: 40 },
     { name: "CNN", file: "/images/cnn-logo.svg", width: 100, height: 40 },
@@ -81,7 +81,7 @@ export function PartnerLogos() {
                   height={logo.height}
                   className="w-auto h-auto brightness-0 invert opacity-90"
                   style={{
-                    maxHeight: logo.name === "Medium" ? "104px" : logo.name === "NBC" ? "56px" : "36px",
+                    maxHeight: logo.name === "Medium" ? "104px" : logo.name === "NBC" ? "48px" : "36px",
                     background: "transparent",
                     // Using transform to adjust vertical position without changing size
                     transform: "scale(1)", // Keeping the same size

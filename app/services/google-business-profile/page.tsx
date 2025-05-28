@@ -2,6 +2,7 @@ import { NavBar } from "@/components/nav-bar"
 import { Footer } from "@/components/footer"
 import Image from "next/image"
 import { CTAButton } from "@/components/cta-button"
+import { ServiceImageAnimation } from "@/components/service-image-animation"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -14,11 +15,12 @@ export default function GoogleBusinessProfilePage() {
   return (
     <main className="flex min-h-screen flex-col bg-gray-50">
       <NavBar />
+      <ServiceImageAnimation />
       <div className="flex-1 pt-32">
         <div className="container max-w-6xl mx-auto px-4 py-12">
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-purple-800 mb-4">Google Business Profile</h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h1 className="text-4xl font-bold text-purple-800 mb-4 hero-title">Google Business Profile</h1>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto hero-subtitle">
               Dominate local search and attract more nearby customers
             </p>
           </div>
@@ -30,10 +32,10 @@ export default function GoogleBusinessProfilePage() {
                 alt="Optimized Google Business Profile with customer reviews"
                 width={600}
                 height={400}
-                className="rounded-lg shadow-lg"
+                className="rounded-lg shadow-lg service-image"
               />
             </div>
-            <div className="order-1 md:order-2">
+            <div className="order-1 md:order-2 hero-description">
               <h2 className="text-2xl font-bold text-purple-700 mb-4">Your Digital Storefront</h2>
               <p className="text-lg mb-6">
                 Your Google Business Profile (formerly Google My Business) is often the first impression potential
@@ -64,7 +66,7 @@ export default function GoogleBusinessProfilePage() {
           <div className="bg-white p-8 rounded-lg shadow-md">
             <h2 className="text-2xl font-bold text-purple-700 mb-6 text-center">Key Optimization Strategies</h2>
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center">
+              <div className="text-center feature-card">
                 <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -88,7 +90,7 @@ export default function GoogleBusinessProfilePage() {
                   category selection to maximize visibility.
                 </p>
               </div>
-              <div className="text-center">
+              <div className="text-center feature-card">
                 <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -112,7 +114,7 @@ export default function GoogleBusinessProfilePage() {
                   search ranking.
                 </p>
               </div>
-              <div className="text-center">
+              <div className="text-center feature-card">
                 <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

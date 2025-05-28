@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { Phone, ChevronDown } from "lucide-react"
+import { Phone, ChevronDown, Menu, X } from "lucide-react"
 import { useState, useRef, useEffect } from "react"
 import { CTAButton } from "@/components/cta-button"
 import { useMobile } from "@/hooks/use-mobile"
@@ -12,7 +12,6 @@ const navItems = [
   { name: "Reviews", href: "/reviews" },
   {
     name: "Services",
-    // Remove href to prevent navigation
     dropdown: [
       { name: "Ad Management", href: "/services/ad-management" },
       { name: "AI Employees", href: "/services/ai-employees" },
@@ -73,6 +72,12 @@ export function NavBar() {
     }
   }, [])
 
+  // Close mobile menu when clicking on links
+  const closeMobileMenu = () => {
+    setIsMenuOpen(false)
+    setActiveDropdown(null)
+  }
+
   // Toggle dropdown for mobile
   const toggleDropdown = (name: string) => {
     setActiveDropdown(activeDropdown === name ? null : name)
@@ -81,27 +86,19 @@ export function NavBar() {
   // Render different buttons based on device type
   const renderCallButton = () => {
     if (isMobile) {
-      // Mobile: Use tel: link for direct calling
       return (
         <a
           href="tel:18883832473"
-          className="flex flex-col items-center justify-center gap-0.5 bg-purple-800 hover:bg-purple-900 text-white rounded-md shadow-sm"
-          style={{
-            paddingTop: "0.625rem",
-            paddingBottom: "0.625rem",
-            paddingLeft: "1.875rem",
-            paddingRight: "1.875rem",
-          }}
+          className="flex flex-col items-center justify-center gap-1 bg-purple-800 hover:bg-purple-900 text-white rounded-md shadow-sm px-4 py-3 w-full"
         >
           <div className="flex items-center gap-2">
             <Phone className="h-4 w-4" />
-            <span className="font-semibold">CALL US</span>
+            <span className="font-semibold text-sm">CALL US</span>
           </div>
           <span className="text-xs">1-888-383-2473</span>
         </a>
       )
     } else {
-      // Desktop: Use CTAButton for callback request
       return (
         <CTAButton
           className="flex flex-col items-center justify-center gap-0.5 bg-purple-800 hover:bg-purple-900 text-white rounded-md shadow-sm"
@@ -112,6 +109,7 @@ export function NavBar() {
             paddingRight: "1.875rem",
           }}
           source="Header - Get a Callback"
+          disableBounce={true}
         >
           <div className="flex items-center gap-2">
             <Phone className="h-4 w-4" />
@@ -130,145 +128,133 @@ export function NavBar() {
       }`}
     >
       <div className="container px-4 flex items-center justify-between" style={{ height: "134px" }}>
-        {/* Left section - Logo */}
-        <div className="flex-1">
-          <Link href="/" className="flex flex-col items-center relative">
-            <Image
-              src="/images/brandstorm-logo.png"
-              alt="BRANDSTORM.AI Logo"
-              width={275}
-              height={75}
-              className="w-auto"
-              style={{ height: "65px" }}
-              priority
-            />
-            <div className="flex items-center mt-2 w-full pl-[20%]">
-              <div className="h-px w-10 bg-gradient-to-r from-transparent to-gray-400"></div>
-              <span className="font-semibold text-gray-700 px-3 text-center" style={{ fontSize: "0.88rem" }}>
-                An Umbrella Local agency
-              </span>
-              <div className="h-px w-10 bg-gradient-to-l from-transparent to-gray-400"></div>
-            </div>
-          </Link>
-        </div>
+        {/* Logo Section */}
+        <Link href="/" className="flex flex-col items-center relative">
+          <Image
+            src="/images/brandstorm-logo.png"
+            alt="BRANDSTORM.AI Logo"
+            width={275}
+            height={75}
+            className="w-auto h-12 md:h-16"
+            priority
+          />
+          <div className="flex items-center mt-1 md:mt-2 w-full">
+            <div className="h-px w-6 md:w-10 bg-gradient-to-r from-transparent to-gray-400"></div>
+            <span className="font-semibold text-gray-700 px-2 md:px-3 text-center text-xs md:text-sm whitespace-nowrap">
+              An Umbrella Local agency
+            </span>
+            <div className="h-px w-6 md:w-10 bg-gradient-to-l from-transparent to-gray-400"></div>
+          </div>
+        </Link>
 
-        {/* Center section - Navigation */}
-        <div className="flex-1 flex justify-center">
-          <nav className="hidden md:flex items-center">
-            {navItems.map((item) => (
-              <div key={item.name} className="relative" ref={item.dropdown ? dropdownRef : undefined}>
-                {item.dropdown ? (
-                  <div className="group relative">
-                    <button
-                      className="flex items-center font-semibold text-gray-700 hover:text-gray-900 px-4 py-2 bg-transparent"
-                      style={{ fontSize: "1.035rem" }}
-                    >
-                      {item.name}
-                      <ChevronDown className="ml-1 h-4 w-4" />
-                    </button>
-                    <div className="absolute h-4 w-full top-full left-0"></div>
-                    <div className="absolute top-full left-0 mt-0 w-64 bg-white/90 backdrop-blur-md rounded-md shadow-lg z-30 border border-gray-100 hidden group-hover:block">
-                      <div className="py-1">
-                        {item.dropdown.map((dropdownItem) => (
-                          <Link
-                            key={dropdownItem.name}
-                            href={dropdownItem.href}
-                            className="block px-4 py-2 font-semibold text-gray-700 hover:bg-gray-100/80"
-                            style={{ fontSize: "1.035rem" }}
-                          >
-                            {dropdownItem.name}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                ) : (
-                  <Link
-                    href={item.href}
-                    className="font-semibold text-gray-700 hover:text-gray-900 px-4"
+        {/* Desktop Navigation */}
+        <nav
+          className="hidden md:flex items-center absolute left-1/2 transform -translate-x-1/2"
+          style={{ marginLeft: "5%" }}
+        >
+          {navItems.map((item) => (
+            <div key={item.name} className="relative" ref={item.dropdown ? dropdownRef : undefined}>
+              {item.dropdown ? (
+                <div className="group relative">
+                  <button
+                    className="flex items-center font-semibold text-gray-700 hover:text-gray-900 px-4 py-2 bg-transparent"
                     style={{ fontSize: "1.035rem" }}
                   >
                     {item.name}
-                  </Link>
-                )}
-              </div>
-            ))}
-          </nav>
-        </div>
+                    <ChevronDown className="ml-1 h-4 w-4" />
+                  </button>
+                  <div className="absolute h-4 w-full top-full left-0"></div>
+                  <div className="absolute top-full left-0 mt-0 w-64 bg-white/90 backdrop-blur-md rounded-md shadow-lg z-30 border border-gray-100 hidden group-hover:block">
+                    <div className="py-1">
+                      {item.dropdown.map((dropdownItem) => (
+                        <Link
+                          key={dropdownItem.name}
+                          href={dropdownItem.href}
+                          className="block px-4 py-2 font-semibold text-gray-700 hover:bg-gray-100/80"
+                          style={{ fontSize: "1.035rem" }}
+                        >
+                          {dropdownItem.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <Link
+                  href={item.href}
+                  className="font-semibold text-gray-700 hover:text-gray-900 px-4"
+                  style={{ fontSize: "1.035rem" }}
+                >
+                  {item.name}
+                </Link>
+              )}
+            </div>
+          ))}
+        </nav>
 
-        {/* Right section - CTA Button */}
-        <div className="flex-1 flex justify-end">
-          <div className="hidden md:block">{renderCallButton()}</div>
-        </div>
+        {/* Desktop CTA Button */}
+        <div className="hidden md:block">{renderCallButton()}</div>
 
-        {/* Mobile menu button */}
-        <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
-            />
-          </svg>
+        {/* Mobile Hamburger Menu */}
+        <button
+          className="md:hidden p-2 rounded-md hover:bg-gray-100/50 transition-colors"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          {isMenuOpen ? <X className="h-6 w-6 text-gray-700" /> : <Menu className="h-6 w-6 text-gray-700" />}
         </button>
       </div>
 
+      {/* Mobile Menu Dropdown */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white/90 backdrop-blur-md border-t border-gray-100">
-          <div className="container py-4 flex flex-col gap-4">
-            {navItems.map((item) => (
-              <div key={item.name} className="flex flex-col">
-                {item.dropdown ? (
-                  <>
-                    <button
-                      onClick={() => toggleDropdown(item.name)}
-                      className="flex items-center justify-between font-semibold text-gray-700 hover:text-gray-900 py-2"
-                      style={{ fontSize: "1.035rem" }}
+        <div className="md:hidden bg-white/95 backdrop-blur-md border-t border-gray-200 shadow-lg">
+          <div className="container px-4 py-4 max-h-[80vh] overflow-y-auto">
+            <div className="flex flex-col space-y-3">
+              {navItems.map((item) => (
+                <div key={item.name} className="flex flex-col">
+                  {item.dropdown ? (
+                    <>
+                      <button
+                        onClick={() => toggleDropdown(item.name)}
+                        className="flex items-center justify-between font-semibold text-gray-700 hover:text-gray-900 py-3 px-2 rounded-md hover:bg-gray-100/50 transition-colors"
+                      >
+                        <span>{item.name}</span>
+                        <ChevronDown
+                          className={`h-4 w-4 transition-transform duration-200 ${
+                            activeDropdown === item.name ? "rotate-180" : ""
+                          }`}
+                        />
+                      </button>
+                      {activeDropdown === item.name && (
+                        <div className="ml-4 mt-2 space-y-2 border-l-2 border-purple-200 pl-4">
+                          {item.dropdown.map((dropdownItem) => (
+                            <Link
+                              key={dropdownItem.name}
+                              href={dropdownItem.href}
+                              className="block font-medium text-gray-600 hover:text-purple-700 py-2 px-2 rounded-md hover:bg-purple-50 transition-colors"
+                              onClick={closeMobileMenu}
+                            >
+                              {dropdownItem.name}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className="font-semibold text-gray-700 hover:text-gray-900 py-3 px-2 rounded-md hover:bg-gray-100/50 transition-colors"
+                      onClick={closeMobileMenu}
                     >
                       {item.name}
-                      <ChevronDown
-                        className={`h-4 w-4 transition-transform ${activeDropdown === item.name ? "rotate-180" : ""}`}
-                      />
-                    </button>
-                    {activeDropdown === item.name && (
-                      <div className="ml-4 mt-2 flex flex-col gap-2">
-                        {item.dropdown.map((dropdownItem) => (
-                          <Link
-                            key={dropdownItem.name}
-                            href={dropdownItem.href}
-                            className="font-semibold text-gray-600 hover:text-gray-900 py-1"
-                            style={{ fontSize: "1.035rem" }}
-                            onClick={() => {
-                              setIsMenuOpen(false)
-                              setActiveDropdown(null)
-                            }}
-                          >
-                            {dropdownItem.name}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </>
-                ) : (
-                  <Link
-                    href={item.href}
-                    className="font-semibold text-gray-700 hover:text-gray-900 py-2"
-                    style={{ fontSize: "1.035rem" }}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                )}
-              </div>
-            ))}
-            <div className="mt-2">{renderCallButton()}</div>
+                    </Link>
+                  )}
+                </div>
+              ))}
+
+              {/* Mobile CTA Button */}
+              <div className="mt-4 pt-4 border-t border-gray-200">{renderCallButton()}</div>
+            </div>
           </div>
         </div>
       )}

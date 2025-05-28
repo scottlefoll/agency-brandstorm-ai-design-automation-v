@@ -3,6 +3,7 @@ import { Footer } from "@/components/footer"
 import Image from "next/image"
 import { CTAButton } from "@/components/cta-button"
 import type { Metadata } from "next"
+import { ServiceImageAnimation } from "@/components/service-image-animation"
 
 export const metadata: Metadata = {
   title: "Social Media Marketing - Brandstorm AI",
@@ -14,17 +15,18 @@ export default function SocialMediaMarketingPage() {
   return (
     <main className="flex min-h-screen flex-col bg-gray-50">
       <NavBar />
+      <ServiceImageAnimation />
       <div className="flex-1 pt-32">
         <div className="container max-w-6xl mx-auto px-4 py-12">
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-purple-800 mb-4">Social Media Marketing</h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h1 className="text-4xl font-bold text-purple-800 mb-4 hero-title">Social Media Marketing</h1>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto hero-subtitle">
               Drive growth through strategic social media campaigns
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-            <div>
+            <div className="hero-description">
               <h2 className="text-2xl font-bold text-purple-700 mb-4">Harness the Power of Social Media</h2>
               <p className="text-lg mb-6">
                 Social media has transformed from a simple communication channel into a powerful marketing platform that
@@ -58,7 +60,7 @@ export default function SocialMediaMarketingPage() {
                 alt="Network of connected data nodes with spotlight representing strategic social media campaign growth"
                 width={600}
                 height={400}
-                className="rounded-lg shadow-lg object-contain"
+                className="rounded-lg shadow-lg object-contain service-image"
               />
             </div>
           </div>
@@ -66,7 +68,7 @@ export default function SocialMediaMarketingPage() {
           <div className="bg-white p-8 rounded-lg shadow-md">
             <h2 className="text-2xl font-bold text-purple-700 mb-6 text-center">Our Marketing Strategies</h2>
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center">
+              <div className="text-center feature-card">
                 <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -90,7 +92,7 @@ export default function SocialMediaMarketingPage() {
                   ideal customers and drive specific actions.
                 </p>
               </div>
-              <div className="text-center">
+              <div className="text-center feature-card">
                 <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -116,7 +118,7 @@ export default function SocialMediaMarketingPage() {
                   engaged audiences.
                 </p>
               </div>
-              <div className="text-center">
+              <div className="text-center feature-card">
                 <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
