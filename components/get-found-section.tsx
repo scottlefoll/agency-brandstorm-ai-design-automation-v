@@ -234,13 +234,30 @@ export function GetFoundSection() {
 
         <div className="grid md:grid-cols-2 gap-8 items-center mt-16">
           <div>
-            <p className="text-lg mb-8">
-              Build Trust Through Reviews Leverage the power of social proof with our automated review generation
+            <h3 className="text-2xl font-bold mb-4 text-purple-800">Be Found Where People Are Searching</h3>
+
+            <p className="text-lg mb-4">
+              <strong>Voice search is now the #1 way people find businesses.</strong>
             </p>
 
-            <p className="text-lg mb-8">
-              Our sophisticated listing management system ensures your business information is accurate and consistent
-              across all platforms, boosting your visibility and credibility.
+            <p className="text-lg mb-4">
+              From Siri to Alexa to Google Assistant, more customers are asking their devices—not typing into search
+              bars.
+            </p>
+
+            <p className="text-lg mb-6 font-semibold">Will your business show up when they do?</p>
+
+            <div className="mb-6">
+              <p className="text-lg mb-2">✅ Whether they're using Safari, Firefox, or just their voice...</p>
+              <p className="text-lg mb-4">✅ You need to be visible everywhere they search.</p>
+            </div>
+
+            <p className="text-lg mb-4">
+              Our Listed Everywhere service makes sure your business gets found—across all platforms, all the time.
+            </p>
+
+            <p className="text-lg mb-8 font-semibold">
+              👉 Maximize your visibility. Dominate local search. Start today.
             </p>
 
             <CTAButton source="Get Found Section">GET STARTED TODAY</CTAButton>
@@ -249,11 +266,11 @@ export function GetFoundSection() {
           <div className="flex justify-center">
             <div className="relative">
               <Image
-                src="/images/listing-management-app.png"
-                alt="Business listing management app"
-                width={300}
-                height={600}
-                className="rounded-xl shadow-xl"
+                src="/images/voice-search-listing.webp"
+                alt="Voice search - people using devices to search for businesses"
+                width={500}
+                height={400}
+                className="rounded-xl shadow-xl object-cover"
               />
             </div>
           </div>
