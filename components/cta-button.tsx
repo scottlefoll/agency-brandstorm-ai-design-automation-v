@@ -11,24 +11,15 @@ interface CTAButtonProps {
   className?: string
   source?: string
   style?: React.CSSProperties
-  disableBounce?: boolean
 }
 
-export function CTAButton({
-  children,
-  className,
-  source = "General Inquiry",
-  style,
-  disableBounce = false,
-}: CTAButtonProps) {
+export function CTAButton({ children, className, source = "General Inquiry", style }: CTAButtonProps) {
   const [isModalOpen, setIsModalOpen] = useState(false)
-
-  const bounceClass = disableBounce ? "" : "cta-scroll-bounce"
 
   return (
     <>
       <Button
-        className={`bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white cta-button-enhanced ${bounceClass} ${className}`}
+        className={`bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white ${className}`}
         onClick={() => setIsModalOpen(true)}
         style={style}
       >

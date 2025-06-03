@@ -37,10 +37,10 @@ export default function SystemPageClient() {
             <div className="md:w-1/2 mt-8 md:mt-0">
               <div className="relative w-full h-[300px] md:h-[400px]">
                 <Image
-                  src="/images/system/1-crm.webp"
-                  alt="Turn your business into an automated revenue engine - BrandStorm AI CRM"
+                  src="https://kzmkrynjajuohimr860n.lite.vusercontent.net/placeholder.svg?key=r20jb"
+                  alt="Automated Revenue Engine"
                   fill
-                  className="object-contain"
+                  className="rounded-lg shadow-xl object-cover"
                 />
               </div>
             </div>
@@ -74,10 +74,10 @@ export default function SystemPageClient() {
             <div className="md:w-1/2 mt-8 md:mt-0">
               <div className="relative w-full h-[300px] md:h-[400px]">
                 <Image
-                  src="/images/system/2-crm.webp"
-                  alt="Seamlessly Integrate Sales and Marketing with BrandStorm AI"
+                  src="https://kzmkrynjajuohimr860n.lite.vusercontent.net/placeholder.svg?key=r20jb"
+                  alt="Integrated Sales and Marketing Platform"
                   fill
-                  className="object-contain"
+                  className="rounded-lg shadow-xl object-contain"
                 />
               </div>
             </div>
@@ -106,12 +106,12 @@ export default function SystemPageClient() {
               </button>
             </div>
             <div className="md:w-1/2 mt-8 md:mt-0">
-              <div className="relative w-full h-[300px] md:h-[350px]">
+              <div className="relative w-full h-[250px] md:h-[300px]">
                 <Image
-                  src="/images/system/3-crm.webp"
-                  alt="Step 1: Capture - Don't let valuable leads slip through the cracks"
+                  src="https://kzmkrynjajuohimr860n.lite.vusercontent.net/placeholder.svg?key=r20jb"
+                  alt="Lead Capture System"
                   fill
-                  className="object-contain"
+                  className="rounded-lg shadow-lg object-cover"
                 />
               </div>
             </div>
@@ -134,12 +134,12 @@ export default function SystemPageClient() {
               </button>
             </div>
             <div className="md:w-1/2 mt-8 md:mt-0">
-              <div className="relative w-full h-[300px] md:h-[350px]">
+              <div className="relative w-full h-[250px] md:h-[300px]">
                 <Image
-                  src="/images/system/4-crm.webp"
-                  alt="Step 2: Nurture - Grow your business relationships"
+                  src="https://kzmkrynjajuohimr860n.lite.vusercontent.net/placeholder.svg?key=r20jb"
+                  alt="Lead Nurturing System"
                   fill
-                  className="object-contain"
+                  className="rounded-lg shadow-lg object-cover"
                 />
               </div>
             </div>
@@ -161,12 +161,12 @@ export default function SystemPageClient() {
               </button>
             </div>
             <div className="md:w-1/2 mt-8 md:mt-0">
-              <div className="relative w-full h-[300px] md:h-[350px]">
+              <div className="relative w-full h-[250px] md:h-[300px]">
                 <Image
-                  src="/images/system/5-crm.webp"
-                  alt="Step 3: Close - Complete the sales journey"
+                  src="https://kzmkrynjajuohimr860n.lite.vusercontent.net/placeholder.svg?key=r20jb"
+                  alt="Sales Closing System"
                   fill
-                  className="object-contain"
+                  className="rounded-lg shadow-lg object-cover"
                 />
               </div>
             </div>
@@ -202,10 +202,10 @@ export default function SystemPageClient() {
             <div className="md:w-1/2 mt-8 md:mt-0">
               <div className="relative w-full h-[300px] md:h-[400px]">
                 <Image
-                  src="/images/system/6-crm.webp"
-                  alt="Unlock Your Sales Potential with Brand Storm System"
+                  src="https://kzmkrynjajuohimr860n.lite.vusercontent.net/placeholder.svg?key=r20jb"
+                  alt="Business Growth Strategy"
                   fill
-                  className="object-contain"
+                  className="rounded-lg shadow-xl object-cover"
                 />
               </div>
             </div>

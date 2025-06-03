@@ -2,7 +2,6 @@ import { NavBar } from "@/components/nav-bar"
 import { Footer } from "@/components/footer"
 import Image from "next/image"
 import { CTAButton } from "@/components/cta-button"
-import { ServiceImageAnimation } from "@/components/service-image-animation"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -15,18 +14,17 @@ export default function EmailMarketingPage() {
   return (
     <main className="flex min-h-screen flex-col bg-gray-50">
       <NavBar />
-      <ServiceImageAnimation />
       <div className="flex-1 pt-32">
         <div className="container max-w-6xl mx-auto px-4 py-12">
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-purple-800 mb-4 hero-title">Email Marketing</h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto hero-subtitle">
+            <h1 className="text-4xl font-bold text-purple-800 mb-4">Email Marketing</h1>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Personalized email campaigns that nurture relationships and drive revenue
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-            <div className="hero-description">
+            <div>
               <h2 className="text-2xl font-bold text-purple-700 mb-4">The Power of Direct Communication</h2>
               <p className="text-lg mb-6">
                 Despite the rise of numerous digital marketing channels, email remains one of the most effective ways to
@@ -59,7 +57,7 @@ export default function EmailMarketingPage() {
                 alt="Email marketing campaign dashboard with performance metrics"
                 width={600}
                 height={400}
-                className="rounded-lg shadow-lg service-image"
+                className="rounded-lg shadow-lg"
               />
             </div>
           </div>
@@ -67,7 +65,7 @@ export default function EmailMarketingPage() {
           <div className="bg-white p-8 rounded-lg shadow-md">
             <h2 className="text-2xl font-bold text-purple-700 mb-6 text-center">Our Email Marketing Services</h2>
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center feature-card">
+              <div className="text-center">
                 <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -91,7 +89,7 @@ export default function EmailMarketingPage() {
                   drive engagement and conversions.
                 </p>
               </div>
-              <div className="text-center feature-card">
+              <div className="text-center">
                 <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -116,7 +114,7 @@ export default function EmailMarketingPage() {
                   to their specific interests and behaviors.
                 </p>
               </div>
-              <div className="text-center feature-card">
+              <div className="text-center">
                 <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

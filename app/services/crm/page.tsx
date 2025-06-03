@@ -3,7 +3,6 @@ import { Footer } from "@/components/footer"
 import Image from "next/image"
 import { CTAButton } from "@/components/cta-button"
 import type { Metadata } from "next"
-import { ServiceImageAnimation } from "@/components/service-image-animation"
 
 export const metadata: Metadata = {
   title: "CRM - Brandstorm AI",
@@ -14,12 +13,11 @@ export default function CRMPage() {
   return (
     <main className="flex min-h-screen flex-col bg-gray-50">
       <NavBar />
-      <ServiceImageAnimation />
       <div className="flex-1 pt-32">
         <div className="container max-w-6xl mx-auto px-4 py-12">
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-purple-800 mb-4 hero-title">CRM Solutions</h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto hero-subtitle">
+            <h1 className="text-4xl font-bold text-purple-800 mb-4">CRM Solutions</h1>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Transform your customer relationships into your greatest business asset
             </p>
           </div>
@@ -31,10 +29,10 @@ export default function CRMPage() {
                 alt="CRM system connecting and understanding customer relationships for business growth"
                 width={600}
                 height={400}
-                className="rounded-lg shadow-lg service-image"
+                className="rounded-lg shadow-lg"
               />
             </div>
-            <div className="order-1 md:order-2 hero-description">
+            <div className="order-1 md:order-2">
               <h2 className="text-2xl font-bold text-purple-700 mb-4">Centralize Your Customer Intelligence</h2>
               <p className="text-lg mb-6">
                 In today's competitive business landscape, effectively managing customer relationships is critical to
@@ -66,7 +64,7 @@ export default function CRMPage() {
           <div className="bg-white p-8 rounded-lg shadow-md">
             <h2 className="text-2xl font-bold text-purple-700 mb-6 text-center">Key CRM Features</h2>
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center feature-card">
+              <div className="text-center">
                 <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -92,7 +90,7 @@ export default function CRMPage() {
                   communication logs in one accessible location.
                 </p>
               </div>
-              <div className="text-center feature-card">
+              <div className="text-center">
                 <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -115,7 +113,7 @@ export default function CRMPage() {
                   contact through to closed deals.
                 </p>
               </div>
-              <div className="text-center feature-card">
+              <div className="text-center">
                 <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

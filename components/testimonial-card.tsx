@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
+import { useState } from "react"
 import { Star } from "lucide-react"
 import { Modal } from "@/components/modal"
 import Image from "next/image"
@@ -13,7 +13,6 @@ interface TestimonialCardProps {
   business?: string
   image?: string
   stars?: number
-  delay?: number
 }
 
 export function TestimonialCard({
@@ -24,35 +23,9 @@ export function TestimonialCard({
   business,
   image,
   stars = 5,
-  delay = 0,
 }: TestimonialCardProps) {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [imageError, setImageError] = useState(false)
-  const [isVisible, setIsVisible] = useState(false)
-  const [showStars, setShowStars] = useState(false)
-  const cardRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            setIsVisible(true)
-            // Start star animation after card animation begins
-            setTimeout(() => setShowStars(true), 300)
-          }, delay)
-          observer.disconnect()
-        }
-      },
-      { threshold: 0.1, rootMargin: "50px" },
-    )
-
-    if (cardRef.current) {
-      observer.observe(cardRef.current)
-    }
-
-    return () => observer.disconnect()
-  }, [delay])
 
   // Generate a consistent avatar color based on name
   const getAvatarColor = (name: string) => {
@@ -85,16 +58,11 @@ export function TestimonialCard({
 
   return (
     <>
-      <div
-        ref={cardRef}
-        className={`bg-white rounded-lg shadow-md p-6 h-full flex flex-col reviews-card ${isVisible ? "animate" : ""}`}
-      >
+      <div className="bg-white rounded-lg shadow-md p-6 h-full flex flex-col">
         {/* Profile image at top */}
         <div className="flex justify-center mb-4">
           {image && !imageError ? (
-            <div
-              className={`h-16 w-16 rounded-full overflow-hidden border-2 border-gray-200 ${isVisible ? "animate-floating-avatar" : ""}`}
-            >
+            <div className="h-16 w-16 rounded-full overflow-hidden border-2 border-gray-200">
               <Image
                 src={image || "/placeholder.svg"}
                 alt={`${name}'s profile`}
@@ -106,7 +74,7 @@ export function TestimonialCard({
             </div>
           ) : (
             <div
-              className={`h-16 w-16 rounded-full overflow-hidden ${avatarColor} flex items-center justify-center text-xl font-bold border-2 border-gray-200 ${isVisible ? "animate-floating-avatar" : ""}`}
+              className={`h-16 w-16 rounded-full overflow-hidden ${avatarColor} flex items-center justify-center text-xl font-bold border-2 border-gray-200`}
             >
               {initials}
             </div>
@@ -116,14 +84,7 @@ export function TestimonialCard({
         {/* Stars */}
         <div className="flex justify-center mb-3">
           {[...Array(stars)].map((_, i) => (
-            <Star
-              key={i}
-              className={`h-4 w-4 fill-yellow-400 text-yellow-400 ${showStars ? "animate-star-fill" : "opacity-30"}`}
-              style={{
-                animationDelay: showStars ? `${i * 0.1}s` : "0s",
-                animationFillMode: "both",
-              }}
-            />
+            <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
           ))}
         </div>
 
