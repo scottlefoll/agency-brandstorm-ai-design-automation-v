@@ -1,8 +1,10 @@
 import { NavBar } from "@/components/nav-bar"
 import { Footer } from "@/components/footer"
-import Image from "next/image"
 import { CTAButton } from "@/components/cta-button"
 import type { Metadata } from "next"
+import { AnimatedHero } from "@/components/animated-hero"
+import { AnimatedImage } from "@/components/animated-image"
+import { FeatureCardsCascade } from "@/components/feature-cards-cascade"
 
 export const metadata: Metadata = {
   title: "Analytics & Reporting - Brandstorm AI",
@@ -17,15 +19,15 @@ export default function AnalyticsReportingPage() {
       <div className="flex-1 pt-32">
         <div className="container max-w-6xl mx-auto px-4 py-12">
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-purple-800 mb-4">Analytics & Reporting</h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Transform data into actionable business intelligence
-            </p>
+            <AnimatedHero
+              title="Analytics & Reporting"
+              subtitle="Transform data into actionable business intelligence"
+            />
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
             <div className="order-2 md:order-1 flex justify-center">
-              <Image
+              <AnimatedImage
                 src="/images/services/analytics-reporting.webp"
                 alt="Comprehensive analytics dashboard with business metrics and data visualization"
                 width={600}
@@ -54,18 +56,20 @@ export default function AnalyticsReportingPage() {
               </p>
               <CTAButton
                 source="Analytics & Reporting Page"
-                className="bg-purple-700 hover:bg-purple-800 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 mt-4"
+                className="cta-button bg-purple-700 hover:bg-purple-800 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 mt-4"
               >
                 Unlock Your Data Potential
               </CTAButton>
             </div>
           </div>
 
-          <div className="bg-white p-8 rounded-lg shadow-md">
-            <h2 className="text-2xl font-bold text-purple-700 mb-6 text-center">Our Analytics Capabilities</h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
+          <FeatureCardsCascade
+            cards={[
+              {
+                title: "Performance Tracking",
+                description:
+                  "Monitor all your marketing channels and campaigns in one place with comprehensive performance metrics and ROI analysis.",
+                icon: (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -81,15 +85,13 @@ export default function AnalyticsReportingPage() {
                     <path d="M3 3v18h18"></path>
                     <path d="m19 9-5 5-4-4-3 3"></path>
                   </svg>
-                </div>
-                <h3 className="font-bold text-lg mb-2">Performance Tracking</h3>
-                <p>
-                  Monitor all your marketing channels and campaigns in one place with comprehensive performance metrics
-                  and ROI analysis.
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
+                ),
+              },
+              {
+                title: "Customer Insights",
+                description:
+                  "Gain deep understanding of your customer behavior, preferences, and journey to optimize your marketing and product strategies.",
+                icon: (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -106,15 +108,13 @@ export default function AnalyticsReportingPage() {
                     <path d="M12 16v-4"></path>
                     <path d="M12 8h.01"></path>
                   </svg>
-                </div>
-                <h3 className="font-bold text-lg mb-2">Customer Insights</h3>
-                <p>
-                  Gain deep understanding of your customer behavior, preferences, and journey to optimize your marketing
-                  and product strategies.
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
+                ),
+              },
+              {
+                title: "Predictive Analysis",
+                description:
+                  "Leverage advanced AI and machine learning to forecast trends, anticipate market changes, and make proactive business decisions.",
+                icon: (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -132,15 +132,10 @@ export default function AnalyticsReportingPage() {
                     <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"></path>
                     <path d="M16 16h5v5"></path>
                   </svg>
-                </div>
-                <h3 className="font-bold text-lg mb-2">Predictive Analysis</h3>
-                <p>
-                  Leverage advanced AI and machine learning to forecast trends, anticipate market changes, and make
-                  proactive business decisions.
-                </p>
-              </div>
-            </div>
-          </div>
+                ),
+              },
+            ]}
+          />
         </div>
       </div>
       <Footer />

@@ -9,6 +9,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { X } from "lucide-react"
 import { sendContactEmail } from "@/lib/actions"
 import { Checkbox } from "@/components/ui/checkbox"
+import { createPortal } from "react-dom"
 
 interface CTAFormModalProps {
   isOpen: boolean
@@ -98,7 +99,8 @@ export function CTAFormModal({ isOpen, onClose, ctaSource = "General Inquiry" }:
 
   if (!isOpen) return null
 
-  return (
+  // Use createPortal to render at document body level
+  return createPortal(
     <>
       {/* Backdrop */}
       <div
@@ -109,27 +111,27 @@ export function CTAFormModal({ isOpen, onClose, ctaSource = "General Inquiry" }:
           right: 0,
           bottom: 0,
           backgroundColor: "rgba(0, 0, 0, 0.5)",
-          zIndex: 50000,
+          zIndex: 9999998,
           width: "100vw",
           height: "100vh",
         }}
         onClick={onClose}
       />
 
-      {/* Modal */}
+      {/* Modal - CENTERED IN VIEWPORT */}
       <div
         style={{
           position: "fixed",
-          top: "200px",
+          top: "50%",
           left: "50%",
-          transform: "translateX(-50%)",
+          transform: "translate(-50%, -50%)",
           backgroundColor: "white",
           borderRadius: "8px",
           boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08)",
           width: "90%",
           maxWidth: "500px",
-          zIndex: 50001,
-          maxHeight: "calc(100vh - 250px)",
+          zIndex: 9999999,
+          maxHeight: "90vh",
           overflow: "auto",
         }}
         onClick={(e) => e.stopPropagation()}
@@ -145,7 +147,7 @@ export function CTAFormModal({ isOpen, onClose, ctaSource = "General Inquiry" }:
             border: "none",
             cursor: "pointer",
             padding: "4px",
-            zIndex: 1000001,
+            zIndex: 10000000,
           }}
           aria-label="Close"
         >
@@ -340,6 +342,7 @@ export function CTAFormModal({ isOpen, onClose, ctaSource = "General Inquiry" }:
           )}
         </div>
       </div>
-    </>
+    </>,
+    document.body,
   )
 }

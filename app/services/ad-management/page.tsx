@@ -1,6 +1,8 @@
 import { NavBar } from "@/components/nav-bar"
 import { Footer } from "@/components/footer"
-import Image from "next/image"
+import { AnimatedHero } from "@/components/animated-hero"
+import { AnimatedImage } from "@/components/animated-image"
+import { FeatureCardsCascade } from "@/components/feature-cards-cascade"
 import { CTAButton } from "@/components/cta-button"
 import type { Metadata } from "next"
 
@@ -10,17 +12,85 @@ export const metadata: Metadata = {
 }
 
 export default function AdManagementPage() {
+  const featureCards = [
+    {
+      title: "Strategic Planning",
+      description:
+        "We develop customized advertising strategies aligned with your business goals, target audience, and budget constraints.",
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="h-8 w-8 text-purple-700"
+        >
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+        </svg>
+      ),
+    },
+    {
+      title: "Continuous Optimization",
+      description:
+        "Our team constantly monitors campaign performance, making data-driven adjustments to improve results and reduce costs.",
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="h-8 w-8 text-purple-700"
+        >
+          <path d="m12 14 4-4"></path>
+          <path d="M3.34 19a10 10 0 1 1 17.32 0"></path>
+        </svg>
+      ),
+    },
+    {
+      title: "Transparent Reporting",
+      description:
+        "Receive clear, comprehensive reports that demonstrate the real impact of your advertising campaigns on your business.",
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="h-8 w-8 text-purple-700"
+        >
+          <path d="M3 3v18h18"></path>
+          <path d="m19 9-5 5-4-4-3 3"></path>
+        </svg>
+      ),
+    },
+  ]
+
   return (
     <main className="flex min-h-screen flex-col bg-gray-50">
       <NavBar />
       <div className="flex-1 pt-32">
         <div className="container max-w-6xl mx-auto px-4 py-12">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-purple-800 mb-4">Ad Management</h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Strategic advertising management that delivers measurable results
-            </p>
-          </div>
+          <AnimatedHero
+            title="Ad Management"
+            subtitle="Strategic advertising management that delivers measurable results"
+            className="mb-12"
+          />
 
           <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
             <div>
@@ -41,13 +111,13 @@ export default function AdManagementPage() {
               </p>
               <CTAButton
                 source="Ad Management Page"
-                className="bg-purple-700 hover:bg-purple-800 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 mt-4"
+                className="cta-button bg-purple-700 hover:bg-purple-800 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out mt-4"
               >
                 Get Started With Ad Management
               </CTAButton>
             </div>
             <div className="flex justify-center">
-              <Image
+              <AnimatedImage
                 src="/images/services/ad-management.webp"
                 alt="Ad management dashboard showing campaign performance across multiple platforms"
                 width={600}
@@ -59,80 +129,7 @@ export default function AdManagementPage() {
 
           <div className="bg-white p-8 rounded-lg shadow-md">
             <h2 className="text-2xl font-bold text-purple-700 mb-6 text-center">Our Ad Management Approach</h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-8 w-8 text-purple-700"
-                  >
-                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-                  </svg>
-                </div>
-                <h3 className="font-bold text-lg mb-2">Strategic Planning</h3>
-                <p>
-                  We develop customized advertising strategies aligned with your business goals, target audience, and
-                  budget constraints.
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-8 w-8 text-purple-700"
-                  >
-                    <path d="m12 14 4-4"></path>
-                    <path d="M3.34 19a10 10 0 1 1 17.32 0"></path>
-                  </svg>
-                </div>
-                <h3 className="font-bold text-lg mb-2">Continuous Optimization</h3>
-                <p>
-                  Our team constantly monitors campaign performance, making data-driven adjustments to improve results
-                  and reduce costs.
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-8 w-8 text-purple-700"
-                  >
-                    <path d="M3 3v18h18"></path>
-                    <path d="m19 9-5 5-4-4-3 3"></path>
-                  </svg>
-                </div>
-                <h3 className="font-bold text-lg mb-2">Transparent Reporting</h3>
-                <p>
-                  Receive clear, comprehensive reports that demonstrate the real impact of your advertising campaigns on
-                  your business.
-                </p>
-              </div>
-            </div>
+            <FeatureCardsCascade cards={featureCards} />
           </div>
         </div>
       </div>

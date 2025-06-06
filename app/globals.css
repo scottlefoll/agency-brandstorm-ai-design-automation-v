@@ -87,6 +87,319 @@
   }
 }
 
+@keyframes slideUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes imageReveal {
+  0% {
+    transform: translateY(30px) scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes cascadeUp {
+  0% {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes starFill {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes starGlow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 2px rgba(251, 191, 36, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.8));
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Hero Section Animations */
+.animated-hero-title {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animated-hero-subtitle {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animated-hero-description {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animated-hero-content {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.8s forwards;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.8s forwards 0.2s;
+}
+
+.fade-up {
+  animation: fadeUp 0.8s forwards 0.4s;
+}
+
+.fade-up-delay {
+  animation: fadeUp 0.8s forwards 0.6s;
+}
+
+/* Image Reveal Animations */
+.animated-image {
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animated-image.reveal {
+  animation: imageReveal 0.8s forwards;
+}
+
+/* Feature Cards Cascade */
+.feature-card {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.cascade-1 {
+  animation: cascadeUp 0.8s forwards;
+}
+
+.cascade-2 {
+  animation: cascadeUp 0.8s forwards 0.2s;
+}
+
+.cascade-3 {
+  animation: cascadeUp 0.8s forwards 0.4s;
+}
+
+/* Enhanced CTA Button Hover Effects */
+.cta-button {
+  transition: all 0.3s ease;
+  transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.cta-button:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Existing animations */
+.animated-text {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal-1 {
+  animation: slideUp 0.8s forwards;
+}
+
+.reveal-2 {
+  animation: slideUp 0.8s forwards 0.3s;
+}
+
+.reveal-3 {
+  animation: slideUp 0.8s forwards 0.6s;
+}
+
+.animated-element {
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in {
+  animation: fadeIn 1s forwards 0.9s;
+}
+
+.fade-in-delay-1 {
+  animation: fadeIn 1s forwards 1.2s;
+}
+
+.fade-in-delay-2 {
+  animation: fadeIn 1s forwards 1.5s;
+}
+
+.fade-in-delay-3 {
+  animation: fadeIn 1s forwards 1.8s;
+}
+
+.fade-in-delay-4 {
+  animation: fadeIn 1s forwards 2.1s;
+}
+
+/* Testimonial Card Animations */
+.animate-star-fill {
+  animation: starFill 0.6s ease-out forwards, starGlow 2s ease-in-out infinite 0.6s;
+}
+
+.floating-avatar {
+  animation: float 3s ease-in-out infinite, breathe 4s ease-in-out infinite;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .animated-text,
+  .animated-element,
+  .floating-avatar,
+  .animated-hero-title,
+  .animated-hero-subtitle,
+  .animated-hero-description,
+  .animated-hero-content,
+  .animated-image,
+  .feature-card,
+  .cta-button {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .animate-star-fill {
+    animation: none !important;
+    transform: scale(1) !important;
+    opacity: 1 !important;
+  }
+
+  .reveal-1,
+  .reveal-2,
+  .reveal-3,
+  .fade-in,
+  .fade-in-delay-1,
+  .fade-in-delay-2,
+  .fade-in-delay-3,
+  .fade-in-delay-4,
+  .slide-in-left,
+  .slide-in-right,
+  .fade-up,
+  .fade-up-delay,
+  .cascade-1,
+  .cascade-2,
+  .cascade-3 {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .animated-image.reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .cta-button:hover {
+    transform: none !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+  }
+}
+
 @layer utilities {
   /* Dropdown menu improvements */
   .group:hover .group-hover\:block {

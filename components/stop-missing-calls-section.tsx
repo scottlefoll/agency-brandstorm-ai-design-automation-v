@@ -1,12 +1,18 @@
 import Image from "next/image"
 import { CTAButton } from "@/components/cta-button"
+import { VoiceWaveform } from "@/components/voice-waveform"
 
 export function StopMissingCallsSection() {
   return (
     <section className="w-full py-16 bg-white">
       <div className="container">
         <div className="grid md:grid-cols-2 gap-8 items-center">
-          <div>
+          <div className="relative">
+            {/* Voice Waveform Bar Visualizer */}
+            <div className="absolute -top-16 -left-8 z-10">
+              <VoiceWaveform />
+            </div>
+
             <Image
               src="/images/customer-service-rep.png"
               alt="Customer service representative with headset"

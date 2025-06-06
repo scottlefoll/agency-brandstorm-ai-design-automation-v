@@ -235,13 +235,22 @@ export function GetFoundSection() {
         <div className="grid md:grid-cols-2 gap-8 items-center mt-16">
           <div>
             <p className="text-lg mb-8">
-              Build Trust Through Reviews Leverage the power of social proof with our automated review generation
+              Be Found Where People Are Searching Voice search is now the #1 way people find businesses. From Siri to
+              Alexa to Google Assistant, more customers are asking their devices—not typing into search bars.
+            </p>
+
+            <p className="text-lg mb-8">Will your business show up when they do?</p>
+
+            <p className="text-lg mb-8">
+              ✅ Whether they're using Safari, Firefox, or just their voice... ✅ You need to be visible everywhere they
+              search.
             </p>
 
             <p className="text-lg mb-8">
-              Our sophisticated listing management system ensures your business information is accurate and consistent
-              across all platforms, boosting your visibility and credibility.
+              Our Listed Everywhere service makes sure your business gets found—across all platforms, all the time.
             </p>
+
+            <p className="text-lg mb-8">👉 Maximize your visibility. Dominate local search. Start today.</p>
 
             <CTAButton source="Get Found Section">GET STARTED TODAY</CTAButton>
           </div>
@@ -249,8 +258,8 @@ export function GetFoundSection() {
           <div className="flex justify-center">
             <div className="relative">
               <Image
-                src="/images/listing-management-app.png"
-                alt="Business listing management app"
+                src="/voice-search-be-found.webp"
+                alt="Voice Search - Be found where people are searching"
                 width={300}
                 height={600}
                 className="rounded-xl shadow-xl"

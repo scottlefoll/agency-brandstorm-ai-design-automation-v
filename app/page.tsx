@@ -18,6 +18,7 @@ import { CaseStudySection } from "@/components/case-study-section"
 import { Footer } from "@/components/footer"
 import { SearchBoxOptimizationSection } from "@/components/search-box-optimization-section"
 import { ReviewsSecondSection } from "@/components/reviews-second-section"
+import { ScrollReveal } from "@/components/scroll-reveal"
 
 export default function Home() {
   // Shared background styles for sections that need the hero background
@@ -68,79 +69,109 @@ export default function Home() {
 
         {/* Page_2: Testimonial Section */}
         <section id="page_2" className="bg-black">
-          <ScaleSection />
-          <ServiceCards />
+          <ScrollReveal>
+            <ScaleSection />
+          </ScrollReveal>
+          <ScrollReveal delay={200}>
+            <ServiceCards />
+          </ScrollReveal>
         </section>
 
         {/* Page_3: Audit Section */}
         <section id="page_3" style={heroBackgroundStyle}>
           <VideoBackground />
           <div className="relative z-30">
-            <FreeAuditSection />
+            <ScrollReveal>
+              <FreeAuditSection />
+            </ScrollReveal>
           </div>
         </section>
 
         {/* Page_4: AI_Voice Section */}
         <section id="page_4" className="bg-white">
-          <StopMissingCallsSection />
+          <ScrollReveal>
+            <StopMissingCallsSection />
+          </ScrollReveal>
         </section>
 
         {/* Page_5: Search Section */}
         <section id="page_5" className="bg-[#F5F5F5]">
-          <GetFoundSection />
+          <ScrollReveal>
+            <GetFoundSection />
+          </ScrollReveal>
         </section>
 
         {/* Page_6: Social_Proof Section */}
         <section id="page_6" className="bg-white">
-          <BuildTrustSection />
+          <ScrollReveal>
+            <BuildTrustSection />
+          </ScrollReveal>
         </section>
 
         {/* Page_7: Google_Maps Section */}
         <section id="page_7" className="bg-[#F5F5F5]">
-          <GoogleMapsSection />
+          <ScrollReveal>
+            <GoogleMapsSection />
+          </ScrollReveal>
         </section>
 
         {/* Page_8: Web_Design Section */}
         <section id="page_8" className="bg-white">
-          <BrandingSection />
+          <ScrollReveal>
+            <BrandingSection />
+          </ScrollReveal>
         </section>
 
         {/* Page_9: Conversion Section */}
         <section id="page_9" className="bg-[#F5F5F5]">
-          <SalesSection />
+          <ScrollReveal>
+            <SalesSection />
+          </ScrollReveal>
         </section>
 
         {/* Page_10: CRM Section */}
         <section id="page_10" className="bg-white">
-          <DataSection />
+          <ScrollReveal>
+            <DataSection />
+          </ScrollReveal>
         </section>
 
         {/* Page_11: Brandstorm Section */}
         <section id="page_11" style={heroBackgroundStyle}>
           <VideoBackground />
           <div className="relative z-30">
-            <WhyChooseSection />
+            <ScrollReveal>
+              <WhyChooseSection />
+            </ScrollReveal>
           </div>
         </section>
 
         {/* Page_12: Strategy_Call Section */}
         <section id="page_12" className="bg-gray-100">
-          <ReadySection />
+          <ScrollReveal>
+            <ReadySection />
+          </ScrollReveal>
         </section>
 
         {/* Page_13: Services Section */}
         <section id="page_13" className="bg-blue-900 text-white">
-          <ClientsSection />
+          <ScrollReveal>
+            <ClientsSection />
+          </ScrollReveal>
         </section>
 
         {/* Page_14: Case_Study Section */}
         <section id="page_14" className="bg-gray-50">
-          <CaseStudySection />
+          <ScrollReveal>
+            <CaseStudySection />
+          </ScrollReveal>
         </section>
 
         {/* Page_15: SBO Section */}
         <section id="page_15" className="bg-white">
-          <SearchBoxOptimizationSection />
+          <ScrollReveal>
+            <SearchBoxOptimizationSection />
+          </ScrollReveal>
         </section>
 
         {/* Page_16: Reviews_2 Section */}
@@ -152,7 +183,9 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-r from-blue-900 via-purple-800 to-blue-600 opacity-30 z-20"></div>
 
           <div className="relative z-30">
-            <ReviewsSecondSection />
+            <ScrollReveal>
+              <ReviewsSecondSection />
+            </ScrollReveal>
           </div>
         </section>
 

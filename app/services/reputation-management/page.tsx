@@ -1,8 +1,10 @@
 import { NavBar } from "@/components/nav-bar"
 import { Footer } from "@/components/footer"
-import Image from "next/image"
 import { CTAButton } from "@/components/cta-button"
 import type { Metadata } from "next"
+import { AnimatedHero } from "@/components/animated-hero"
+import { AnimatedImage } from "@/components/animated-image"
+import { FeatureCardsCascade } from "@/components/feature-cards-cascade"
 
 export const metadata: Metadata = {
   title: "Reputation Management - Brandstorm AI",
@@ -16,12 +18,10 @@ export default function ReputationManagementPage() {
       <NavBar />
       <div className="flex-1 bg-gray-50 pt-32">
         <div className="container max-w-6xl mx-auto px-4 py-12">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-purple-800 mb-4">Reputation Management</h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Build, protect, and enhance your brand's online reputation
-            </p>
-          </div>
+          <AnimatedHero
+            title="Reputation Management"
+            subtitle="Build, protect, and enhance your brand's online reputation"
+          />
 
           <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
             <div>
@@ -44,12 +44,12 @@ export default function ReputationManagementPage() {
                 positive reviews while professionally addressing any negative feedback. The result is a strong,
                 resilient online reputation that builds trust with your audience and supports your business growth.
               </p>
-              <CTAButton source="Reputation Management Page" className="mt-4">
+              <CTAButton source="Reputation Management Page" className="cta-button mt-4">
                 Protect Your Brand Reputation
               </CTAButton>
             </div>
             <div className="flex justify-center">
-              <Image
+              <AnimatedImage
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Services10-Reputation-nTOqWZQJWSh9LTwWAZnBseyzrGyeEJ.webp"
                 alt="Shield with green checkmark representing reputation protection and brand trust"
                 width={600}
@@ -59,11 +59,13 @@ export default function ReputationManagementPage() {
             </div>
           </div>
 
-          <div className="bg-white p-8 rounded-lg shadow-md">
-            <h2 className="text-2xl font-bold text-purple-700 mb-6 text-center">Our Reputation Management Services</h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
+          <FeatureCardsCascade
+            cards={[
+              {
+                title: "Reputation Monitoring",
+                description:
+                  "Continuous monitoring of your brand mentions across the web, allowing for quick response to potential reputation threats.",
+                icon: (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -78,15 +80,13 @@ export default function ReputationManagementPage() {
                   >
                     <path d="m8 3 4 8 5-5 5 15H2L8 3z"></path>
                   </svg>
-                </div>
-                <h3 className="font-bold text-lg mb-2">Reputation Monitoring</h3>
-                <p>
-                  Continuous monitoring of your brand mentions across the web, allowing for quick response to potential
-                  reputation threats.
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
+                ),
+              },
+              {
+                title: "Content Strategy",
+                description:
+                  "Development of positive, authoritative content that ranks well in search results and shapes the narrative around your brand.",
+                icon: (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -102,15 +102,13 @@ export default function ReputationManagementPage() {
                     <path d="M12 20h9"></path>
                     <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
                   </svg>
-                </div>
-                <h3 className="font-bold text-lg mb-2">Content Strategy</h3>
-                <p>
-                  Development of positive, authoritative content that ranks well in search results and shapes the
-                  narrative around your brand.
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
+                ),
+              },
+              {
+                title: "Crisis Management",
+                description:
+                  "Strategic response planning and execution to address negative publicity or online criticism with professionalism and transparency.",
+                icon: (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -125,15 +123,10 @@ export default function ReputationManagementPage() {
                   >
                     <path d="M17 14v6m-3-3h6M6 9V3m3 3H3M6 21v-6m3 3H3M21 9V3m-3 3h6"></path>
                   </svg>
-                </div>
-                <h3 className="font-bold text-lg mb-2">Crisis Management</h3>
-                <p>
-                  Strategic response planning and execution to address negative publicity or online criticism with
-                  professionalism and transparency.
-                </p>
-              </div>
-            </div>
-          </div>
+                ),
+              },
+            ]}
+          />
         </div>
       </div>
       <Footer />

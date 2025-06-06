@@ -1,8 +1,10 @@
 import { NavBar } from "@/components/nav-bar"
 import { Footer } from "@/components/footer"
-import Image from "next/image"
-import { CTAButton } from "@/components/cta-button"
 import type { Metadata } from "next"
+import { AnimatedHero } from "@/components/animated-hero"
+import { AnimatedImage } from "@/components/animated-image"
+import { FeatureCardsCascade } from "@/components/feature-cards-cascade"
+import { CTAButton } from "@/components/cta-button"
 
 export const metadata: Metadata = {
   title: "Review Management - Brandstorm AI",
@@ -15,16 +17,14 @@ export default function ReviewManagementPage() {
       <NavBar />
       <div className="flex-1 pt-32">
         <div className="container max-w-6xl mx-auto px-4 py-12">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-purple-800 mb-4">Review Management</h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Harness the power of customer feedback to grow your business
-            </p>
-          </div>
+          <AnimatedHero
+            title="Review Management"
+            subtitle="Harness the power of customer feedback to grow your business"
+          />
 
           <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
             <div className="order-2 md:order-1 flex justify-center">
-              <Image
+              <AnimatedImage
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Services11-Reviews-qTpwRNY7aEsAryWlg8ubjnTfYrtDm1.webp"
                 alt="Laptop showing review management dashboard with customer feedback and growth metrics"
                 width={600}
@@ -54,18 +54,20 @@ export default function ReviewManagementPage() {
               </p>
               <CTAButton
                 source="Review Management Page"
-                className="bg-purple-700 hover:bg-purple-800 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 mt-4"
+                className="cta-button bg-purple-700 hover:bg-purple-800 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 mt-4"
               >
                 Boost Your Online Reviews
               </CTAButton>
             </div>
           </div>
 
-          <div className="bg-white p-8 rounded-lg shadow-md">
-            <h2 className="text-2xl font-bold text-purple-700 mb-6 text-center">Our Review Management Approach</h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
+          <FeatureCardsCascade
+            cards={[
+              {
+                title: "Review Generation",
+                description:
+                  "Strategic systems and campaigns to encourage satisfied customers to leave positive reviews on your most important platforms.",
+                icon: (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -79,17 +81,15 @@ export default function ReviewManagementPage() {
                     className="h-8 w-8 text-purple-700"
                   >
                     <path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z"></path>
-                    <path d="M10 2c1 .5 2 2 2 5"></path>
+                    <path d="M10 2c1 .5 2 2 5"></path>
                   </svg>
-                </div>
-                <h3 className="font-bold text-lg mb-2">Review Generation</h3>
-                <p>
-                  Strategic systems and campaigns to encourage satisfied customers to leave positive reviews on your
-                  most important platforms.
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
+                ),
+              },
+              {
+                title: "Response Management",
+                description:
+                  "Professional, timely responses to all reviews that demonstrate your commitment to customer satisfaction and service excellence.",
+                icon: (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -104,15 +104,13 @@ export default function ReviewManagementPage() {
                   >
                     <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
                   </svg>
-                </div>
-                <h3 className="font-bold text-lg mb-2">Response Management</h3>
-                <p>
-                  Professional, timely responses to all reviews that demonstrate your commitment to customer
-                  satisfaction and service excellence.
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
+                ),
+              },
+              {
+                title: "Review Analytics",
+                description:
+                  "Comprehensive analysis of review data to identify trends, improvement opportunities, and competitive insights for your business.",
+                icon: (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -128,15 +126,10 @@ export default function ReviewManagementPage() {
                     <path d="M3 3v18h18"></path>
                     <path d="m19 9-5 5-4-4-3 3"></path>
                   </svg>
-                </div>
-                <h3 className="font-bold text-lg mb-2">Review Analytics</h3>
-                <p>
-                  Comprehensive analysis of review data to identify trends, improvement opportunities, and competitive
-                  insights for your business.
-                </p>
-              </div>
-            </div>
-          </div>
+                ),
+              },
+            ]}
+          />
         </div>
       </div>
       <Footer />
