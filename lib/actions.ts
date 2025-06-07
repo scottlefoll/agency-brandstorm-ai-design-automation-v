@@ -14,10 +14,18 @@ type FormData = {
 
 export async function sendContactEmail(data: FormData) {
   try {
-    // Use the provided API key directly for v0 testing
-    const RESEND_API_KEY = "re_Hy3Q8tSA_KVrfoX6czGshqP1E4qWLFbkE"
+    // Use environment variable only - no embedded keys
+    const RESEND_API_KEY = process.env.RESEND_API_KEY
 
-    console.log("✅ Using provided Resend API key for v0 testing...")
+    if (!RESEND_API_KEY) {
+      console.error("❌ RESEND_API_KEY environment variable not found")
+      return {
+        success: false,
+        error: "Email service not configured. Please contact support.",
+      }
+    }
+
+    console.log("✅ Using Resend API key from environment variable...")
     console.log("Form data received:", data)
 
     // Import Resend
@@ -26,7 +34,7 @@ export async function sendContactEmail(data: FormData) {
 
     // Use Resend's default domain for sending
     const fromEmail = "onboarding@resend.dev"
-    // Send to your verified email address instead
+    // Send to your verified email address
     const businessEmail = "scottlefoll@gmail.com"
 
     // Send email to business owner (your verified email)
@@ -55,7 +63,7 @@ export async function sendContactEmail(data: FormData) {
           </div>
           
           <hr style="margin: 30px 0;">
-          <p style="color: #6b7280; font-size: 14px;"><em>This email was sent from your Brandstorm AI website contact form (v0 test).</em></p>
+          <p style="color: #6b7280; font-size: 14px;"><em>This email was sent from your Brandstorm AI website contact form.</em></p>
         </div>
       `,
     })
