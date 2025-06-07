@@ -1,8 +1,6 @@
 import { NavBar } from "@/components/nav-bar"
 import { Footer } from "@/components/footer"
-import { AnimatedHero } from "@/components/animated-hero"
-import { AnimatedImage } from "@/components/animated-image"
-import { FeatureCardsCascade } from "@/components/feature-cards-cascade"
+import Image from "next/image"
 import { CTAButton } from "@/components/cta-button"
 import type { Metadata } from "next"
 
@@ -17,14 +15,16 @@ export default function CRMPage() {
       <NavBar />
       <div className="flex-1 pt-32">
         <div className="container max-w-6xl mx-auto px-4 py-12">
-          <AnimatedHero
-            title="CRM Solutions"
-            subtitle="Transform your customer relationships into your greatest business asset"
-          />
+          <div className="text-center mb-12">
+            <h1 className="text-4xl font-bold text-purple-800 mb-4">CRM Solutions</h1>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Transform your customer relationships into your greatest business asset
+            </p>
+          </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
             <div className="order-2 md:order-1 flex justify-center">
-              <AnimatedImage
+              <Image
                 src="/images/services/crm.webp"
                 alt="CRM system connecting and understanding customer relationships for business growth"
                 width={600}
@@ -54,20 +54,18 @@ export default function CRMPage() {
               </p>
               <CTAButton
                 source="CRM Page"
-                className="cta-button bg-purple-700 hover:bg-purple-800 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 mt-4"
+                className="bg-purple-700 hover:bg-purple-800 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 mt-4"
               >
                 Optimize Your Customer Relationships
               </CTAButton>
             </div>
           </div>
 
-          <FeatureCardsCascade
-            cards={[
-              {
-                title: "Contact Management",
-                description:
-                  "Maintain comprehensive customer profiles with complete interaction history, preferences, and communication logs in one accessible location.",
-                icon: (
+          <div className="bg-white p-8 rounded-lg shadow-md">
+            <h2 className="text-2xl font-bold text-purple-700 mb-6 text-center">Key CRM Features</h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="text-center">
+                <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -85,13 +83,15 @@ export default function CRMPage() {
                     <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
                     <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                   </svg>
-                ),
-              },
-              {
-                title: "Sales Pipeline Management",
-                description:
-                  "Visualize and optimize your sales process with customizable pipelines that track leads from initial contact through to closed deals.",
-                icon: (
+                </div>
+                <h3 className="font-bold text-lg mb-2">Contact Management</h3>
+                <p>
+                  Maintain comprehensive customer profiles with complete interaction history, preferences, and
+                  communication logs in one accessible location.
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -106,13 +106,15 @@ export default function CRMPage() {
                   >
                     <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
                   </svg>
-                ),
-              },
-              {
-                title: "Marketing Automation",
-                description:
-                  "Create personalized, automated marketing workflows that nurture leads, trigger timely follow-ups, and deliver the right message at the right time.",
-                icon: (
+                </div>
+                <h3 className="font-bold text-lg mb-2">Sales Pipeline Management</h3>
+                <p>
+                  Visualize and optimize your sales process with customizable pipelines that track leads from initial
+                  contact through to closed deals.
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -129,10 +131,15 @@ export default function CRMPage() {
                     <path d="M12 2v10.3a4 4 0 0 1-1.172 2.872L4 22"></path>
                     <path d="m20 22-5-5"></path>
                   </svg>
-                ),
-              },
-            ]}
-          />
+                </div>
+                <h3 className="font-bold text-lg mb-2">Marketing Automation</h3>
+                <p>
+                  Create personalized, automated marketing workflows that nurture leads, trigger timely follow-ups, and
+                  deliver the right message at the right time.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <Footer />

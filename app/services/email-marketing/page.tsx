@@ -1,9 +1,8 @@
 import { NavBar } from "@/components/nav-bar"
 import { Footer } from "@/components/footer"
-import { AnimatedHero } from "@/components/animated-hero"
-import { AnimatedImage } from "@/components/animated-image"
-import { FeatureCardsCascade } from "@/components/feature-cards-cascade"
+import Image from "next/image"
 import { CTAButton } from "@/components/cta-button"
+import { AnimatedTextContent } from "@/components/animated-text-content"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -18,121 +17,153 @@ export default function EmailMarketingPage() {
       <NavBar />
       <div className="flex-1 pt-32">
         <div className="container max-w-6xl mx-auto px-4 py-12">
-          <AnimatedHero
-            title="Email Marketing"
-            subtitle="Build lasting relationships and drive conversions through strategic email campaigns"
-          />
+          <div className="text-center mb-12">
+            <h1 className="text-4xl font-bold text-purple-800 mb-4 hero-title">Email Marketing</h1>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto hero-subtitle">
+              Personalized email campaigns that nurture relationships and drive revenue
+            </p>
+          </div>
 
-          <section className="py-12">
-            <div className="container mx-auto text-center">
-              <h2 className="text-3xl font-semibold mb-6">Why Email Marketing?</h2>
-              <p className="text-gray-700 leading-relaxed">
-                Email marketing is a powerful tool for connecting with your audience, nurturing leads, and driving
-                sales. It allows you to deliver personalized messages directly to your customers' inboxes, building
-                brand loyalty and increasing engagement.
-              </p>
+          <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+            <div>
+              <AnimatedTextContent>
+                <h2 className="text-2xl font-bold text-purple-700 mb-4">The Power of Direct Communication</h2>
+              </AnimatedTextContent>
+
+              <AnimatedTextContent delay={200}>
+                <p className="text-lg mb-6">
+                  Despite the rise of numerous digital marketing channels, email remains one of the most effective ways
+                  to reach your audience directly. Our email marketing services leverage this powerful channel to build
+                  meaningful relationships with your customers, nurture leads, and drive conversions. We create
+                  personalized email campaigns that deliver the right message to the right person at the right time,
+                  resulting in higher engagement rates and a stronger return on investment.
+                </p>
+              </AnimatedTextContent>
+
+              <AnimatedTextContent delay={400}>
+                <p className="text-lg mb-6">
+                  From welcome sequences and promotional campaigns to abandoned cart recovery and customer retention
+                  strategies, our email marketing solutions are designed to support your business goals at every stage
+                  of the customer journey. Our approach combines creative design, compelling copywriting, and
+                  data-driven strategy to ensure maximum impact.
+                </p>
+              </AnimatedTextContent>
+
+              <AnimatedTextContent delay={600}>
+                <p className="text-lg mb-6">
+                  Our team designs visually appealing, mobile-responsive email templates that reflect your brand
+                  identity while optimizing for conversions. We implement advanced segmentation, personalization, and
+                  automation to ensure your messages are relevant and timely. Most importantly, we continuously analyze
+                  campaign performance, conduct A/B testing, and refine our approach based on real data, ensuring your
+                  email marketing program becomes more effective over time.
+                </p>
+              </AnimatedTextContent>
+
+              <AnimatedTextContent delay={800}>
+                <CTAButton
+                  source="Email Marketing Page"
+                  className="bg-purple-700 hover:bg-purple-800 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 mt-4 cta-enhanced"
+                >
+                  Launch Effective Email Campaigns
+                </CTAButton>
+              </AnimatedTextContent>
             </div>
-          </section>
 
-          <section className="py-12 bg-gray-100">
-            <div className="container mx-auto">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                <div>
-                  <h3 className="text-2xl font-semibold mb-4">Reach a Wider Audience</h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    Connect with potential customers and expand your reach through targeted email campaigns.
-                  </p>
-                  <CTAButton className="cta-button mt-4">Learn More</CTAButton>
-                </div>
-                <div>
-                  <AnimatedImage
-                    src="/placeholder.svg?height=300&width=500&text=Email+Audience"
-                    alt="Reach a Wider Audience"
-                    width={500}
-                    height={300}
-                    className="rounded-lg shadow-md"
-                  />
-                </div>
+            <div className="flex justify-center">
+              <div className="image-reveal">
+                <Image
+                  src="/email-marketing-analytics-responsive.png"
+                  alt="Email marketing campaign dashboard with performance metrics"
+                  width={600}
+                  height={400}
+                  className="rounded-lg shadow-lg"
+                />
               </div>
             </div>
-          </section>
+          </div>
 
-          <section className="py-12">
-            <div className="container mx-auto">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                <div>
-                  <AnimatedImage
-                    src="/placeholder.svg?height=300&width=500&text=Personalized+Campaigns"
-                    alt="Personalized Campaigns"
-                    width={500}
-                    height={300}
-                    className="rounded-lg shadow-md"
-                  />
+          <div className="bg-white p-8 rounded-lg shadow-md">
+            <AnimatedTextContent>
+              <h2 className="text-2xl font-bold text-purple-700 mb-6 text-center">Our Email Marketing Services</h2>
+            </AnimatedTextContent>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="text-center feature-card-cascade">
+                <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="h-8 w-8 text-purple-700"
+                  >
+                    <path d="M12 20h9"></path>
+                    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                  </svg>
                 </div>
-                <div>
-                  <h3 className="text-2xl font-semibold mb-4">Personalized Campaigns</h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    Craft personalized email campaigns that resonate with your audience and drive higher engagement.
-                  </p>
-                  <CTAButton className="cta-button mt-4">Get Started</CTAButton>
+                <h3 className="font-bold text-lg mb-2">Campaign Creation</h3>
+                <p>
+                  Strategic email campaigns with compelling copy, eye-catching design, and clear calls-to-action that
+                  drive engagement and conversions.
+                </p>
+              </div>
+              <div className="text-center feature-card-cascade">
+                <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="h-8 w-8 text-purple-700"
+                  >
+                    <path d="M17 6.1H3"></path>
+                    <path d="M21 12.1H3"></path>
+                    <path d="M15.1 18H3"></path>
+                  </svg>
                 </div>
+                <h3 className="font-bold text-lg mb-2">List Segmentation</h3>
+                <p>
+                  Advanced audience segmentation that ensures your messages reach the right people with content tailored
+                  to their specific interests and behaviors.
+                </p>
+              </div>
+              <div className="text-center feature-card-cascade">
+                <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="h-8 w-8 text-purple-700"
+                  >
+                    <path d="M5.52 19c.64-2.2 1.84-3 3.22-3h6.52c1.38 0 2.58.8 3.22 3"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                    <circle cx="12" cy="12" r="10"></circle>
+                  </svg>
+                </div>
+                <h3 className="font-bold text-lg mb-2">Personalization</h3>
+                <p>
+                  Dynamic content and personalization strategies that create relevant, one-to-one communications that
+                  resonate with each recipient.
+                </p>
               </div>
             </div>
-          </section>
-
-          <section className="py-12 bg-gray-100">
-            <div className="container mx-auto">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                <div>
-                  <h3 className="text-2xl font-semibold mb-4">Track and Optimize</h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    Monitor your email marketing performance and optimize your campaigns for maximum results.
-                  </p>
-                  <CTAButton className="cta-button mt-4">View Analytics</CTAButton>
-                </div>
-                <div>
-                  <AnimatedImage
-                    src="/placeholder.svg?height=300&width=500&text=Email+Analytics"
-                    alt="Track and Optimize"
-                    width={500}
-                    height={300}
-                    className="rounded-lg shadow-md"
-                  />
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section className="py-12">
-            <div className="container mx-auto text-center">
-              <h2 className="text-3xl font-semibold mb-6">Ready to Get Started?</h2>
-              <p className="text-gray-700 leading-relaxed">
-                Let us help you create effective email marketing campaigns that drive results.
-              </p>
-              <CTAButton className="cta-button mt-4">Contact Us</CTAButton>
-            </div>
-          </section>
-
-          <FeatureCardsCascade
-            cards={[
-              {
-                title: "Personalized Campaigns",
-                description:
-                  "Create targeted email campaigns that speak directly to your audience's needs and interests.",
-              },
-              {
-                title: "Automated Workflows",
-                description:
-                  "Set up automated email sequences that nurture leads and guide customers through their journey.",
-              },
-              {
-                title: "Performance Analytics",
-                description:
-                  "Track open rates, click-through rates, and conversions to optimize your email marketing strategy.",
-              },
-            ]}
-            className="container mx-auto py-12"
-          />
+          </div>
         </div>
       </div>
       <Footer />

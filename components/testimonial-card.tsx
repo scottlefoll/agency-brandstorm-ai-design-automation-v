@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect } from "react"
 import { Star } from "lucide-react"
 import { Modal } from "@/components/modal"
 import Image from "next/image"
@@ -13,7 +13,7 @@ interface TestimonialCardProps {
   business?: string
   image?: string
   stars?: number
-  delay?: number
+  isVisible?: boolean
 }
 
 export function TestimonialCard({
@@ -24,13 +24,21 @@ export function TestimonialCard({
   business,
   image,
   stars = 5,
-  delay = 0,
+  isVisible = false,
 }: TestimonialCardProps) {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [imageError, setImageError] = useState(false)
-  const [isVisible, setIsVisible] = useState(false)
-  const [showStars, setShowStars] = useState(false)
-  const cardRef = useRef<HTMLDivElement>(null)
+  const [animateStars, setAnimateStars] = useState(false)
+
+  // Trigger star animation when card becomes visible
+  useEffect(() => {
+    if (isVisible) {
+      const timer = setTimeout(() => {
+        setAnimateStars(true)
+      }, 300)
+      return () => clearTimeout(timer)
+    }
+  }, [isVisible])
 
   // Generate a consistent avatar color based on name
   const getAvatarColor = (name: string) => {
@@ -45,7 +53,6 @@ export function TestimonialCard({
       "bg-teal-100 text-teal-600",
     ]
 
-    // Simple hash function to get a consistent index
     const hash = name.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0)
     return colors[hash % colors.length]
   }
@@ -58,58 +65,15 @@ export function TestimonialCard({
     .substring(0, 2)
     .toUpperCase()
 
-  // Truncate text for card display
   const truncatedText = text.length > 200 ? text.substring(0, 200) + "..." : text
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            setIsVisible(true)
-            // Trigger star animation after card is visible
-            setTimeout(() => {
-              setShowStars(true)
-            }, 300)
-          }, delay)
-          observer.unobserve(entry.target)
-        }
-      },
-      {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      },
-    )
-
-    const currentRef = cardRef.current
-    if (currentRef) {
-      observer.observe(currentRef)
-    }
-
-    return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef)
-      }
-    }
-  }, [delay])
 
   return (
     <>
-      <div
-        ref={cardRef}
-        className={`bg-white rounded-lg shadow-md p-6 h-full flex flex-col transition-all duration-700 ease-out ${
-          isVisible ? "opacity-100 transform translate-y-0" : "opacity-0 transform translate-y-8"
-        }`}
-        style={{
-          transitionDelay: `${delay}ms`,
-        }}
-      >
+      <div className="bg-white rounded-lg shadow-md p-6 h-full flex flex-col">
         {/* Profile image at top with floating animation */}
         <div className="flex justify-center mb-4">
           {image && !imageError ? (
-            <div
-              className={`h-16 w-16 rounded-full overflow-hidden border-2 border-gray-200 ${isVisible ? "floating-avatar" : ""}`}
-            >
+            <div className="h-16 w-16 rounded-full overflow-hidden border-2 border-gray-200 avatar-float">
               <Image
                 src={image || "/placeholder.svg"}
                 alt={`${name}'s profile`}
@@ -121,26 +85,23 @@ export function TestimonialCard({
             </div>
           ) : (
             <div
-              className={`h-16 w-16 rounded-full overflow-hidden ${avatarColor} flex items-center justify-center text-xl font-bold border-2 border-gray-200 ${isVisible ? "floating-avatar" : ""}`}
+              className={`h-16 w-16 rounded-full overflow-hidden ${avatarColor} flex items-center justify-center text-xl font-bold border-2 border-gray-200 avatar-float`}
             >
               {initials}
             </div>
           )}
         </div>
 
-        {/* Animated Stars */}
+        {/* Stars - Fixed to always display */}
         <div className="flex justify-center mb-3">
           {[...Array(stars)].map((_, i) => (
             <Star
               key={i}
-              className={`h-4 w-4 text-yellow-400 transition-all duration-300 ${
-                showStars
-                  ? "fill-yellow-400 animate-star-fill opacity-100 scale-100"
-                  : "fill-transparent opacity-50 scale-75"
-              }`}
+              className="h-4 w-4 fill-yellow-400 text-yellow-400"
               style={{
-                transitionDelay: `${i * 100}ms`,
-                animationDelay: `${i * 100}ms`,
+                animation: animateStars
+                  ? `starFillIn 0.4s ease-out forwards ${i * 0.1}s, starGlow 2s ease-in-out infinite alternate ${i * 0.1 + 0.4}s`
+                  : "none",
               }}
             />
           ))}

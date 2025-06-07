@@ -1,21 +1,42 @@
+"use client"
+
 import { NavBar } from "@/components/nav-bar"
 import { Footer } from "@/components/footer"
 import { TestimonialGrid } from "@/components/testimonial-grid"
 import { CTAButton } from "@/components/cta-button"
-import type { Metadata } from "next"
-
-export const metadata: Metadata = {
-  title: "Reviews - Brandstorm AI",
-  description: "See what our clients are saying about our services and results.",
-}
+import { useEffect, useState } from "react"
 
 export default function ReviewsPage() {
+  const [typingComplete, setTypingComplete] = useState(false)
+
+  useEffect(() => {
+    // Check if user prefers reduced motion
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+
+    if (prefersReducedMotion) {
+      setTypingComplete(true)
+    } else {
+      // Set typing as complete after animation duration (3s + small buffer)
+      const timer = setTimeout(() => {
+        setTypingComplete(true)
+      }, 3200)
+
+      return () => clearTimeout(timer)
+    }
+  }, [])
+
   return (
     <main className="flex min-h-screen flex-col bg-gray-50">
       <NavBar />
       <div className="flex-1 py-16 pt-36">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold text-purple-800 mb-8 text-center">Client Success Stories</h1>
+          <h1
+            className={`text-4xl md:text-5xl font-bold text-purple-800 mb-8 text-center typing-effect ${
+              typingComplete ? "complete" : ""
+            }`}
+          >
+            Client Success Stories
+          </h1>
 
           <div className="max-w-3xl mx-auto mb-16">
             <p className="text-lg text-gray-700 mb-6">
@@ -41,7 +62,7 @@ export default function ReviewsPage() {
           <div className="text-center">
             <p className="text-xl text-gray-700 mb-4">Ready to experience these results for your business?</p>
             <CTAButton
-              className="inline-block bg-purple-600 hover:bg-purple-700 text-white font-medium py-3 px-8 rounded-lg transition-colors duration-200"
+              className="inline-block bg-purple-600 hover:bg-purple-700 text-white font-medium py-3 px-8 rounded-lg transition-colors duration-200 corner-bounce"
               source="Reviews Page - Get Started Today"
             >
               Get Started Today

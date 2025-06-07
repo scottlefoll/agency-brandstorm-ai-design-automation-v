@@ -1,10 +1,8 @@
 import { NavBar } from "@/components/nav-bar"
 import { Footer } from "@/components/footer"
-import type { Metadata } from "next"
-import { AnimatedHero } from "@/components/animated-hero"
-import { AnimatedImage } from "@/components/animated-image"
-import { FeatureCardsCascade } from "@/components/feature-cards-cascade"
+import Image from "next/image"
 import { CTAButton } from "@/components/cta-button"
+import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Sales Automation - Brandstorm AI",
@@ -18,10 +16,12 @@ export default function SalesAutomationPage() {
       <NavBar />
       <div className="flex-1 bg-gray-50 pt-32">
         <div className="container max-w-6xl mx-auto px-4 py-12">
-          <AnimatedHero
-            title="Sales Automation"
-            subtitle="Close more deals with less effort through intelligent automation"
-          />
+          <div className="text-center mb-12">
+            <h1 className="text-4xl font-bold text-purple-800 mb-4">Sales Automation</h1>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Close more deals with less effort through intelligent automation
+            </p>
+          </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
             <div>
@@ -47,12 +47,12 @@ export default function SalesAutomationPage() {
                 and reporting, giving you clear visibility into your sales pipeline and the impact of your automation
                 efforts.
               </p>
-              <CTAButton source="Sales Automation Page" className="cta-button mt-4">
+              <CTAButton source="Sales Automation Page" className="mt-4">
                 Automate Your Sales Process
               </CTAButton>
             </div>
             <div className="flex justify-center">
-              <AnimatedImage
+              <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Services12-SalesAutomation-SeO0xw2tLC3JWX2jzMqVSHRaof5N6v.webp"
                 alt="AI brain with business automation processes including appointment booking, text back, ordering, and confirmation"
                 width={600}
@@ -62,13 +62,11 @@ export default function SalesAutomationPage() {
             </div>
           </div>
 
-          <FeatureCardsCascade
-            cards={[
-              {
-                title: "Lead Qualification",
-                description:
-                  "Automated scoring and qualification systems that identify your most promising leads and prioritize them for your sales team.",
-                icon: (
+          <div className="bg-white p-8 rounded-lg shadow-md">
+            <h2 className="text-2xl font-bold text-purple-700 mb-6 text-center">Key Automation Features</h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="text-center">
+                <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -86,13 +84,15 @@ export default function SalesAutomationPage() {
                     <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
                     <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                   </svg>
-                ),
-              },
-              {
-                title: "Follow-up Sequences",
-                description:
-                  "Personalized, multi-touch communication sequences that nurture leads through your sales funnel with the right content at the right time.",
-                icon: (
+                </div>
+                <h3 className="font-bold text-lg mb-2">Lead Qualification</h3>
+                <p>
+                  Automated scoring and qualification systems that identify your most promising leads and prioritize
+                  them for your sales team.
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -110,13 +110,15 @@ export default function SalesAutomationPage() {
                     <line x1="8" y1="2" x2="8" y2="6"></line>
                     <line x1="3" y1="10" x2="21" y2="10"></line>
                   </svg>
-                ),
-              },
-              {
-                title: "Proposal Automation",
-                description:
-                  "Streamlined proposal and quote generation that creates professional, personalized documents in minutes instead of hours.",
-                icon: (
+                </div>
+                <h3 className="font-bold text-lg mb-2">Follow-up Sequences</h3>
+                <p>
+                  Personalized, multi-touch communication sequences that nurture leads through your sales funnel with
+                  the right content at the right time.
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -132,10 +134,15 @@ export default function SalesAutomationPage() {
                     <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
                     <polyline points="14 2 14 8 20 8"></polyline>
                   </svg>
-                ),
-              },
-            ]}
-          />
+                </div>
+                <h3 className="font-bold text-lg mb-2">Proposal Automation</h3>
+                <p>
+                  Streamlined proposal and quote generation that creates professional, personalized documents in minutes
+                  instead of hours.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <Footer />

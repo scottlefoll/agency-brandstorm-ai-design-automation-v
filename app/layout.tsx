@@ -2,6 +2,7 @@ import type React from "react"
 import "@/app/globals.css"
 import { Inter, Montserrat } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
+import { CTAAnimationScript } from "@/components/cta-animation-script"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -18,7 +19,7 @@ export const metadata = {
   icons: {
     icon: [{ url: "/favicon.png" }, { url: "/favicon.ico" }],
   },
-    generator: 'v0.dev'
+  generator: "v0.dev",
 }
 
 export default function RootLayout({
@@ -34,6 +35,7 @@ export default function RootLayout({
       <body className={`${inter.className} ${montserrat.variable}`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           {children}
+          <CTAAnimationScript />
         </ThemeProvider>
       </body>
     </html>

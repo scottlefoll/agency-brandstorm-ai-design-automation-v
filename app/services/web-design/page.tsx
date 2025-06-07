@@ -1,10 +1,8 @@
 import { NavBar } from "@/components/nav-bar"
 import { Footer } from "@/components/footer"
-import type { Metadata } from "next"
-import { AnimatedHero } from "@/components/animated-hero"
-import { AnimatedImage } from "@/components/animated-image"
-import { FeatureCardsCascade } from "@/components/feature-cards-cascade"
+import Image from "next/image"
 import { CTAButton } from "@/components/cta-button"
+import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Web Design - Brandstorm AI",
@@ -18,14 +16,16 @@ export default function WebDesignPage() {
       <NavBar />
       <div className="flex-1 pt-32">
         <div className="container max-w-6xl mx-auto px-4 py-12">
-          <AnimatedHero
-            title="Web Design"
-            subtitle="Stunning, conversion-focused websites that drive business growth"
-          />
+          <div className="text-center mb-12">
+            <h1 className="text-4xl font-bold text-purple-800 mb-4">Web Design</h1>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Stunning, conversion-focused websites that drive business growth
+            </p>
+          </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
             <div className="order-2 md:order-1 flex justify-center">
-              <AnimatedImage
+              <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Services17-WebDesign-3NbS1dh38amxQMcWDJy01oJg3lK7Zg.webp"
                 alt="Web design workflow diagram showing discovery, wireframing, design, and development process with design tools"
                 width={600}
@@ -57,20 +57,18 @@ export default function WebDesignPage() {
               </p>
               <CTAButton
                 source="Web Design Page"
-                className="cta-button bg-purple-700 hover:bg-purple-800 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 mt-4"
+                className="bg-purple-700 hover:bg-purple-800 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 mt-4"
               >
                 Create Your Dream Website
               </CTAButton>
             </div>
           </div>
 
-          <FeatureCardsCascade
-            cards={[
-              {
-                title: "Custom Design",
-                description:
-                  "Unique, tailored designs that reflect your brand identity and stand out from template-based websites that look like everyone else's.",
-                icon: (
+          <div className="bg-white p-8 rounded-lg shadow-md">
+            <h2 className="text-2xl font-bold text-purple-700 mb-6 text-center">Our Design Approach</h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="text-center">
+                <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -86,13 +84,15 @@ export default function WebDesignPage() {
                     <path d="M12 20h9"></path>
                     <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
                   </svg>
-                ),
-              },
-              {
-                title: "Conversion-Focused",
-                description:
-                  "Strategic layouts and user flows designed to guide visitors toward specific actions that support your business goals.",
-                icon: (
+                </div>
+                <h3 className="font-bold text-lg mb-2">Custom Design</h3>
+                <p>
+                  Unique, tailored designs that reflect your brand identity and stand out from template-based websites
+                  that look like everyone else's.
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -111,13 +111,15 @@ export default function WebDesignPage() {
                     <line x1="10" y1="2" x2="10" y2="4"></line>
                     <line x1="14" y1="2" x2="14" y2="4"></line>
                   </svg>
-                ),
-              },
-              {
-                title: "Responsive Design",
-                description:
-                  "Fully responsive websites that provide an optimal viewing and interaction experience across all devices and screen sizes.",
-                icon: (
+                </div>
+                <h3 className="font-bold text-lg mb-2">Conversion-Focused</h3>
+                <p>
+                  Strategic layouts and user flows designed to guide visitors toward specific actions that support your
+                  business goals.
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -134,10 +136,15 @@ export default function WebDesignPage() {
                     <line x1="8" y1="21" x2="16" y2="21"></line>
                     <line x1="12" y1="17" x2="12" y2="21"></line>
                   </svg>
-                ),
-              },
-            ]}
-          />
+                </div>
+                <h3 className="font-bold text-lg mb-2">Responsive Design</h3>
+                <p>
+                  Fully responsive websites that provide an optimal viewing and interaction experience across all
+                  devices and screen sizes.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <Footer />

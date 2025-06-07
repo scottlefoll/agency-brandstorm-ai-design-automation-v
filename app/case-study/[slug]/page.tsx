@@ -1,10 +1,10 @@
 import Image from "next/image"
-import Link from "next/link"
 import { notFound } from "next/navigation"
 import { NavBar } from "@/components/nav-bar"
+import type { Metadata, ResolvingMetadata } from "next"
 import { Footer } from "@/components/footer"
 import { CTAButton } from "@/components/cta-button"
-import type { Metadata, ResolvingMetadata } from "next"
+import Link from "next/link"
 
 // Expanded case study data with more details
 const caseStudiesData = [
@@ -474,34 +474,40 @@ export default function CaseStudyPage({ params }: Props) {
       {/* Empty spacer div to push content below fixed header */}
       <div className="h-24 md:h-28 lg:h-32"></div>
 
-      {/* Hero Section */}
-      <div className="relative w-full h-[40vh] md:h-[50vh] lg:h-[60vh] mt-8">
+      {/* Hero Section with Enhanced Animations */}
+      <div className="relative w-full h-[40vh] md:h-[50vh] lg:h-[60vh] mt-8 overflow-hidden">
         <div className="absolute inset-0 bg-black/30 z-10"></div>
-        <Image
-          src={study.image || "/placeholder.svg"}
-          alt={`${study.title} service vehicle - ${study.services.join(", ")} services`}
-          fill
-          className="object-cover object-center"
-          priority
-        />
+        <div className="hero-parallax absolute inset-0">
+          <Image
+            src={study.image || "/placeholder.svg"}
+            alt={`${study.title} service vehicle - ${study.services.join(", ")} services`}
+            fill
+            className="object-cover object-center"
+            priority
+          />
+        </div>
         <div className="relative z-20 container mx-auto px-4 h-full flex flex-col justify-end pb-12">
           <div className="max-w-4xl">
             <div className="flex flex-wrap gap-2 mb-4">
               {study.services.map((service, index) => (
-                <span key={index} className="bg-purple-600 text-white px-3 py-1 text-sm font-medium rounded-full">
+                <span
+                  key={index}
+                  className="hero-service-tag bg-purple-600 text-white px-3 py-1 text-sm font-medium rounded-full"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
                   {service}
                 </span>
               ))}
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{study.title}</h1>
-            <p className="text-xl text-white/90">
+            <h1 className="hero-title text-4xl md:text-5xl font-bold text-white mb-4">{study.title}</h1>
+            <p className="hero-industry text-xl text-white/90">
               {study.industry} • {study.results.join(" • ")}
             </p>
           </div>
         </div>
       </div>
 
-      {/* Content Section */}
+      {/* Content Section with Enhanced Animations */}
       <div className="bg-white py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
@@ -509,17 +515,21 @@ export default function CaseStudyPage({ params }: Props) {
               <>
                 {/* Client Overview Section */}
                 <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">Client Overview</h2>
-                  <p className="text-lg text-gray-700">{study.clientOverview}</p>
+                  <h2 className="section-heading text-3xl font-bold text-gray-900 mb-6">Client Overview</h2>
+                  <p className="content-text text-lg text-gray-700">{study.clientOverview}</p>
                 </div>
 
                 {/* Challenge Section */}
                 <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">The Challenge</h2>
-                  <p className="text-lg text-gray-700 mb-4">{study.challenge}</p>
+                  <h2 className="section-heading text-3xl font-bold text-gray-900 mb-6">The Challenge</h2>
+                  <p className="content-text text-lg text-gray-700 mb-4">{study.challenge}</p>
                   <ul className="space-y-2">
                     {study.challengePoints?.map((point, index) => (
-                      <li key={index} className="flex items-start">
+                      <li
+                        key={index}
+                        className="list-item-stagger flex items-start"
+                        style={{ animationDelay: `${index * 50 + 200}ms` }}
+                      >
                         <span className="text-purple-600 mr-2 mt-1.5">•</span>
                         <span className="text-lg text-gray-700">{point}</span>
                       </li>
@@ -529,11 +539,15 @@ export default function CaseStudyPage({ params }: Props) {
 
                 {/* Strategy Section */}
                 <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">The Strategy</h2>
-                  <p className="text-lg text-gray-700 mb-4">{study.strategy}</p>
+                  <h2 className="section-heading text-3xl font-bold text-gray-900 mb-6">The Strategy</h2>
+                  <p className="content-text text-lg text-gray-700 mb-4">{study.strategy}</p>
                   <ul className="space-y-2">
                     {study.strategyPoints?.map((point, index) => (
-                      <li key={index} className="flex items-start">
+                      <li
+                        key={index}
+                        className="list-item-stagger flex items-start"
+                        style={{ animationDelay: `${index * 50 + 200}ms` }}
+                      >
                         <span className="text-purple-600 mr-2 mt-1.5">•</span>
                         <span className="text-lg text-gray-700">{point}</span>
                       </li>
@@ -545,16 +559,20 @@ export default function CaseStudyPage({ params }: Props) {
                 {study.slug === "burtons-grill" && study.additionalImages && (
                   <div className="mb-12 grid grid-cols-1 md:grid-cols-2 gap-6">
                     {study.additionalImages.map((image, index) => (
-                      <div key={index} className="bg-gray-50 p-4 rounded-lg">
-                        <div className="relative w-full h-[300px] mb-3">
+                      <div
+                        key={index}
+                        className="image-scale-in bg-gray-50 p-4 rounded-lg"
+                        style={{ animationDelay: `${index * 200}ms` }}
+                      >
+                        <div className="relative w-full h-[300px] mb-3 overflow-hidden rounded-md">
                           <Image
                             src={image.src || "/placeholder.svg"}
                             alt={image.alt}
                             fill
-                            className="object-contain rounded-md"
+                            className="case-study-image object-contain"
                           />
                         </div>
-                        <p className="text-center text-gray-600 italic">{image.caption}</p>
+                        <p className="image-caption text-center text-gray-600 italic">{image.caption}</p>
                       </div>
                     ))}
                   </div>
@@ -563,20 +581,24 @@ export default function CaseStudyPage({ params }: Props) {
                 {/* Key Phrases Ranked Section - For JJ's Best and 128 Plumbing */}
                 {(study.slug === "jjs-best" || study.slug === "128-plumbing") && study.keyPhrasesRanked && (
                   <div className="mb-12">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                    <h2 className="section-heading text-3xl font-bold text-gray-900 mb-6">
                       {study.slug === "jjs-best" ? "Key Phrases Ranked" : "Key Rankings Achieved"}
                     </h2>
-                    <p className="text-lg text-gray-700 mb-4">{study.keyPhrasesRanked}</p>
+                    <p className="content-text text-lg text-gray-700 mb-4">{study.keyPhrasesRanked}</p>
                     <ul className="space-y-2 mb-4">
                       {study.keyPhrasesList?.map((phrase, index) => (
-                        <li key={index} className="flex items-start">
+                        <li
+                          key={index}
+                          className="list-item-stagger flex items-start"
+                          style={{ animationDelay: `${index * 50 + 200}ms` }}
+                        >
                           <span className="text-purple-600 mr-2 mt-1.5">•</span>
                           <span className="text-lg text-gray-700">{phrase}</span>
                         </li>
                       ))}
                     </ul>
                     {study.keyPhrasesNote && (
-                      <p className="text-lg text-gray-700 mt-4 italic">{study.keyPhrasesNote}</p>
+                      <p className="content-text text-lg text-gray-700 mt-4 italic">{study.keyPhrasesNote}</p>
                     )}
                   </div>
                 )}
@@ -585,16 +607,20 @@ export default function CaseStudyPage({ params }: Props) {
                 {study.slug === "jjs-best" && study.additionalImages && (
                   <div className="mb-12 grid grid-cols-1 md:grid-cols-2 gap-6">
                     {study.additionalImages.map((image, index) => (
-                      <div key={index} className="bg-gray-50 p-4 rounded-lg">
-                        <div className="relative w-full h-[300px] mb-3">
+                      <div
+                        key={index}
+                        className="image-scale-in bg-gray-50 p-4 rounded-lg"
+                        style={{ animationDelay: `${index * 200}ms` }}
+                      >
+                        <div className="relative w-full h-[300px] mb-3 overflow-hidden rounded-md">
                           <Image
                             src={image.src || "/placeholder.svg"}
                             alt={image.alt}
                             fill
-                            className="object-contain rounded-md"
+                            className="case-study-image object-contain"
                           />
                         </div>
-                        <p className="text-center text-gray-600 italic">{image.caption}</p>
+                        <p className="image-caption text-center text-gray-600 italic">{image.caption}</p>
                       </div>
                     ))}
                   </div>
@@ -604,16 +630,20 @@ export default function CaseStudyPage({ params }: Props) {
                 {study.slug === "128-plumbing" && study.additionalImages && (
                   <div className="mb-12 grid grid-cols-1 md:grid-cols-2 gap-6">
                     {study.additionalImages.map((image, index) => (
-                      <div key={index} className="bg-gray-50 p-4 rounded-lg">
-                        <div className="relative w-full h-[300px] mb-3">
+                      <div
+                        key={index}
+                        className="image-scale-in bg-gray-50 p-4 rounded-lg"
+                        style={{ animationDelay: `${index * 200}ms` }}
+                      >
+                        <div className="relative w-full h-[300px] mb-3 overflow-hidden rounded-md">
                           <Image
                             src={image.src || "/placeholder.svg"}
                             alt={image.alt}
                             fill
-                            className="object-contain rounded-md"
+                            className="case-study-image object-contain"
                           />
                         </div>
-                        <p className="text-center text-gray-600 italic">{image.caption}</p>
+                        <p className="image-caption text-center text-gray-600 italic">{image.caption}</p>
                       </div>
                     ))}
                   </div>
@@ -621,55 +651,50 @@ export default function CaseStudyPage({ params }: Props) {
 
                 {/* Results Section */}
                 <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">The Results</h2>
-                  {study.slug === "burtons-grill" || study.slug === "jjs-best" || study.slug === "128-plumbing" ? (
-                    <ul className="space-y-1 mb-6">
-                      {study.detailedResults?.map((result, index) => (
-                        <li key={index} className="flex items-start p-2 rounded-lg">
-                          <span className="text-green-600 mr-3 text-xl">✅</span>
-                          <span className="text-lg font-medium text-gray-800">{result}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <>
-                      <p className="text-lg text-gray-700 mb-4">Our SEO efforts produced measurable impact:</p>
-                      <ul className="space-y-2 mb-6">
-                        {study.detailedResults?.map((result, index) => (
-                          <li key={index} className="flex items-start">
-                            <span className="text-purple-600 mr-2 mt-1.5">•</span>
-                            <span className="text-lg text-gray-700">{result}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </>
-                  )}
+                  <h2 className="section-heading text-3xl font-bold text-gray-900 mb-6">The Results</h2>
+                  <ul className="space-y-1 mb-6">
+                    {study.detailedResults?.map((result, index) => (
+                      <li
+                        key={index}
+                        className="result-item flex items-start p-2 rounded-lg"
+                        style={{ animationDelay: `${index * 150}ms` }}
+                      >
+                        <span
+                          className="checkmark-pulse text-green-600 mr-3 text-xl"
+                          style={{ animationDelay: `${index * 150 + 100}ms` }}
+                        >
+                          ✅
+                        </span>
+                        <span className="text-lg font-medium text-gray-800">{result}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
                 {/* Conclusion Section */}
                 <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">Conclusion</h2>
-                  <p className="text-lg text-gray-700">{study.conclusion}</p>
+                  <h2 className="section-heading text-3xl font-bold text-gray-900 mb-6">Conclusion</h2>
+                  <p className="content-text text-lg text-gray-700">{study.conclusion}</p>
                 </div>
               </>
             ) : study.slug === "aire-ancient-baths" ? (
               <>
                 {/* About the Client Section for AIRE */}
                 <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">Client Overview</h2>
-                  <p className="text-lg text-gray-700">{study.clientOverview}</p>
+                  <h2 className="section-heading text-3xl font-bold text-gray-900 mb-6">Client Overview</h2>
+                  <p className="content-text text-lg text-gray-700">{study.clientOverview}</p>
                 </div>
 
                 {/* Challenge Section for AIRE */}
                 <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">The Challenge</h2>
-                  <p className="text-lg text-gray-700">{study.challenge}</p>
+                  <h2 className="section-heading text-3xl font-bold text-gray-900 mb-6">The Challenge</h2>
+                  <p className="content-text text-lg text-gray-700">{study.challenge}</p>
                 </div>
 
                 {/* Solution Section for AIRE */}
                 <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">The Strategy</h2>
-                  <p className="text-lg text-gray-700 mb-4">
+                  <h2 className="section-heading text-3xl font-bold text-gray-900 mb-6">The Strategy</h2>
+                  <p className="content-text text-lg text-gray-700 mb-4">
                     We partnered with AIRE to implement a full-scale accessibility upgrade for its website. Our team
                     delivered a seamless, affordable solution that aligned with{" "}
                     <strong>ADA 2020 compliance requirements</strong> and{" "}
@@ -677,7 +702,11 @@ export default function CaseStudyPage({ params }: Props) {
                   </p>
                   <ul className="space-y-2">
                     {study.strategyPoints?.map((point, index) => (
-                      <li key={index} className="flex items-start">
+                      <li
+                        key={index}
+                        className="list-item-stagger flex items-start"
+                        style={{ animationDelay: `${index * 50 + 200}ms` }}
+                      >
                         <span className="text-purple-600 mr-2 mt-1.5">•</span>
                         <span className="text-lg text-gray-700">{point}</span>
                       </li>
@@ -689,16 +718,20 @@ export default function CaseStudyPage({ params }: Props) {
                 {study.additionalImages && (
                   <div className="mb-12 grid grid-cols-1 md:grid-cols-2 gap-6">
                     {study.additionalImages.map((image, index) => (
-                      <div key={index} className="bg-gray-50 p-4 rounded-lg">
-                        <div className="relative w-full h-[300px] mb-3">
+                      <div
+                        key={index}
+                        className="image-scale-in bg-gray-50 p-4 rounded-lg"
+                        style={{ animationDelay: `${index * 200}ms` }}
+                      >
+                        <div className="relative w-full h-[300px] mb-3 overflow-hidden rounded-md">
                           <Image
                             src={image.src || "/placeholder.svg"}
                             alt={image.alt}
                             fill
-                            className="object-contain rounded-md"
+                            className="case-study-image object-contain"
                           />
                         </div>
-                        <p className="text-center text-gray-600 italic">{image.caption}</p>
+                        <p className="image-caption text-center text-gray-600 italic">{image.caption}</p>
                       </div>
                     ))}
                   </div>
@@ -706,11 +739,20 @@ export default function CaseStudyPage({ params }: Props) {
 
                 {/* Results Section for AIRE */}
                 <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">Results</h2>
+                  <h2 className="section-heading text-3xl font-bold text-gray-900 mb-6">Results</h2>
                   <ul className="space-y-1 mb-6">
                     {study.detailedResults?.map((result, index) => (
-                      <li key={index} className="flex items-start p-2 rounded-lg">
-                        <span className="text-green-600 mr-3 text-xl">✅</span>
+                      <li
+                        key={index}
+                        className="result-item flex items-start p-2 rounded-lg"
+                        style={{ animationDelay: `${index * 150}ms` }}
+                      >
+                        <span
+                          className="checkmark-pulse text-green-600 mr-3 text-xl"
+                          style={{ animationDelay: `${index * 150 + 100}ms` }}
+                        >
+                          ✅
+                        </span>
                         <span className="text-lg font-medium text-gray-800">{result}</span>
                       </li>
                     ))}
@@ -721,23 +763,27 @@ export default function CaseStudyPage({ params }: Props) {
               <>
                 {/* Client Overview Section for Tiffany Knupp */}
                 <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">Client Overview</h2>
-                  <p className="text-lg text-gray-700">{study.clientOverview}</p>
+                  <h2 className="section-heading text-3xl font-bold text-gray-900 mb-6">Client Overview</h2>
+                  <p className="content-text text-lg text-gray-700">{study.clientOverview}</p>
                 </div>
 
                 {/* Challenge Section for Tiffany Knupp */}
                 <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">The Challenge</h2>
-                  <p className="text-lg text-gray-700">{study.challenge}</p>
+                  <h2 className="section-heading text-3xl font-bold text-gray-900 mb-6">The Challenge</h2>
+                  <p className="content-text text-lg text-gray-700">{study.challenge}</p>
                 </div>
 
                 {/* Strategy Section for Tiffany Knupp */}
                 <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">The Strategy</h2>
-                  <p className="text-lg text-gray-700 mb-4">{study.strategy}</p>
+                  <h2 className="section-heading text-3xl font-bold text-gray-900 mb-6">The Strategy</h2>
+                  <p className="content-text text-lg text-gray-700 mb-4">{study.strategy}</p>
                   <ul className="space-y-2">
                     {study.strategyPoints?.map((point, index) => (
-                      <li key={index} className="flex items-start">
+                      <li
+                        key={index}
+                        className="list-item-stagger flex items-start"
+                        style={{ animationDelay: `${index * 50 + 200}ms` }}
+                      >
                         <span className="text-purple-600 mr-2 mt-1.5">•</span>
                         <span className="text-lg text-gray-700">{point}</span>
                       </li>
@@ -747,16 +793,16 @@ export default function CaseStudyPage({ params }: Props) {
 
                 {/* First Additional Image - Tiffany at Farmers */}
                 <div className="mb-12">
-                  <div className="bg-gray-50 p-6 rounded-lg">
-                    <div className="relative w-full h-[400px] mb-4">
+                  <div className="image-scale-in bg-gray-50 p-6 rounded-lg">
+                    <div className="relative w-full h-[400px] mb-4 overflow-hidden rounded-md">
                       <Image
                         src="/images/case-studies/tiffany-farmers.webp"
                         alt="Tiffany Knupp standing in front of Farmers Insurance sign"
                         fill
-                        className="object-contain"
+                        className="case-study-image object-contain"
                       />
                     </div>
-                    <p className="text-center text-gray-600 italic">
+                    <p className="image-caption text-center text-gray-600 italic">
                       Tiffany Knupp, Owner of The Knupp Agency - Farmers Insurance
                     </p>
                   </div>
@@ -764,11 +810,20 @@ export default function CaseStudyPage({ params }: Props) {
 
                 {/* Results Section for Tiffany Knupp */}
                 <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">Results</h2>
+                  <h2 className="section-heading text-3xl font-bold text-gray-900 mb-6">Results</h2>
                   <ul className="space-y-1 mb-6">
                     {study.detailedResults?.map((result, index) => (
-                      <li key={index} className="flex items-start p-2 rounded-lg">
-                        <span className="text-green-600 mr-3 text-xl">✅</span>
+                      <li
+                        key={index}
+                        className="result-item flex items-start p-2 rounded-lg"
+                        style={{ animationDelay: `${index * 150}ms` }}
+                      >
+                        <span
+                          className="checkmark-pulse text-green-600 mr-3 text-xl"
+                          style={{ animationDelay: `${index * 150 + 100}ms` }}
+                        >
+                          ✅
+                        </span>
                         <span className="text-lg font-medium text-gray-800">{result}</span>
                       </li>
                     ))}
@@ -777,25 +832,29 @@ export default function CaseStudyPage({ params }: Props) {
 
                 {/* Second Additional Image - Texting Stats */}
                 <div className="mb-12">
-                  <div className="bg-gray-50 p-6 rounded-lg">
-                    <div className="relative w-full h-[400px] mb-4">
+                  <div className="image-scale-in bg-gray-50 p-6 rounded-lg" style={{ animationDelay: "400ms" }}>
+                    <div className="relative w-full h-[400px] mb-4 overflow-hidden rounded-md">
                       <Image
                         src="/images/case-studies/texting-stats.webp"
                         alt="Texting statistics showing 98% open rate and generational preferences for business texting"
                         fill
-                        className="object-contain"
+                        className="case-study-image object-contain"
                       />
                     </div>
-                    <p className="text-center text-gray-600 italic">
+                    <p className="image-caption text-center text-gray-600 italic">
                       Texting achieves a 98% open rate, with strong preference across all generations
                     </p>
                   </div>
                 </div>
 
                 {/* Testimonial Section for Tiffany Knupp */}
-                <div className="mb-12 bg-gray-50 p-8 rounded-xl border border-gray-100">
+                <div className="testimonial-fade-scale mb-12 bg-gray-50 p-8 rounded-xl border border-gray-100">
                   <div className="flex flex-col items-center text-center">
-                    <svg className="w-12 h-12 text-purple-300 mb-4" fill="currentColor" viewBox="0 0 24 24">
+                    <svg
+                      className="quote-bounce w-12 h-12 text-purple-300 mb-4"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
                       <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                     </svg>
                     <blockquote className="text-xl italic text-gray-800 mb-4">"{study.testimonial?.quote}"</blockquote>
@@ -805,31 +864,35 @@ export default function CaseStudyPage({ params }: Props) {
 
                 {/* Conclusion Section for Tiffany Knupp */}
                 <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">Conclusion</h2>
-                  <p className="text-lg text-gray-700">{study.conclusion}</p>
+                  <h2 className="section-heading text-3xl font-bold text-gray-900 mb-6">Conclusion</h2>
+                  <p className="content-text text-lg text-gray-700">{study.conclusion}</p>
                 </div>
               </>
             ) : study.slug === "bridge-city-limo" ? (
               <>
                 {/* Client Overview Section for Bridge City Limo */}
                 <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">Client Overview</h2>
-                  <p className="text-lg text-gray-700">{study.clientOverview}</p>
+                  <h2 className="section-heading text-3xl font-bold text-gray-900 mb-6">Client Overview</h2>
+                  <p className="content-text text-lg text-gray-700">{study.clientOverview}</p>
                 </div>
 
                 {/* Challenge Section for Bridge City Limo */}
                 <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">The Challenge</h2>
-                  <p className="text-lg text-gray-700">{study.challenge}</p>
+                  <h2 className="section-heading text-3xl font-bold text-gray-900 mb-6">The Challenge</h2>
+                  <p className="content-text text-lg text-gray-700">{study.challenge}</p>
                 </div>
 
                 {/* Strategy Section for Bridge City Limo */}
                 <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">The Strategy</h2>
-                  <p className="text-lg text-gray-700 mb-4">{study.strategy}</p>
+                  <h2 className="section-heading text-3xl font-bold text-gray-900 mb-6">The Strategy</h2>
+                  <p className="content-text text-lg text-gray-700 mb-4">{study.strategy}</p>
                   <ul className="space-y-2">
                     {study.strategyPoints?.map((point, index) => (
-                      <li key={index} className="flex items-start">
+                      <li
+                        key={index}
+                        className="list-item-stagger flex items-start"
+                        style={{ animationDelay: `${index * 50 + 200}ms` }}
+                      >
                         <span className="text-purple-600 mr-2 mt-1.5">•</span>
                         <span className="text-lg text-gray-700">{point}</span>
                       </li>
@@ -841,36 +904,41 @@ export default function CaseStudyPage({ params }: Props) {
                 {study.additionalImages && (
                   <div className="mb-12 grid grid-cols-1 md:grid-cols-2 gap-6">
                     {study.additionalImages.map((image, index) => (
-                      <div key={index} className="bg-gray-50 p-4 rounded-lg">
-                        <div className="relative w-full h-[300px] mb-3">
+                      <div
+                        key={index}
+                        className="image-scale-in bg-gray-50 p-4 rounded-lg"
+                        style={{ animationDelay: `${index * 200}ms` }}
+                      >
+                        <div className="relative w-full h-[300px] mb-3 overflow-hidden rounded-md">
                           <Image
                             src={image.src || "/placeholder.svg"}
                             alt={image.alt}
                             fill
-                            className="object-contain rounded-md"
+                            className="case-study-image object-contain"
                           />
                         </div>
-                        <p className="text-center text-gray-600 italic">{image.caption}</p>
+                        <p className="image-caption text-center text-gray-600 italic">{image.caption}</p>
                       </div>
                     ))}
                   </div>
                 )}
 
-                {/* Key Rankings Section for Bridge City Limo */}
-                {study.keyPhrasesRanked && (
-                  <div className="mb-12">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-6">Key Rankings Achieved</h2>
-                    <p className="text-lg text-gray-700 italic">{study.keyPhrasesRanked}</p>
-                  </div>
-                )}
-
                 {/* Results Section for Bridge City Limo */}
                 <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">The Results</h2>
+                  <h2 className="section-heading text-3xl font-bold text-gray-900 mb-6">The Results</h2>
                   <ul className="space-y-1 mb-6">
                     {study.detailedResults?.map((result, index) => (
-                      <li key={index} className="flex items-start p-2 rounded-lg">
-                        <span className="text-green-600 mr-3 text-xl">✅</span>
+                      <li
+                        key={index}
+                        className="result-item flex items-start p-2 rounded-lg"
+                        style={{ animationDelay: `${index * 150}ms` }}
+                      >
+                        <span
+                          className="checkmark-pulse text-green-600 mr-3 text-xl"
+                          style={{ animationDelay: `${index * 150 + 100}ms` }}
+                        >
+                          ✅
+                        </span>
                         <span className="text-lg font-medium text-gray-800">{result}</span>
                       </li>
                     ))}
@@ -879,31 +947,35 @@ export default function CaseStudyPage({ params }: Props) {
 
                 {/* Conclusion Section for Bridge City Limo */}
                 <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">Conclusion</h2>
-                  <p className="text-lg text-gray-700">{study.conclusion}</p>
+                  <h2 className="section-heading text-3xl font-bold text-gray-900 mb-6">Conclusion</h2>
+                  <p className="content-text text-lg text-gray-700">{study.conclusion}</p>
                 </div>
               </>
             ) : study.slug === "bmw-san-francisco" ? (
               <>
                 {/* Client Overview Section for BMW */}
                 <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">Client Overview</h2>
-                  <p className="text-lg text-gray-700">{study.clientOverview}</p>
+                  <h2 className="section-heading text-3xl font-bold text-gray-900 mb-6">Client Overview</h2>
+                  <p className="content-text text-lg text-gray-700">{study.clientOverview}</p>
                 </div>
 
                 {/* Challenge Section for BMW */}
                 <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">The Challenge</h2>
-                  <p className="text-lg text-gray-700">{study.challenge}</p>
+                  <h2 className="section-heading text-3xl font-bold text-gray-900 mb-6">The Challenge</h2>
+                  <p className="content-text text-lg text-gray-700">{study.challenge}</p>
                 </div>
 
                 {/* Strategy Section for BMW */}
                 <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">The Strategy</h2>
-                  <p className="text-lg text-gray-700 mb-4">{study.strategy}</p>
+                  <h2 className="section-heading text-3xl font-bold text-gray-900 mb-6">The Strategy</h2>
+                  <p className="content-text text-lg text-gray-700 mb-4">{study.strategy}</p>
                   <ul className="space-y-2">
                     {study.strategyPoints?.map((point, index) => (
-                      <li key={index} className="flex items-start">
+                      <li
+                        key={index}
+                        className="list-item-stagger flex items-start"
+                        style={{ animationDelay: `${index * 50 + 200}ms` }}
+                      >
                         <span className="text-purple-600 mr-2 mt-1.5">•</span>
                         <span className="text-lg text-gray-700">{point}</span>
                       </li>
@@ -915,36 +987,41 @@ export default function CaseStudyPage({ params }: Props) {
                 {study.additionalImages && (
                   <div className="mb-12 grid grid-cols-1 md:grid-cols-2 gap-6">
                     {study.additionalImages.map((image, index) => (
-                      <div key={index} className="bg-gray-50 p-4 rounded-lg">
-                        <div className="relative w-full h-[300px] mb-3">
+                      <div
+                        key={index}
+                        className="image-scale-in bg-gray-50 p-4 rounded-lg"
+                        style={{ animationDelay: `${index * 200}ms` }}
+                      >
+                        <div className="relative w-full h-[300px] mb-3 overflow-hidden rounded-md">
                           <Image
                             src={image.src || "/placeholder.svg"}
                             alt={image.alt}
                             fill
-                            className="object-contain rounded-md"
+                            className="case-study-image object-contain"
                           />
                         </div>
-                        <p className="text-center text-gray-600 italic">{image.caption}</p>
+                        <p className="image-caption text-center text-gray-600 italic">{image.caption}</p>
                       </div>
                     ))}
                   </div>
                 )}
 
-                {/* Key Rankings Section for BMW */}
-                {study.keyPhrasesRanked && (
-                  <div className="mb-12">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-6">Key Rankings Achieved</h2>
-                    <p className="text-lg text-gray-700 italic">{study.keyPhrasesRanked}</p>
-                  </div>
-                )}
-
                 {/* Results Section for BMW */}
                 <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">The Results</h2>
+                  <h2 className="section-heading text-3xl font-bold text-gray-900 mb-6">The Results</h2>
                   <ul className="space-y-1 mb-6">
                     {study.detailedResults?.map((result, index) => (
-                      <li key={index} className="flex items-start p-2 rounded-lg">
-                        <span className="text-green-600 mr-3 text-xl">✅</span>
+                      <li
+                        key={index}
+                        className="result-item flex items-start p-2 rounded-lg"
+                        style={{ animationDelay: `${index * 150}ms` }}
+                      >
+                        <span
+                          className="checkmark-pulse text-green-600 mr-3 text-xl"
+                          style={{ animationDelay: `${index * 150 + 100}ms` }}
+                        >
+                          ✅
+                        </span>
                         <span className="text-lg font-medium text-gray-800">{result}</span>
                       </li>
                     ))}
@@ -953,31 +1030,35 @@ export default function CaseStudyPage({ params }: Props) {
 
                 {/* Conclusion Section for BMW */}
                 <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">Conclusion</h2>
-                  <p className="text-lg text-gray-700">{study.conclusion}</p>
+                  <h2 className="section-heading text-3xl font-bold text-gray-900 mb-6">Conclusion</h2>
+                  <p className="content-text text-lg text-gray-700">{study.conclusion}</p>
                 </div>
               </>
             ) : study.slug === "throwback-vault" ? (
               <>
                 {/* Client Overview Section for Throwback Vault */}
                 <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">Client Overview</h2>
-                  <p className="text-lg text-gray-700">{study.clientOverview}</p>
+                  <h2 className="section-heading text-3xl font-bold text-gray-900 mb-6">Client Overview</h2>
+                  <p className="content-text text-lg text-gray-700">{study.clientOverview}</p>
                 </div>
 
                 {/* Challenge Section for Throwback Vault */}
                 <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">The Challenge</h2>
-                  <p className="text-lg text-gray-700">{study.challenge}</p>
+                  <h2 className="section-heading text-3xl font-bold text-gray-900 mb-6">The Challenge</h2>
+                  <p className="content-text text-lg text-gray-700">{study.challenge}</p>
                 </div>
 
                 {/* Strategy Section for Throwback Vault */}
                 <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">The Strategy</h2>
-                  <p className="text-lg text-gray-700 mb-4">{study.strategy}</p>
+                  <h2 className="section-heading text-3xl font-bold text-gray-900 mb-6">The Strategy</h2>
+                  <p className="content-text text-lg text-gray-700 mb-4">{study.strategy}</p>
                   <ul className="space-y-2">
                     {study.strategyPoints?.map((point, index) => (
-                      <li key={index} className="flex items-start">
+                      <li
+                        key={index}
+                        className="list-item-stagger flex items-start"
+                        style={{ animationDelay: `${index * 50 + 200}ms` }}
+                      >
                         <span className="text-purple-600 mr-2 mt-1.5">•</span>
                         <span className="text-lg text-gray-700">{point}</span>
                       </li>
@@ -989,62 +1070,69 @@ export default function CaseStudyPage({ params }: Props) {
                 {study.additionalImages && (
                   <div className="mb-12">
                     {/* First image - standalone */}
-                    <div className="mb-6 bg-gray-50 p-4 rounded-lg">
-                      <div className="relative w-full h-[400px] mb-3">
+                    <div className="image-scale-in mb-6 bg-gray-50 p-4 rounded-lg">
+                      <div className="relative w-full h-[400px] mb-3 overflow-hidden rounded-md">
                         <Image
                           src={study.additionalImages[0].src || "/placeholder.svg"}
                           alt={study.additionalImages[0].alt}
                           fill
-                          className="object-contain rounded-md"
+                          className="case-study-image object-contain"
                         />
                       </div>
-                      <p className="text-center text-gray-600 italic">{study.additionalImages[0].caption}</p>
+                      <p className="image-caption text-center text-gray-600 italic">
+                        {study.additionalImages[0].caption}
+                      </p>
                     </div>
 
                     {/* Second and third images - companion images with second above third */}
                     <div className="space-y-6">
-                      <div className="bg-gray-50 p-4 rounded-lg">
-                        <div className="relative w-full h-[400px] mb-3">
+                      <div className="image-scale-in bg-gray-50 p-4 rounded-lg" style={{ animationDelay: "200ms" }}>
+                        <div className="relative w-full h-[400px] mb-3 overflow-hidden rounded-md">
                           <Image
                             src={study.additionalImages[1].src || "/placeholder.svg"}
                             alt={study.additionalImages[1].alt}
                             fill
-                            className="object-contain rounded-md"
+                            className="case-study-image object-contain"
                           />
                         </div>
-                        <p className="text-center text-gray-600 italic">{study.additionalImages[1].caption}</p>
+                        <p className="image-caption text-center text-gray-600 italic">
+                          {study.additionalImages[1].caption}
+                        </p>
                       </div>
 
-                      <div className="bg-gray-50 p-4 rounded-lg">
-                        <div className="relative w-full h-[300px] mb-3">
+                      <div className="image-scale-in bg-gray-50 p-4 rounded-lg" style={{ animationDelay: "400ms" }}>
+                        <div className="relative w-full h-[300px] mb-3 overflow-hidden rounded-md">
                           <Image
                             src={study.additionalImages[2].src || "/placeholder.svg"}
                             alt={study.additionalImages[2].alt}
                             fill
-                            className="object-contain rounded-md"
+                            className="case-study-image object-contain"
                           />
                         </div>
-                        <p className="text-center text-gray-600 italic">{study.additionalImages[2].caption}</p>
+                        <p className="image-caption text-center text-gray-600 italic">
+                          {study.additionalImages[2].caption}
+                        </p>
                       </div>
                     </div>
-                  </div>
-                )}
-
-                {/* Key Rankings Section for Throwback Vault */}
-                {study.keyPhrasesRanked && (
-                  <div className="mb-12">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-6">Key Rankings Achieved</h2>
-                    <p className="text-lg text-gray-700 italic">{study.keyPhrasesRanked}</p>
                   </div>
                 )}
 
                 {/* Results Section for Throwback Vault */}
                 <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">The Results</h2>
+                  <h2 className="section-heading text-3xl font-bold text-gray-900 mb-6">The Results</h2>
                   <ul className="space-y-1 mb-6">
                     {study.detailedResults?.map((result, index) => (
-                      <li key={index} className="flex items-start p-2 rounded-lg">
-                        <span className="text-green-600 mr-3 text-xl">✅</span>
+                      <li
+                        key={index}
+                        className="result-item flex items-start p-2 rounded-lg"
+                        style={{ animationDelay: `${index * 150}ms` }}
+                      >
+                        <span
+                          className="checkmark-pulse text-green-600 mr-3 text-xl"
+                          style={{ animationDelay: `${index * 150 + 100}ms` }}
+                        >
+                          ✅
+                        </span>
                         <span className="text-lg font-medium text-gray-800">{result}</span>
                       </li>
                     ))}
@@ -1053,31 +1141,35 @@ export default function CaseStudyPage({ params }: Props) {
 
                 {/* Conclusion Section for Throwback Vault */}
                 <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">Conclusion</h2>
-                  <p className="text-lg text-gray-700">{study.conclusion}</p>
+                  <h2 className="section-heading text-3xl font-bold text-gray-900 mb-6">Conclusion</h2>
+                  <p className="content-text text-lg text-gray-700">{study.conclusion}</p>
                 </div>
               </>
             ) : study.slug === "xero-shoes" ? (
               <>
                 {/* Client Overview Section for Xero Shoes */}
                 <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">Client Overview</h2>
-                  <p className="text-lg text-gray-700">{study.clientOverview}</p>
+                  <h2 className="section-heading text-3xl font-bold text-gray-900 mb-6">Client Overview</h2>
+                  <p className="content-text text-lg text-gray-700">{study.clientOverview}</p>
                 </div>
 
                 {/* Challenge Section for Xero Shoes */}
                 <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">The Challenge</h2>
-                  <p className="text-lg text-gray-700">{study.challenge}</p>
+                  <h2 className="section-heading text-3xl font-bold text-gray-900 mb-6">The Challenge</h2>
+                  <p className="content-text text-lg text-gray-700">{study.challenge}</p>
                 </div>
 
                 {/* Strategy Section for Xero Shoes */}
                 <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">The Strategy</h2>
-                  <p className="text-lg text-gray-700 mb-4">{study.strategy}</p>
+                  <h2 className="section-heading text-3xl font-bold text-gray-900 mb-6">The Strategy</h2>
+                  <p className="content-text text-lg text-gray-700 mb-4">{study.strategy}</p>
                   <ul className="space-y-2">
                     {study.strategyPoints?.map((point, index) => (
-                      <li key={index} className="flex items-start">
+                      <li
+                        key={index}
+                        className="list-item-stagger flex items-start"
+                        style={{ animationDelay: `${index * 50 + 200}ms` }}
+                      >
                         <span className="text-purple-600 mr-2 mt-1.5">•</span>
                         <span className="text-lg text-gray-700">{point}</span>
                       </li>
@@ -1089,36 +1181,41 @@ export default function CaseStudyPage({ params }: Props) {
                 {study.additionalImages && (
                   <div className="mb-12 grid grid-cols-1 md:grid-cols-2 gap-6">
                     {study.additionalImages.map((image, index) => (
-                      <div key={index} className="bg-gray-50 p-4 rounded-lg">
-                        <div className="relative w-full h-[300px] mb-3">
+                      <div
+                        key={index}
+                        className="image-scale-in bg-gray-50 p-4 rounded-lg"
+                        style={{ animationDelay: `${index * 200}ms` }}
+                      >
+                        <div className="relative w-full h-[300px] mb-3 overflow-hidden rounded-md">
                           <Image
                             src={image.src || "/placeholder.svg"}
                             alt={image.alt}
                             fill
-                            className="object-contain rounded-md"
+                            className="case-study-image object-contain"
                           />
                         </div>
-                        <p className="text-center text-gray-600 italic">{image.caption}</p>
+                        <p className="image-caption text-center text-gray-600 italic">{image.caption}</p>
                       </div>
                     ))}
                   </div>
                 )}
 
-                {/* Key Rankings Section for Xero Shoes */}
-                {study.keyPhrasesRanked && (
-                  <div className="mb-12">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-6">Key Rankings Achieved</h2>
-                    <p className="text-lg text-gray-700 italic">{study.keyPhrasesRanked}</p>
-                  </div>
-                )}
-
                 {/* Results Section for Xero Shoes */}
                 <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">The Results</h2>
+                  <h2 className="section-heading text-3xl font-bold text-gray-900 mb-6">The Results</h2>
                   <ul className="space-y-1 mb-6">
                     {study.detailedResults?.map((result, index) => (
-                      <li key={index} className="flex items-start p-2 rounded-lg">
-                        <span className="text-green-600 mr-3 text-xl">✅</span>
+                      <li
+                        key={index}
+                        className="result-item flex items-start p-2 rounded-lg"
+                        style={{ animationDelay: `${index * 150}ms` }}
+                      >
+                        <span
+                          className="checkmark-pulse text-green-600 mr-3 text-xl"
+                          style={{ animationDelay: `${index * 150 + 100}ms` }}
+                        >
+                          ✅
+                        </span>
                         <span className="text-lg font-medium text-gray-800">{result}</span>
                       </li>
                     ))}
@@ -1127,30 +1224,34 @@ export default function CaseStudyPage({ params }: Props) {
 
                 {/* Conclusion Section for Xero Shoes */}
                 <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">Conclusion</h2>
-                  <p className="text-lg text-gray-700">{study.conclusion}</p>
+                  <h2 className="section-heading text-3xl font-bold text-gray-900 mb-6">Conclusion</h2>
+                  <p className="content-text text-lg text-gray-700">{study.conclusion}</p>
                 </div>
               </>
             ) : (
               <>
                 {/* Challenge Section for other case studies */}
                 <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">The Challenge</h2>
-                  <p className="text-lg text-gray-700">{study.challenge}</p>
+                  <h2 className="section-heading text-3xl font-bold text-gray-900 mb-6">The Challenge</h2>
+                  <p className="content-text text-lg text-gray-700">{study.challenge}</p>
                 </div>
 
                 {/* Solution Section for other case studies */}
                 <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Solution</h2>
-                  <p className="text-lg text-gray-700">{study.solution}</p>
+                  <h2 className="section-heading text-3xl font-bold text-gray-900 mb-6">Our Solution</h2>
+                  <p className="content-text text-lg text-gray-700">{study.solution}</p>
                 </div>
 
                 {/* Results Section for other case studies */}
                 <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">The Results</h2>
+                  <h2 className="section-heading text-3xl font-bold text-gray-900 mb-6">The Results</h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                     {study.detailedResults?.map((result, index) => (
-                      <div key={index} className="bg-purple-50 p-6 rounded-lg">
+                      <div
+                        key={index}
+                        className="result-item bg-purple-50 p-6 rounded-lg"
+                        style={{ animationDelay: `${index * 150}ms` }}
+                      >
                         <p className="text-lg font-medium text-purple-900">{result}</p>
                       </div>
                     ))}
@@ -1166,9 +1267,13 @@ export default function CaseStudyPage({ params }: Props) {
               study.slug !== "throwback-vault" &&
               study.slug !== "bridge-city-limo" &&
               study.slug !== "tiffany-knupp-insurance" && (
-                <div className="mb-16 bg-gray-50 p-8 rounded-xl border border-gray-100">
+                <div className="testimonial-fade-scale mb-16 bg-gray-50 p-8 rounded-xl border border-gray-100">
                   <div className="flex flex-col items-center text-center">
-                    <svg className="w-12 h-12 text-purple-300 mb-4" fill="currentColor" viewBox="0 0 24 24">
+                    <svg
+                      className="quote-bounce w-12 h-12 text-purple-300 mb-4"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
                       <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                     </svg>
                     <blockquote className="text-xl italic text-gray-800 mb-4">"{study.testimonial.quote}"</blockquote>
@@ -1177,14 +1282,14 @@ export default function CaseStudyPage({ params }: Props) {
                 </div>
               )}
 
-            {/* CTA Section */}
-            <div className="bg-purple-800 text-white p-8 rounded-xl text-center mb-16">
+            {/* CTA Section with Enhanced Animations */}
+            <div className="cta-slide-up bg-purple-800 text-white p-8 rounded-xl text-center mb-16">
               <h2 className="text-2xl font-bold mb-4">Ready to achieve similar results?</h2>
               <p className="text-lg mb-6">
                 Let's discuss how we can help your business grow with our proven digital marketing strategies.
               </p>
               <CTAButton
-                className="bg-white text-purple-800 hover:bg-gray-100 px-8 py-3 rounded-md font-semibold text-lg"
+                className="cta-button-enhanced bg-white text-purple-800 hover:bg-gray-100 px-8 py-3 rounded-md font-semibold text-lg"
                 source={`Case Study - ${study.title}`}
               >
                 Schedule Your Free Strategy Session
@@ -1194,28 +1299,32 @@ export default function CaseStudyPage({ params }: Props) {
         </div>
       </div>
 
-      {/* Related Case Studies */}
+      {/* Related Case Studies with Enhanced Animations */}
       {relatedStudies.length > 0 && (
         <div className="bg-gray-50 py-16">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12">Related Case Studies</h2>
+            <h2 className="section-heading text-3xl font-bold text-center mb-12">Related Case Studies</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-              {relatedStudies.map((relatedStudy) => (
-                <div key={relatedStudy.id} className="bg-white rounded-lg overflow-hidden shadow-md">
-                  <div className="relative h-48 w-full">
+              {relatedStudies.map((relatedStudy, index) => (
+                <div
+                  key={relatedStudy.id}
+                  className="related-card-stagger related-card bg-white rounded-lg overflow-hidden shadow-md"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  <div className="relative h-48 w-full overflow-hidden">
                     <Image
                       src={relatedStudy.image || "/placeholder.svg"}
                       alt={`${relatedStudy.title} - ${relatedStudy.services.join(", ")} case study`}
                       fill
-                      className="object-cover"
+                      className="related-card-image object-cover"
                     />
                   </div>
                   <div className="p-6">
                     <h3 className="text-xl font-bold text-gray-900 mb-2">{relatedStudy.title}</h3>
                     <div className="flex flex-wrap gap-2 mb-3">
-                      {relatedStudy.services.map((service, index) => (
+                      {relatedStudy.services.map((service, serviceIndex) => (
                         <span
-                          key={index}
+                          key={serviceIndex}
                           className="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded"
                         >
                           {service}

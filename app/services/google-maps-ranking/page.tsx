@@ -1,10 +1,8 @@
 import { NavBar } from "@/components/nav-bar"
 import { Footer } from "@/components/footer"
+import Image from "next/image"
 import { CTAButton } from "@/components/cta-button"
 import type { Metadata } from "next"
-import { AnimatedHero } from "@/components/animated-hero"
-import { AnimatedImage } from "@/components/animated-image"
-import { FeatureCardsCascade } from "@/components/feature-cards-cascade"
 
 export const metadata: Metadata = {
   title: "Google Maps Ranking - Brandstorm AI",
@@ -17,10 +15,12 @@ export default function GoogleMapsRankingPage() {
       <NavBar />
       <div className="flex-1 pt-32">
         <div className="container max-w-6xl mx-auto px-4 py-12">
-          <AnimatedHero
-            title="Google Maps Ranking"
-            subtitle="Be the first business customers see in local map results"
-          />
+          <div className="text-center mb-12">
+            <h1 className="text-4xl font-bold text-purple-800 mb-4">Google Maps Ranking</h1>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Be the first business customers see in local map results
+            </p>
+          </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
             <div>
@@ -46,13 +46,13 @@ export default function GoogleMapsRankingPage() {
               </p>
               <CTAButton
                 source="Google Maps Ranking Page"
-                className="cta-button bg-purple-700 hover:bg-purple-800 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 mt-4"
+                className="bg-purple-700 hover:bg-purple-800 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 mt-4"
               >
                 Boost Your Local Visibility
               </CTAButton>
             </div>
             <div className="flex justify-center">
-              <AnimatedImage
+              <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Services8-GoogleMaps-zq0nbJeKnkqTX7kSdes8JvgV6WjgZM.webp"
                 alt="3D Google Maps pin over miniature city showing local business visibility and map positioning"
                 width={600}
@@ -62,13 +62,11 @@ export default function GoogleMapsRankingPage() {
             </div>
           </div>
 
-          <FeatureCardsCascade
-            cards={[
-              {
-                title: "Local Citation Building",
-                description:
-                  "Strategic creation of consistent business listings across authoritative directories to strengthen your local search presence.",
-                icon: (
+          <div className="bg-white p-8 rounded-lg shadow-md">
+            <h2 className="text-2xl font-bold text-purple-700 mb-6 text-center">Our Ranking Strategies</h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="text-center">
+                <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -84,13 +82,15 @@ export default function GoogleMapsRankingPage() {
                     <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
                     <circle cx="12" cy="10" r="3"></circle>
                   </svg>
-                ),
-              },
-              {
-                title: "Proximity Optimization",
-                description:
-                  "Advanced techniques to optimize your business for location-based searches in your target service areas and neighborhoods.",
-                icon: (
+                </div>
+                <h3 className="font-bold text-lg mb-2">Local Citation Building</h3>
+                <p>
+                  Strategic creation of consistent business listings across authoritative directories to strengthen your
+                  local search presence.
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -105,13 +105,15 @@ export default function GoogleMapsRankingPage() {
                   >
                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                   </svg>
-                ),
-              },
-              {
-                title: "Review Strategy",
-                description:
-                  "Comprehensive review generation and management to build the social proof Google values for local ranking factors.",
-                icon: (
+                </div>
+                <h3 className="font-bold text-lg mb-2">Proximity Optimization</h3>
+                <p>
+                  Advanced techniques to optimize your business for location-based searches in your target service areas
+                  and neighborhoods.
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -127,10 +129,15 @@ export default function GoogleMapsRankingPage() {
                     <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
                     <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
                   </svg>
-                ),
-              },
-            ]}
-          />
+                </div>
+                <h3 className="font-bold text-lg mb-2">Review Strategy</h3>
+                <p>
+                  Comprehensive review generation and management to build the social proof Google values for local
+                  ranking factors.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <Footer />

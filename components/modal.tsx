@@ -42,32 +42,18 @@ export function Modal({ isOpen, onClose, children, title }: ModalProps) {
 
   if (!isOpen) return null
 
-  // Use createPortal to render at document body level
-  return createPortal(
-    <>
-      <div
-        className="fixed inset-0 bg-black/50 transition-opacity"
-        onClick={handleBackdropClick}
-        style={{ zIndex: 9999998 }}
-      ></div>
+  const ModalContent = () => (
+    <div className="fixed inset-0 z-[9999] overflow-y-auto">
+      <div className="flex min-h-screen items-center justify-center p-4 text-center sm:p-0">
+        <div className="fixed inset-0 bg-black/50 transition-opacity" onClick={handleBackdropClick}></div>
 
-      <div
-        className="fixed"
-        style={{
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          zIndex: 9999999,
-        }}
-      >
         <div
           ref={modalRef}
-          className="relative overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:w-full sm:max-w-md p-6 max-h-[90vh] overflow-auto"
+          className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-md p-6 max-h-[90vh] overflow-auto"
         >
           <button
             onClick={onClose}
             className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
-            style={{ zIndex: 10000000 }}
             aria-label="Close"
           >
             <X className="h-6 w-6" />
@@ -77,7 +63,9 @@ export function Modal({ isOpen, onClose, children, title }: ModalProps) {
           {children}
         </div>
       </div>
-    </>,
-    document.body,
+    </div>
   )
+
+  // Use createPortal to render the modal at the document body level
+  return createPortal(<ModalContent />, document.body)
 }

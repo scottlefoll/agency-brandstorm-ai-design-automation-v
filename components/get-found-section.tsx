@@ -234,23 +234,27 @@ export function GetFoundSection() {
 
         <div className="grid md:grid-cols-2 gap-8 items-center mt-16">
           <div>
-            <p className="text-lg mb-8">
-              Be Found Where People Are Searching Voice search is now the #1 way people find businesses. From Siri to
-              Alexa to Google Assistant, more customers are asking their devices—not typing into search bars.
+            <h3 className="text-2xl font-bold mb-4 text-purple-800">Be Found Where People Are Searching</h3>
+
+            <p className="text-lg mb-4">
+              Voice search is now the #1 way people find businesses. From Siri to Alexa to Google Assistant, more
+              customers are asking their devices—not typing into search bars.
             </p>
 
-            <p className="text-lg mb-8">Will your business show up when they do?</p>
+            <p className="text-lg mb-6 font-semibold">Will your business show up when they do?</p>
 
-            <p className="text-lg mb-8">
-              ✅ Whether they're using Safari, Firefox, or just their voice... ✅ You need to be visible everywhere they
-              search.
-            </p>
+            <div className="space-y-2 mb-6">
+              <p className="text-lg">✅ Whether they're using Safari, Firefox, or just their voice...</p>
+              <p className="text-lg">✅ You need to be visible everywhere they search.</p>
+            </div>
 
-            <p className="text-lg mb-8">
+            <p className="text-lg mb-6">
               Our Listed Everywhere service makes sure your business gets found—across all platforms, all the time.
             </p>
 
-            <p className="text-lg mb-8">👉 Maximize your visibility. Dominate local search. Start today.</p>
+            <p className="text-lg mb-8 font-semibold">
+              👉 Maximize your visibility. Dominate local search. Start today.
+            </p>
 
             <CTAButton source="Get Found Section">GET STARTED TODAY</CTAButton>
           </div>
@@ -258,8 +262,8 @@ export function GetFoundSection() {
           <div className="flex justify-center">
             <div className="relative">
               <Image
-                src="/voice-search-be-found.webp"
-                alt="Voice Search - Be found where people are searching"
+                src="/images/listing-management-app.webp"
+                alt="Business listing management app"
                 width={300}
                 height={600}
                 className="rounded-xl shadow-xl"

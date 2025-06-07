@@ -1,10 +1,8 @@
 import { NavBar } from "@/components/nav-bar"
 import { Footer } from "@/components/footer"
+import Image from "next/image"
 import { CTAButton } from "@/components/cta-button"
 import type { Metadata } from "next"
-import { AnimatedHero } from "@/components/animated-hero"
-import { AnimatedImage } from "@/components/animated-image"
-import { FeatureCardsCascade } from "@/components/feature-cards-cascade"
 
 export const metadata: Metadata = {
   title: "Content Marketing - Brandstorm AI",
@@ -17,10 +15,12 @@ export default function ContentMarketingPage() {
       <NavBar />
       <div className="flex-1 pt-32">
         <div className="container max-w-6xl mx-auto px-4 py-12">
-          <AnimatedHero
-            title="Content Marketing"
-            subtitle="Compelling content that attracts, engages, and converts your ideal audience"
-          />
+          <div className="text-center mb-12">
+            <h1 className="text-4xl font-bold text-purple-800 mb-4">Content Marketing</h1>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Compelling content that attracts, engages, and converts your ideal audience
+            </p>
+          </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
             <div>
@@ -43,13 +43,13 @@ export default function ContentMarketingPage() {
               </p>
               <CTAButton
                 source="Content Marketing Page"
-                className="cta-button bg-purple-700 hover:bg-purple-800 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 mt-4"
+                className="bg-purple-700 hover:bg-purple-800 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 mt-4"
               >
                 Start Your Content Strategy
               </CTAButton>
             </div>
             <div className="flex justify-center">
-              <AnimatedImage
+              <Image
                 src="/images/services/content-marketing.webp"
                 alt="Content marketing team collaborating on strategy and content creation"
                 width={600}
@@ -59,13 +59,11 @@ export default function ContentMarketingPage() {
             </div>
           </div>
 
-          <FeatureCardsCascade
-            cards={[
-              {
-                title: "Blog Content Creation",
-                description:
-                  "Engaging, SEO-optimized blog posts that establish your authority, drive organic traffic, and nurture leads through your sales funnel.",
-                icon: (
+          <div className="bg-white p-8 rounded-lg shadow-md">
+            <h2 className="text-2xl font-bold text-purple-700 mb-6 text-center">Our Content Marketing Services</h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="text-center">
+                <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -81,13 +79,15 @@ export default function ContentMarketingPage() {
                     <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
                     <polyline points="14 2 14 8 20 8"></polyline>
                   </svg>
-                ),
-              },
-              {
-                title: "Social Media Content",
-                description:
-                  "Platform-specific content that engages your audience, builds community, and drives traffic to your website and landing pages.",
-                icon: (
+                </div>
+                <h3 className="font-bold text-lg mb-2">Blog Content Creation</h3>
+                <p>
+                  Engaging, SEO-optimized blog posts that establish your authority, drive organic traffic, and nurture
+                  leads through your sales funnel.
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -102,13 +102,15 @@ export default function ContentMarketingPage() {
                   >
                     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                   </svg>
-                ),
-              },
-              {
-                title: "Premium Content",
-                description:
-                  "High-value ebooks, whitepapers, and guides that generate leads, demonstrate expertise, and move prospects through your sales pipeline.",
-                icon: (
+                </div>
+                <h3 className="font-bold text-lg mb-2">Social Media Content</h3>
+                <p>
+                  Platform-specific content that engages your audience, builds community, and drives traffic to your
+                  website and landing pages.
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -126,10 +128,15 @@ export default function ContentMarketingPage() {
                     <path d="M15 18h-5"></path>
                     <path d="M10 6h8v4h-8V6Z"></path>
                   </svg>
-                ),
-              },
-            ]}
-          />
+                </div>
+                <h3 className="font-bold text-lg mb-2">Premium Content</h3>
+                <p>
+                  High-value ebooks, whitepapers, and guides that generate leads, demonstrate expertise, and move
+                  prospects through your sales pipeline.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <Footer />
