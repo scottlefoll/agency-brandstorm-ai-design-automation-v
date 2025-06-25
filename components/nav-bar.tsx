@@ -185,7 +185,7 @@ export function NavBar() {
                 ) : (
                   <Link
                     href={item.href}
-                    className="font-semibold text-gray-700 hover:text-gray-900 px-4"
+                    className={`font-semibold ${item.name === "System" ? "text-blue-600 hover:text-blue-800" : "text-gray-700 hover:text-gray-900"} px-4`}
                     style={{ fontSize: "1.035rem" }}
                   >
                     {item.name}
@@ -259,7 +259,7 @@ export function NavBar() {
                 ) : (
                   <Link
                     href={item.href}
-                    className="font-semibold text-gray-700 hover:text-gray-900 py-2"
+                    className={`font-semibold ${item.name === "System" ? "text-blue-600 hover:text-blue-800" : "text-gray-700 hover:text-gray-900"} py-2`}
                     style={{ fontSize: "1.035rem" }}
                     onClick={() => setIsMenuOpen(false)}
                   >
