@@ -1,7 +1,17 @@
+"use client"
+
 import { CTAButton } from "@/components/cta-button"
 import Image from "next/image"
+import { useEffect, useState } from "react"
 
 export function HeroSection() {
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    // Trigger animation after component mounts
+    setIsVisible(true)
+  }, [])
+
   return (
     <section
       className="relative w-full"
@@ -32,7 +42,7 @@ export function HeroSection() {
 
       <div className="container relative z-30 flex flex-col items-center text-center text-white">
         <h1
-          className="text-6xl md:text-7xl lg:text-8xl font-black tracking-wide uppercase"
+          className="text-6xl md:text-7xl lg:text-8xl font-black tracking-wide uppercase overflow-hidden"
           style={{
             textShadow: "0 0 1px rgba(255,255,255,0.1)",
             fontFamily: "'Montserrat', sans-serif",
@@ -42,29 +52,31 @@ export function HeroSection() {
           }}
         >
           <span
-            className="block bg-gradient-to-r from-blue-500 via-purple-400 to-indigo-300 bg-clip-text text-transparent"
+            className={`block bg-gradient-to-r from-blue-500 via-purple-400 to-indigo-300 bg-clip-text text-transparent animated-text ${isVisible ? "reveal-1" : ""}`}
             style={{
               backgroundSize: "200% auto",
-              animation: "gradient 3s linear infinite",
+              animation: isVisible ? "gradient 3s linear infinite" : "none",
             }}
           >
             TRANSFORM YOUR
           </span>
           <span
-            className="block bg-gradient-to-r from-blue-500 via-purple-400 to-indigo-300 bg-clip-text text-transparent"
+            className={`block bg-gradient-to-r from-blue-500 via-purple-400 to-indigo-300 bg-clip-text text-transparent animated-text ${isVisible ? "reveal-2" : ""}`}
             style={{
               backgroundSize: "200% auto",
-              animation: "gradient 3s linear infinite",
+              animation: isVisible ? "gradient 3s linear infinite" : "none",
             }}
           >
             BUSINESS WITH
           </span>
-          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
+          <span
+            className={`block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 animated-text ${isVisible ? "reveal-3" : ""}`}
+          >
             AI POWER
           </span>
         </h1>
 
-        <div className="py-2.5 flex items-center justify-center">
+        <div className={`py-2.5 flex items-center justify-center animated-element ${isVisible ? "fade-in" : ""}`}>
           {[1, 2, 3, 4, 5].map((star, index) => (
             <div key={star} style={{ marginLeft: index === 0 ? "0" : "3px", marginRight: index === 4 ? "0" : "3px" }}>
               <Image src="/images/five-star-gold.svg" alt="Gold star" width={25} height={25} className="h-6 w-6" />
@@ -73,7 +85,7 @@ export function HeroSection() {
         </div>
 
         <h2
-          className="text-3xl md:text-4xl font-black mb-6 text-white uppercase"
+          className={`text-3xl md:text-4xl font-black mb-6 text-white uppercase animated-element ${isVisible ? "fade-in-delay-1" : ""}`}
           style={{
             textShadow: "0 0 2px rgba(255,255,255,0.8), 0 0 10px rgba(255,255,255,0.3)",
             letterSpacing: "0.02em",
@@ -82,7 +94,7 @@ export function HeroSection() {
           BECOME THE FIRST CHOICE. EVERY TIME.
         </h2>
 
-        <div className="max-w-3xl">
+        <div className={`max-w-3xl animated-element ${isVisible ? "fade-in-delay-2" : ""}`}>
           <p className="text-lg mb-1">
             Drive unstoppable growth through <strong className="font-extrabold">Elite Branding</strong>,
             high-performance <strong className="font-extrabold">Web Design</strong>,{" "}
@@ -94,10 +106,12 @@ export function HeroSection() {
           </p>
         </div>
 
-        <p className="text-xl font-extrabold mt-4 mb-5">More clients. More revenue. Unshakable loyalty.</p>
+        <p className={`text-xl font-extrabold mt-4 mb-5 animated-element ${isVisible ? "fade-in-delay-3" : ""}`}>
+          More clients. More revenue. Unshakable loyalty.
+        </p>
 
         <CTAButton
-          className="py-8 px-8 rounded-md text-lg font-bold border-2 border-purple-500"
+          className={`py-8 px-8 rounded-md text-lg font-bold border-2 border-purple-500 animated-element ${isVisible ? "fade-in-delay-4" : ""}`}
           style={{
             transition: "all 0.3s ease",
           }}

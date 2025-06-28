@@ -1,116 +1,14 @@
 "use client"
 
-import type React from "react"
-
 import { NavBar } from "@/components/nav-bar"
 import { Footer } from "@/components/footer"
-import Image from "next/image"
 import { CTAButton } from "@/components/cta-button"
-import { useEffect, useRef, useState } from "react"
+import { ScrollReveal } from "@/components/scroll-reveal"
+import { AnimatedHero } from "@/components/animated-hero"
+import { AnimatedImage } from "@/components/animated-image"
+import Image from "next/image"
 
 export default function SystemPageClient() {
-  const [heroTextVisible, setHeroTextVisible] = useState(false)
-  const [visibleSteps, setVisibleSteps] = useState<number[]>([])
-  const heroRef = useRef<HTMLDivElement>(null)
-  const step1Ref = useRef<HTMLDivElement>(null)
-  const step2Ref = useRef<HTMLDivElement>(null)
-  const step3Ref = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    // Hero text reveal animation
-    const heroObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setTimeout(() => setHeroTextVisible(true), 300)
-          }
-        })
-      },
-      { threshold: 0.3 },
-    )
-
-    if (heroRef.current) {
-      heroObserver.observe(heroRef.current)
-    }
-
-    // Step reveal animations
-    const stepObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const stepNumber = Number.parseInt(entry.target.getAttribute("data-step") || "0")
-            setVisibleSteps((prev) => {
-              if (!prev.includes(stepNumber)) {
-                return [...prev, stepNumber].sort()
-              }
-              return prev
-            })
-          }
-        })
-      },
-      { threshold: 0.2 },
-    )
-
-    const stepRefs = [step1Ref, step2Ref, step3Ref]
-    stepRefs.forEach((ref) => {
-      if (ref.current) {
-        stepObserver.observe(ref.current)
-      }
-    })
-
-    return () => {
-      heroObserver.disconnect()
-      stepObserver.disconnect()
-    }
-  }, [])
-
-  const AnimatedText = ({ text, visible, delay = 0 }: { text: string; visible: boolean; delay?: number }) => {
-    const words = text.split(" ")
-    return (
-      <span className="inline-block">
-        {words.map((word, index) => (
-          <span
-            key={index}
-            className={`inline-block transition-all duration-700 ease-out ${
-              visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
-            style={{
-              transitionDelay: `${delay + index * 100}ms`,
-            }}
-          >
-            {word}&nbsp;
-          </span>
-        ))}
-      </span>
-    )
-  }
-
-  const StepContainer = ({
-    stepNumber,
-    children,
-    className = "",
-  }: {
-    stepNumber: number
-    children: React.ReactNode
-    className?: string
-  }) => {
-    const isVisible = visibleSteps.includes(stepNumber)
-    const delay = visibleSteps.indexOf(stepNumber) * 200
-
-    return (
-      <div
-        className={`transition-all duration-1000 ease-out ${
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-        } ${className}`}
-        style={{
-          transitionDelay: `${delay}ms`,
-        }}
-      >
-        {children}
-      </div>
-    )
-  }
-
   return (
     <main className="flex min-h-screen flex-col bg-white">
       {/* Fixed header */}
@@ -119,211 +17,349 @@ export default function SystemPageClient() {
       {/* White spacer that exactly matches the NavBar height */}
       <div className="h-[134px]"></div>
 
-      {/* Main Hero Section */}
-      <section className="bg-gradient-to-b from-purple-900 to-purple-800 text-white py-20">
-        <div className="container mx-auto px-4 md:px-8 max-w-6xl">
-          <div className="flex flex-col md:flex-row items-center gap-8">
-            <div className="md:w-1/2" ref={heroRef}>
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                <AnimatedText text="Turn Your Business Into an Automated Revenue Engine" visible={heroTextVisible} />
-              </h1>
-              <div
-                className={`transition-all duration-700 ease-out ${
-                  heroTextVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-                }`}
-                style={{ transitionDelay: "800ms" }}
-              >
-                <p className="text-xl mb-8">
+      {/* Hero Section */}
+      <ScrollReveal>
+        <section className="relative py-20 bg-gradient-to-br from-purple-900 via-purple-800 to-indigo-900 text-white overflow-hidden">
+          <div className="absolute inset-0 bg-black/20"></div>
+          <div className="container relative z-10 mx-auto px-4 md:px-8 max-w-6xl">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <AnimatedHero>
+                <div className="space-y-6">
+                  <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+                    Turn Your Business Into An
+                    <span className="text-yellow-400 block">Automated Revenue Engine</span>
+                  </h1>
+                  <p className="text-xl text-purple-100 leading-relaxed">
+                    <strong>
+                      Brandstorm AI CRM empowers you to attract, engage, and convert more customers—automatically.
+                    </strong>{" "}
+                    Get all the tools you need to streamline operations and grow your business on autopilot.
+                  </p>
+                  <CTAButton
+                    className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105"
+                    source="System Hero - Get Started"
+                  >
+                    Get Started Today
+                  </CTAButton>
+                </div>
+              </AnimatedHero>
+              <AnimatedImage delay={0.3}>
+                <div className="relative">
+                  <Image
+                    src="/images/crm/1-crm.webp"
+                    alt="BrandStorm AI tablet displaying automated revenue engine with network connections and growth visualization"
+                    width={600}
+                    height={400}
+                    className="rounded-lg shadow-2xl border-4 border-white/20 object-cover"
+                  />
+                </div>
+              </AnimatedImage>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* Integration Section */}
+      <ScrollReveal>
+        <section className="py-20 bg-gray-50">
+          <div className="container mx-auto px-4 md:px-8 max-w-6xl">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <AnimatedImage>
+                <div className="relative">
+                  <Image
+                    src="/images/crm/2-crm.webp"
+                    alt="BrandStorm AI tablet showing integrated sales and marketing analytics dashboard with network connections"
+                    width={600}
+                    height={400}
+                    className="rounded-lg shadow-xl border-2 border-gray-200 object-cover"
+                  />
+                </div>
+              </AnimatedImage>
+              <div className="space-y-6">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+                  Seamlessly Integrate
+                  <span className="text-purple-600 block">Sales & Marketing</span>
+                </h2>
+                <p className="text-lg text-gray-600 leading-relaxed">
+                  Ignoring the value of a CRM can cost you sales and damage customer relationships.{" "}
                   <strong>
-                    Brandstorm AI CRM empowers you to attract, engage, and convert more customers—automatically.
+                    Brandstorm AI CRM solves this by unifying your sales and marketing workflows into one smart,
+                    easy-to-use platform.
                   </strong>{" "}
-                  Get all the tools you need to streamline operations and grow your business on autopilot.
+                  The result? Lower operational costs and significantly improved sales performance.
                 </p>
-              </div>
-              <div
-                className={`transition-all duration-700 ease-out ${
-                  heroTextVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-                }`}
-                style={{ transitionDelay: "1000ms" }}
-              >
-                <CTAButton variant="secondary" className="bg-white text-purple-800 hover:bg-gray-100">
-                  Get Started Today
+                <ul className="space-y-3 text-gray-700">
+                  <li className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
+                    <span>Unified customer data across all channels</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
+                    <span>Real-time analytics and reporting</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
+                    <span>Automated workflow optimization</span>
+                  </li>
+                </ul>
+                <CTAButton
+                  className="bg-purple-800 text-white hover:bg-purple-700 font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105"
+                  source="System Page - Sales Marketing Integration"
+                >
+                  Request a Demo
                 </CTAButton>
               </div>
             </div>
-            <div className="md:w-1/2 mt-8 md:mt-0">
-              <div
-                className={`relative w-full h-[300px] md:h-[400px] transition-all duration-1000 ease-out ${
-                  heroTextVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
-                }`}
-                style={{ transitionDelay: "600ms" }}
-              >
-                <Image
-                  src="/images/crm/1-crm.webp"
-                  alt="BrandStorm AI tablet - Automated Revenue Engine"
-                  fill
-                  className="object-contain"
-                />
-              </div>
-            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
-      {/* Integrate Sales and Marketing Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4 md:px-8 max-w-6xl">
-          <div className="flex flex-col md:flex-row-reverse items-center gap-8">
-            <div className="md:w-1/2">
-              <h2 className="text-3xl md:text-4xl font-bold text-purple-800 mb-6">
-                Seamlessly Integrate Sales and Marketing
-              </h2>
-              <p className="text-lg mb-8">
-                Ignoring the value of a CRM can cost you sales and damage customer relationships.{" "}
-                <strong>
-                  Brandstorm AI CRM solves this by unifying your sales and marketing workflows into one smart,
-                  easy-to-use platform.
-                </strong>{" "}
-                The result? Lower operational costs and significantly improved sales performance.
+      {/* Three-Step Process */}
+      <ScrollReveal>
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-4 md:px-8 max-w-6xl">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-purple-800 mb-4">📈 How It Works</h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Transform your business with our systematic approach to growth and automation
               </p>
-              <CTAButton variant="primary">Request a Demo</CTAButton>
             </div>
-            <div className="md:w-1/2 mt-8 md:mt-0">
-              <div className="relative w-full h-[300px] md:h-[400px]">
-                <Image
-                  src="/images/crm/2-crm.webp"
-                  alt="Analytics dashboard - Integrated Sales and Marketing Platform"
-                  fill
-                  className="object-contain"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* How It Works Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 md:px-8 max-w-6xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-purple-800 mb-12 text-center">📈 How It Works</h2>
-
-          {/* Step 1 */}
-          <div ref={step1Ref} data-step="1" className="mb-16">
-            <StepContainer stepNumber={1}>
-              <div className="flex flex-col md:flex-row items-center gap-8">
-                <div className="md:w-1/2">
-                  <h3 className="text-2xl md:text-3xl font-bold text-purple-700 mb-4">STEP 1: Capture</h3>
+            <div className="space-y-20">
+              {/* Step 1 - Capture */}
+              <div className="grid lg:grid-cols-2 gap-12 items-center">
+                <div className="space-y-6">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
+                      1
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-bold text-purple-700">STEP 1: Capture</h3>
+                  </div>
                   <p className="text-lg mb-6">
                     Don't let valuable leads slip through the cracks. We help you{" "}
                     <strong>capture every opportunity</strong> so you can start building relationships and converting
                     leads into customers.
                   </p>
-                  <CTAButton variant="primary">Activate Lead Capture</CTAButton>
+                  <ul className="space-y-2 text-gray-700 mb-6">
+                    <li className="flex items-center gap-3">
+                      <div className="w-1.5 h-1.5 bg-purple-600 rounded-full"></div>
+                      <span>Multi-channel lead generation</span>
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <div className="w-1.5 h-1.5 bg-purple-600 rounded-full"></div>
+                      <span>Smart lead scoring and qualification</span>
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <div className="w-1.5 h-1.5 bg-purple-600 rounded-full"></div>
+                      <span>Conversion-optimized landing pages</span>
+                    </li>
+                  </ul>
+                  <CTAButton
+                    className="bg-purple-700 text-white hover:bg-purple-600 font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105"
+                    source="System Page - Lead Capture"
+                  >
+                    Activate Lead Capture
+                  </CTAButton>
                 </div>
-                <div className="md:w-1/2 mt-8 md:mt-0">
-                  <div className="relative w-full h-[250px] md:h-[300px]">
+                <AnimatedImage delay={0.2}>
+                  <div className="relative">
                     <Image
                       src="/images/crm/3-crm.webp"
-                      alt="Lead capture funnel with tree visualization"
-                      fill
-                      className="object-contain"
+                      alt="Lead capture funnel visualization with 3D leads flowing through a net toward a tree structure representing growth"
+                      width={600}
+                      height={400}
+                      className="rounded-lg shadow-xl border-2 border-gray-200 object-cover"
                     />
                   </div>
-                </div>
+                </AnimatedImage>
               </div>
-            </StepContainer>
-          </div>
 
-          {/* Step 2 */}
-          <div ref={step2Ref} data-step="2" className="mb-16">
-            <StepContainer stepNumber={2}>
-              <div className="flex flex-col md:flex-row-reverse items-center gap-8">
-                <div className="md:w-1/2">
-                  <h3 className="text-2xl md:text-3xl font-bold text-purple-700 mb-4">STEP 2: Nurture</h3>
+              {/* Step 2 - Nurture */}
+              <div className="grid lg:grid-cols-2 gap-12 items-center">
+                <AnimatedImage delay={0.2}>
+                  <div className="relative lg:order-1">
+                    <Image
+                      src="/images/crm/4-crm.webp"
+                      alt="Professional business team collaborating in modern office with growth plant overlay symbolizing nurturing leads and business development"
+                      width={600}
+                      height={400}
+                      className="rounded-lg shadow-xl border-2 border-gray-200 object-cover"
+                    />
+                  </div>
+                </AnimatedImage>
+                <div className="space-y-6 lg:order-2">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
+                      2
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-bold text-purple-700">STEP 2: Nurture</h3>
+                  </div>
                   <p className="text-lg mb-6">
                     Reach your prospects wherever they are—<strong>social media, email, text, voicemail, chat.</strong>{" "}
                     Automated follow-ups ensure your business responds within minutes, and nurture sequences keep you
                     top of mind.
                   </p>
-                  <CTAButton variant="primary">Build Nurture Campaigns</CTAButton>
-                </div>
-                <div className="md:w-1/2 mt-8 md:mt-0">
-                  <div className="relative w-full h-[250px] md:h-[300px]">
-                    <Image
-                      src="/images/crm/4-crm.webp"
-                      alt="Business team with growth plant overlay"
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
+                  <ul className="space-y-2 text-gray-700 mb-6">
+                    <li className="flex items-center gap-3">
+                      <div className="w-1.5 h-1.5 bg-purple-600 rounded-full"></div>
+                      <span>Automated email sequences</span>
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <div className="w-1.5 h-1.5 bg-purple-600 rounded-full"></div>
+                      <span>Personalized content delivery</span>
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <div className="w-1.5 h-1.5 bg-purple-600 rounded-full"></div>
+                      <span>Behavioral trigger campaigns</span>
+                    </li>
+                  </ul>
+                  <CTAButton
+                    className="bg-purple-700 text-white hover:bg-purple-600 font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105"
+                    source="System Page - Nurture Campaigns"
+                  >
+                    Build Nurture Campaigns
+                  </CTAButton>
                 </div>
               </div>
-            </StepContainer>
-          </div>
 
-          {/* Step 3 */}
-          <div ref={step3Ref} data-step="3">
-            <StepContainer stepNumber={3}>
-              <div className="flex flex-col md:flex-row items-center gap-8">
-                <div className="md:w-1/2">
-                  <h3 className="text-2xl md:text-3xl font-bold text-purple-700 mb-4">STEP 3: Close</h3>
+              {/* Step 3 - Close */}
+              <div className="grid lg:grid-cols-2 gap-12 items-center">
+                <div className="space-y-6">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
+                      3
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-bold text-purple-700">STEP 3: Close</h3>
+                  </div>
                   <p className="text-lg mb-6">
                     <strong>Track every lead's journey</strong> and focus your efforts on those ready to buy. When
                     they're ready, collect payments directly through the CRM—no friction, no delay.
                   </p>
-                  <CTAButton variant="primary">Explore Closing Tools</CTAButton>
+                  <ul className="space-y-2 text-gray-700 mb-6">
+                    <li className="flex items-center gap-3">
+                      <div className="w-1.5 h-1.5 bg-purple-600 rounded-full"></div>
+                      <span>Sales-ready lead identification</span>
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <div className="w-1.5 h-1.5 bg-purple-600 rounded-full"></div>
+                      <span>Automated sales processes</span>
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <div className="w-1.5 h-1.5 bg-purple-600 rounded-full"></div>
+                      <span>Revenue optimization strategies</span>
+                    </li>
+                  </ul>
+                  <CTAButton
+                    className="bg-purple-700 text-white hover:bg-purple-600 font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105"
+                    source="System Page - Closing Tools"
+                  >
+                    Explore Closing Tools
+                  </CTAButton>
                 </div>
-                <div className="md:w-1/2 mt-8 md:mt-0">
-                  <div className="relative w-full h-[250px] md:h-[300px]">
+                <AnimatedImage delay={0.2}>
+                  <div className="relative">
                     <Image
                       src="/images/crm/5-crm.webp"
-                      alt="3D pathway with dollar signs leading to success"
-                      fill
-                      className="object-contain"
+                      alt="3D golden pathway with dollar signs leading to an open door representing the sales closing process and success"
+                      width={600}
+                      height={400}
+                      className="rounded-lg shadow-xl border-2 border-gray-200 object-cover"
                     />
                   </div>
-                </div>
+                </AnimatedImage>
               </div>
-            </StepContainer>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
+
+      {/* Results Section */}
+      <ScrollReveal>
+        <section className="py-20 bg-gradient-to-r from-purple-600 to-indigo-600 text-white">
+          <div className="container mx-auto px-4 md:px-8 max-w-6xl">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">The Results Speak For Themselves</h2>
+              <p className="text-lg text-purple-100 max-w-2xl mx-auto">
+                Our system has helped thousands of businesses achieve unprecedented growth
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="text-center">
+                <div className="text-4xl md:text-5xl font-bold text-yellow-400 mb-2">300%</div>
+                <div className="text-lg">Average Revenue Increase</div>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl md:text-5xl font-bold text-yellow-400 mb-2">85%</div>
+                <div className="text-lg">Lead Conversion Rate</div>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl md:text-5xl font-bold text-yellow-400 mb-2">24/7</div>
+                <div className="text-lg">Automated Operations</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
 
       {/* Ready to Grow Section */}
-      <section className="py-16 bg-gradient-to-b from-purple-800 to-purple-900 text-white">
-        <div className="container mx-auto px-4 md:px-8 max-w-6xl">
-          <div className="flex flex-col md:flex-row items-center gap-8">
-            <div className="md:w-1/2">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Grow?</h2>
-              <p className="text-xl mb-6">
-                <strong>We make scaling your business simple.</strong> Book a free strategy call, and we'll help
-                identify areas for growth, streamline your systems, and map out the next steps.
-              </p>
-              <div className="bg-white/10 p-6 rounded-lg mb-8">
-                <p className="text-lg italic">
-                  🎯{" "}
-                  <strong>
-                    No pressure. No hard sell. Just expert advice—whether you choose to work with us or not.
-                  </strong>
+      <ScrollReveal>
+        <section className="py-20 bg-gradient-to-b from-purple-800 to-purple-900 text-white">
+          <div className="container mx-auto px-4 md:px-8 max-w-6xl">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="space-y-6">
+                <h2 className="text-3xl md:text-4xl font-bold">
+                  Ready to Unlock
+                  <span className="text-yellow-400 block">Your Sales Potential?</span>
+                </h2>
+                <p className="text-xl mb-6">
+                  <strong>We make scaling your business simple.</strong> Book a free strategy call, and we'll help
+                  identify areas for growth, streamline your systems, and map out the next steps.
                 </p>
+                <div className="bg-white/10 p-6 rounded-lg mb-8">
+                  <p className="text-lg italic">
+                    🎯{" "}
+                    <strong>
+                      No pressure. No hard sell. Just expert advice—whether you choose to work with us or not.
+                    </strong>
+                  </p>
+                </div>
+                <div className="space-y-4 mb-8">
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                    <span>Free strategy consultation</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                    <span>Custom implementation plan</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                    <span>Ongoing support and optimization</span>
+                  </div>
+                </div>
+                <CTAButton
+                  className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105"
+                  source="System Page - Strategy Call"
+                >
+                  Schedule Free Strategy Call
+                </CTAButton>
               </div>
-              <CTAButton variant="secondary" className="bg-white text-purple-900 hover:bg-gray-100">
-                Schedule Free Strategy Call
-              </CTAButton>
-            </div>
-            <div className="md:w-1/2 mt-8 md:mt-0">
-              <div className="relative w-full h-[300px] md:h-[400px]">
-                <Image
-                  src="/images/crm/6-crm.webp"
-                  alt="Unlock Your Sales Potential - cityscape with golden pathway"
-                  fill
-                  className="object-contain"
-                />
-              </div>
+              <AnimatedImage delay={0.3}>
+                <div className="relative">
+                  <Image
+                    src="/images/crm/6-crm.webp"
+                    alt="BrandStorm System cityscape with golden pathway containing email and security icons leading to unlocked sales potential"
+                    width={600}
+                    height={400}
+                    className="rounded-lg shadow-2xl border-4 border-white/20 object-cover"
+                  />
+                </div>
+              </AnimatedImage>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
       <Footer />
     </main>

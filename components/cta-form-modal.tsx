@@ -9,6 +9,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { X } from "lucide-react"
 import { sendContactEmail } from "@/lib/actions"
 import { Checkbox } from "@/components/ui/checkbox"
+import { createPortal } from "react-dom"
 
 interface CTAFormModalProps {
   isOpen: boolean
@@ -52,6 +53,12 @@ export function CTAFormModal({ isOpen, onClose, ctaSource = "General Inquiry" }:
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
+    // Validate required checkboxes
+    if (!transactionalConsent || !marketingConsent) {
+      setError("Please check both consent boxes to proceed.")
+      return
+    }
+
     setIsSubmitting(true)
     setError(null)
 
@@ -92,7 +99,8 @@ export function CTAFormModal({ isOpen, onClose, ctaSource = "General Inquiry" }:
 
   if (!isOpen) return null
 
-  return (
+  // Use createPortal to render at document body level
+  return createPortal(
     <>
       {/* Backdrop */}
       <div
@@ -103,27 +111,27 @@ export function CTAFormModal({ isOpen, onClose, ctaSource = "General Inquiry" }:
           right: 0,
           bottom: 0,
           backgroundColor: "rgba(0, 0, 0, 0.5)",
-          zIndex: 50000,
+          zIndex: 9999998,
           width: "100vw",
           height: "100vh",
         }}
         onClick={onClose}
       />
 
-      {/* Modal */}
+      {/* Modal - CENTERED IN VIEWPORT */}
       <div
         style={{
           position: "fixed",
-          top: "200px",
+          top: "50%",
           left: "50%",
-          transform: "translateX(-50%)",
+          transform: "translate(-50%, -50%)",
           backgroundColor: "white",
           borderRadius: "8px",
           boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08)",
           width: "90%",
           maxWidth: "500px",
-          zIndex: 50001,
-          maxHeight: "calc(100vh - 250px)",
+          zIndex: 9999999,
+          maxHeight: "90vh",
           overflow: "auto",
         }}
         onClick={(e) => e.stopPropagation()}
@@ -139,7 +147,7 @@ export function CTAFormModal({ isOpen, onClose, ctaSource = "General Inquiry" }:
             border: "none",
             cursor: "pointer",
             padding: "4px",
-            zIndex: 1000001,
+            zIndex: 10000000,
           }}
           aria-label="Close"
         >
@@ -219,6 +227,34 @@ export function CTAFormModal({ isOpen, onClose, ctaSource = "General Inquiry" }:
                 </div>
 
                 <div>
+                  <Label htmlFor="company" className="text-gray-700 font-medium block mb-1">
+                    Company Name <span className="text-red-500">*</span>
+                  </Label>
+                  <Input
+                    id="company"
+                    name="company"
+                    value={formData.company}
+                    onChange={handleChange}
+                    className="bg-white text-gray-900 border-gray-300"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <Label htmlFor="website" className="text-gray-700 font-medium block mb-1">
+                    Website (if applicable)
+                  </Label>
+                  <Input
+                    id="website"
+                    name="website"
+                    type="url"
+                    value={formData.website}
+                    onChange={handleChange}
+                    className="bg-white text-gray-900 border-gray-300"
+                  />
+                </div>
+
+                <div>
                   <Label htmlFor="message" className="text-gray-700 font-medium block mb-1">
                     How can we help you?
                   </Label>
@@ -227,9 +263,8 @@ export function CTAFormModal({ isOpen, onClose, ctaSource = "General Inquiry" }:
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    rows={1}
-                    className="bg-white text-gray-900 border-gray-300 h-8"
-                    style={{ minHeight: "32px", height: "32px" }}
+                    rows={3}
+                    className="bg-white text-gray-900 border-gray-300"
                   />
                 </div>
 
@@ -240,12 +275,14 @@ export function CTAFormModal({ isOpen, onClose, ctaSource = "General Inquiry" }:
                     checked={transactionalConsent}
                     onCheckedChange={(checked) => setTransactionalConsent(checked as boolean)}
                     className="mt-1"
+                    required
                   />
                   <Label htmlFor="transactional-consent" className="text-xs text-gray-600 font-normal cursor-pointer">
-                    I consent to receive non-marketing text messages related to my account from Scott LeFoll, dba
-                    Wirestorm Digital, dba Brandstorm AI. These may include appointment reminders, order confirmations,
-                    and account notifications. Message & Data rates may apply. Reply HELP for help or STOP to opt-out.
-                    Brandstorm AI.
+                    <span className="text-red-500">*</span> By checking this box, I consent to receive transactional,
+                    non-marketing text messages related to my account from Scott LeFoll, dba Wirestorm Digital and dba
+                    Brandstorm AI. These messages may include appointment reminders, order confirmations, and account
+                    notifications. Message frequency may vary. Message & Data rates may apply. Reply HELP for help or
+                    STOP to opt-out. Brandstorm AI.
                   </Label>
                 </div>
 
@@ -256,10 +293,12 @@ export function CTAFormModal({ isOpen, onClose, ctaSource = "General Inquiry" }:
                     checked={marketingConsent}
                     onCheckedChange={(checked) => setMarketingConsent(checked as boolean)}
                     className="mt-1"
+                    required
                   />
                   <Label htmlFor="marketing-consent" className="text-xs text-gray-600 font-normal cursor-pointer">
-                    I consent to receive marketing messages from Scott LeFoll, dba Wirestorm Digital, dba Brandstorm AI.
-                    Message frequency may vary. Message & Data rates may apply. Reply HELP for help or STOP to opt-out.
+                    <span className="text-red-500">*</span> By checking this box, I consent to receive marketing and
+                    promotional messages, from Scott LeFoll, dba Wirestorm Digital and dba Brandstorm AI. Message
+                    frequency may vary. Message & Data rates may apply. Reply HELP for help or STOP to opt-out.
                     Brandstorm AI.
                   </Label>
                 </div>
@@ -303,6 +342,7 @@ export function CTAFormModal({ isOpen, onClose, ctaSource = "General Inquiry" }:
           )}
         </div>
       </div>
-    </>
+    </>,
+    document.body,
   )
 }

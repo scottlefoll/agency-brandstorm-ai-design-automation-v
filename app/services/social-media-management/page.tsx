@@ -1,8 +1,10 @@
 import { NavBar } from "@/components/nav-bar"
 import { Footer } from "@/components/footer"
-import Image from "next/image"
 import { CTAButton } from "@/components/cta-button"
 import type { Metadata } from "next"
+import { AnimatedHero } from "@/components/animated-hero"
+import { AnimatedImage } from "@/components/animated-image"
+import { FeatureCardsCascade } from "@/components/feature-cards-cascade"
 
 export const metadata: Metadata = {
   title: "Social Media Management - Brandstorm AI",
@@ -16,16 +18,14 @@ export default function SocialMediaManagementPage() {
       <NavBar />
       <div className="flex-1 pt-32">
         <div className="container max-w-6xl mx-auto px-4 py-12">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-purple-800 mb-4">Social Media Management</h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Build a powerful brand presence across all major social platforms
-            </p>
-          </div>
+          <AnimatedHero
+            title="Social Media Management"
+            subtitle="Build a powerful brand presence across all major social platforms"
+          />
 
           <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
             <div className="order-2 md:order-1 flex justify-center">
-              <Image
+              <AnimatedImage
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Services15-SMManagement-xrLKqOtvVjPjGnZEsfnxqHSbgC47zK.webp"
                 alt="Mobile phone displaying social media analytics dashboard with engagement metrics and growth potential"
                 width={600}
@@ -59,18 +59,20 @@ export default function SocialMediaManagementPage() {
               </p>
               <CTAButton
                 source="Social Media Management Page"
-                className="bg-purple-700 hover:bg-purple-800 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 mt-4"
+                className="cta-button bg-purple-700 hover:bg-purple-800 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 mt-4"
               >
                 Elevate Your Social Presence
               </CTAButton>
             </div>
           </div>
 
-          <div className="bg-white p-8 rounded-lg shadow-md">
-            <h2 className="text-2xl font-bold text-purple-700 mb-6 text-center">Our Management Services</h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
+          <FeatureCardsCascade
+            cards={[
+              {
+                title: "Content Creation",
+                description:
+                  "Professional development of platform-specific content including graphics, videos, and copy that resonates with your target audience.",
+                icon: (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -86,15 +88,13 @@ export default function SocialMediaManagementPage() {
                     <path d="M12 20h9"></path>
                     <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
                   </svg>
-                </div>
-                <h3 className="font-bold text-lg mb-2">Content Creation</h3>
-                <p>
-                  Professional development of platform-specific content including graphics, videos, and copy that
-                  resonates with your target audience.
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
+                ),
+              },
+              {
+                title: "Community Engagement",
+                description:
+                  "Timely, professional responses to comments, messages, and mentions that build relationships and foster community around your brand.",
+                icon: (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -109,15 +109,13 @@ export default function SocialMediaManagementPage() {
                   >
                     <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
                   </svg>
-                </div>
-                <h3 className="font-bold text-lg mb-2">Community Engagement</h3>
-                <p>
-                  Timely, professional responses to comments, messages, and mentions that build relationships and foster
-                  community around your brand.
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="bg-purple-100 rounded-full p-4 inline-flex mb-4">
+                ),
+              },
+              {
+                title: "Strategic Planning",
+                description:
+                  "Development of comprehensive content calendars and posting schedules that maintain consistency while aligning with your marketing goals.",
+                icon: (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -135,15 +133,10 @@ export default function SocialMediaManagementPage() {
                     <line x1="8" y1="2" x2="8" y2="6"></line>
                     <line x1="3" y1="10" x2="21" y2="10"></line>
                   </svg>
-                </div>
-                <h3 className="font-bold text-lg mb-2">Strategic Planning</h3>
-                <p>
-                  Development of comprehensive content calendars and posting schedules that maintain consistency while
-                  aligning with your marketing goals.
-                </p>
-              </div>
-            </div>
-          </div>
+                ),
+              },
+            ]}
+          />
         </div>
       </div>
       <Footer />
