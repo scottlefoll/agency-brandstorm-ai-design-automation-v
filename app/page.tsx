@@ -40,7 +40,7 @@ export default function Home() {
           className="absolute w-full h-full object-cover"
           style={{ objectPosition: "center" }}
         >
-          <source src="/videos/background-video.mp4" type="video/mp4" />
+          <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/e97cb0fc-164a-4fe2-8f9a-eea40c2043e7_b7abd018-e8a6-4ba3-8438-8999163728b7M-D369dv2kS9lJiCCJOst12oFZswi9Lq.mp4" type="video/mp4" />
         </video>
       </div>
 
