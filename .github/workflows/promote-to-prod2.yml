@@ -1,0 +1,45 @@
+name: Promote to prod (mirror main)
+
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: "Source ref to promote (branch, tag, or commit)"
+        required: false
+        default: "main"
+
+permissions:
+  contents: write
+
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (full history)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Promote ${{ github.event.inputs.ref }} -> prod (force-with-lease)
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          REF="${{ github.event.inputs.ref }}"
+          echo "Promoting ref: $REF -> prod"
+
+          git fetch origin
+          # Ensure REF is available locally (works for branches/tags/SHAs)
+          git checkout --detach "$REF"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Make prod exactly this commit
+          git push --force-with-lease origin HEAD:prod
+
+      - name: Show resulting SHAs (sanity)
+        run: |
+          git fetch origin
+          echo "origin/main: $(git rev-parse origin/main)"
+          echo "origin/prod: $(git rev-parse origin/prod)"
