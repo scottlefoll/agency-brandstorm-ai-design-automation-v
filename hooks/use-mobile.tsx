@@ -6,18 +6,20 @@ export function useMobile() {
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
-    // Function to check if the device is mobile
-    const checkMobile = () => {
-      const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera
-      const mobileRegex = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
-      setIsMobile(mobileRegex.test(userAgent))
+    const checkDevice = () => {
+      setIsMobile(window.innerWidth < 768)
     }
 
-    // Check on initial load
-    checkMobile()
+    checkDevice()
+    window.addEventListener("resize", checkDevice)
 
-    // No need to add resize listener as device type doesn't change on resize
+    return () => {
+      window.removeEventListener("resize", checkDevice)
+    }
   }, [])
 
   return isMobile
 }
+
+// Export as useIsMobile as well for compatibility
+export const useIsMobile = useMobile

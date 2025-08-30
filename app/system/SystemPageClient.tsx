@@ -5,6 +5,7 @@ import { Footer } from "@/components/footer"
 import { CTAButton } from "@/components/cta-button"
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { AnimatedHero } from "@/components/animated-hero"
+import { AnimatedImage } from "@/components/animated-image"
 import Image from "next/image"
 
 export default function SystemPageClient() {
@@ -42,16 +43,17 @@ export default function SystemPageClient() {
                   </CTAButton>
                 </div>
               </AnimatedHero>
-              <div className="relative">
-                <Image
-                  src="/images/crm/1-crm.webp"
-                  alt="BrandStorm AI tablet displaying automated revenue engine with network connections and growth visualization"
-                  width={600}
-                  height={400}
-                  className="rounded-lg shadow-2xl border-4 border-white/20 object-cover"
-                  priority
-                />
-              </div>
+              <AnimatedImage delay={0.3}>
+                <div className="relative">
+                  <Image
+                    src="/images/crm/1-crm.webp"
+                    alt="BrandStorm AI tablet displaying automated revenue engine with network connections and growth visualization"
+                    width={600}
+                    height={400}
+                    className="rounded-lg shadow-2xl border-4 border-white/20 object-cover"
+                  />
+                </div>
+              </AnimatedImage>
             </div>
           </div>
         </section>
@@ -62,15 +64,17 @@ export default function SystemPageClient() {
         <section className="py-20 bg-gray-50">
           <div className="container mx-auto px-4 md:px-8 max-w-6xl">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="relative">
-                <Image
-                  src="/images/crm/2-crm.webp"
-                  alt="BrandStorm AI tablet showing integrated sales and marketing analytics dashboard with network connections"
-                  width={600}
-                  height={400}
-                  className="rounded-lg shadow-xl border-2 border-gray-200 object-cover"
-                />
-              </div>
+              <AnimatedImage>
+                <div className="relative">
+                  <Image
+                    src="/images/crm/2-crm.webp"
+                    alt="BrandStorm AI tablet showing integrated sales and marketing analytics dashboard with network connections"
+                    width={600}
+                    height={400}
+                    className="rounded-lg shadow-xl border-2 border-gray-200 object-cover"
+                  />
+                </div>
+              </AnimatedImage>
               <div className="space-y-6">
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
                   Seamlessly Integrate
@@ -157,28 +161,32 @@ export default function SystemPageClient() {
                     Activate Lead Capture
                   </CTAButton>
                 </div>
-                <div className="relative">
-                  <Image
-                    src="/images/crm/3-crm.webp"
-                    alt="Lead capture funnel visualization with 3D leads flowing through a net toward a tree structure representing growth"
-                    width={600}
-                    height={400}
-                    className="rounded-lg shadow-xl border-2 border-gray-200 object-cover"
-                  />
-                </div>
+                <AnimatedImage delay={0.2}>
+                  <div className="relative">
+                    <Image
+                      src="/images/crm/3-crm.webp"
+                      alt="Lead capture funnel visualization with 3D leads flowing through a net toward a tree structure representing growth"
+                      width={600}
+                      height={400}
+                      className="rounded-lg shadow-xl border-2 border-gray-200 object-cover"
+                    />
+                  </div>
+                </AnimatedImage>
               </div>
 
               {/* Step 2 - Nurture */}
               <div className="grid lg:grid-cols-2 gap-12 items-center">
-                <div className="relative lg:order-1">
-                  <Image
-                    src="/images/crm/4-crm.webp"
-                    alt="Professional business team collaborating in modern office with growth plant overlay symbolizing nurturing leads and business development"
-                    width={600}
-                    height={400}
-                    className="rounded-lg shadow-xl border-2 border-gray-200 object-cover"
-                  />
-                </div>
+                <AnimatedImage delay={0.2}>
+                  <div className="relative lg:order-1">
+                    <Image
+                      src="/images/crm/4-crm.webp"
+                      alt="Professional business team collaborating in modern office with growth plant overlay symbolizing nurturing leads and business development"
+                      width={600}
+                      height={400}
+                      className="rounded-lg shadow-xl border-2 border-gray-200 object-cover"
+                    />
+                  </div>
+                </AnimatedImage>
                 <div className="space-y-6 lg:order-2">
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
@@ -248,15 +256,17 @@ export default function SystemPageClient() {
                     Explore Closing Tools
                   </CTAButton>
                 </div>
-                <div className="relative">
-                  <Image
-                    src="/images/crm/5-crm.webp"
-                    alt="3D golden pathway with dollar signs leading to an open door representing the sales closing process and success"
-                    width={600}
-                    height={400}
-                    className="rounded-lg shadow-xl border-2 border-gray-200 object-cover"
-                  />
-                </div>
+                <AnimatedImage delay={0.2}>
+                  <div className="relative">
+                    <Image
+                      src="/images/crm/5-crm.webp"
+                      alt="3D golden pathway with dollar signs leading to an open door representing the sales closing process and success"
+                      width={600}
+                      height={400}
+                      className="rounded-lg shadow-xl border-2 border-gray-200 object-cover"
+                    />
+                  </div>
+                </AnimatedImage>
               </div>
             </div>
           </div>
@@ -335,15 +345,17 @@ export default function SystemPageClient() {
                   Schedule Free Strategy Call
                 </CTAButton>
               </div>
-              <div className="relative">
-                <Image
-                  src="/images/crm/6-crm.webp"
-                  alt="BrandStorm System cityscape with golden pathway containing email and security icons leading to unlocked sales potential"
-                  width={600}
-                  height={400}
-                  className="rounded-lg shadow-2xl border-4 border-white/20 object-cover"
-                />
-              </div>
+              <AnimatedImage delay={0.3}>
+                <div className="relative">
+                  <Image
+                    src="/images/crm/6-crm.webp"
+                    alt="BrandStorm System cityscape with golden pathway containing email and security icons leading to unlocked sales potential"
+                    width={600}
+                    height={400}
+                    className="rounded-lg shadow-2xl border-4 border-white/20 object-cover"
+                  />
+                </div>
+              </AnimatedImage>
             </div>
           </div>
         </section>
