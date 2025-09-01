@@ -1,0 +1,36 @@
+version: "3.8"
+
+services:
+  brandstorm-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      HOST: "0.0.0.0"
+      PORT: "3000"
+      NODE_ENV: "production"
+    networks: [coolify]
+    labels:
+      traefik.enable: "true"
+      traefik.docker.network: "coolify"
+
+      traefik.http.middlewares.bs-dev-redirect.redirectscheme.scheme: "https"
+
+      traefik.http.routers.bs-dev.entrypoints: "http"
+      traefik.http.routers.bs-dev.rule: "Host(`dev.brandstorm.ai`)"
+      traefik.http.routers.bs-dev.middlewares: "bs-dev-redirect"
+      traefik.http.routers.bs-dev.service: "bs-dev"
+      traefik.http.routers.bs-dev.priority: "1000"
+
+      traefik.http.routers.bs-dev-secure.entrypoints: "https"
+      traefik.http.routers.bs-dev-secure.rule: "Host(`dev.brandstorm.ai`)"
+      traefik.http.routers.bs-dev-secure.tls: "true"
+      traefik.http.routers.bs-dev-secure.tls.certresolver: "letsencrypt"
+      traefik.http.routers.bs-dev-secure.service: "bs-dev"
+      traefik.http.routers.bs-dev-secure.priority: "1000"
+
+      traefik.http.services.bs-dev.loadbalancer.server.port: "3000"
+
+networks:
+  coolify:
+    external: true
