@@ -1,36 +1,26 @@
 version: "3.8"
 
 services:
-  brandstorm-dev:
+  brandstorm:
     build:
       context: .
       dockerfile: Dockerfile
     environment:
-      HOST: "0.0.0.0"
-      PORT: "3000"
-      NODE_ENV: "production"
-    networks: [coolify]
-    labels:
-      traefik.enable: "true"
-      traefik.docker.network: "coolify"
-
-      traefik.http.middlewares.bs-dev-redirect.redirectscheme.scheme: "https"
-
-      traefik.http.routers.bs-dev.entrypoints: "http"
-      traefik.http.routers.bs-dev.rule: "Host(`dev.brandstorm.ai`)"
-      traefik.http.routers.bs-dev.middlewares: "bs-dev-redirect"
-      traefik.http.routers.bs-dev.service: "bs-dev"
-      traefik.http.routers.bs-dev.priority: "1000"
-
-      traefik.http.routers.bs-dev-secure.entrypoints: "https"
-      traefik.http.routers.bs-dev-secure.rule: "Host(`dev.brandstorm.ai`)"
-      traefik.http.routers.bs-dev-secure.tls: "true"
-      traefik.http.routers.bs-dev-secure.tls.certresolver: "letsencrypt"
-      traefik.http.routers.bs-dev-secure.service: "bs-dev"
-      traefik.http.routers.bs-dev-secure.priority: "1000"
-
-      traefik.http.services.bs-dev.loadbalancer.server.port: "3000"
-
-networks:
-  coolify:
-    external: true
+      NODE_ENV: production
+      PORT: 3000
+      HOSTNAME: 0.0.0.0
+      NEXT_TELEMETRY_DISABLED: "1"
+      # Helps with absolute URLs during local runs; override in CI if needed
+      NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-http://localhost:3000}
+      TZ: ${TZ:-America/New_York}
+    # Expose 3000 only for local/dev usage. In Dokploy, remove this mapping and set
+    # the domain’s Internal/Container Port to 3000 in the UI instead.
+    ports:
+      - "3000:3000"
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:3000/ || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+    restart: unless-stopped
