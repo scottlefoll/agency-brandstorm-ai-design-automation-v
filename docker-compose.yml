@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   brandstorm:
     build:
@@ -18,6 +16,22 @@ services:
     ports:
       # This allows both local and Dokploy port mapping; Dokploy will also use the internal 3000
       - "3000:3000"
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=dokploy-network
+
+      # HTTPS router
+      - traefik.http.routers.brandstorm.rule=Host(`brandstorm.ai`)
+      - traefik.http.routers.brandstorm.entrypoints=websecure
+      - traefik.http.routers.brandstorm.tls=true
+      - traefik.http.routers.brandstorm.tls.certresolver=letsencrypt
+      - traefik.http.services.brandstorm.loadbalancer.server.port=3000
+
+      # HTTP -> HTTPS redirect
+      - traefik.http.routers.brandstorm-http.rule=Host(`brandstorm.ai`)
+      - traefik.http.routers.brandstorm-http.entrypoints=web
+      - traefik.http.routers.brandstorm-http.middlewares=brandstorm-redirect
+      - traefik.http.middlewares.brandstorm-redirect.redirectscheme.scheme=https
     healthcheck:
       test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:3000/ || exit 1"]
       interval: 10s
