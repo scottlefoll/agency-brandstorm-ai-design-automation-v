@@ -6,17 +6,34 @@ services:
     environment:
       NODE_ENV: production
       PORT: 3000
-      HOST: 0.0.0.0
-      NEXT_TELEMETRY_DISABLED: "1"
-      NEXT_PUBLIC_SITE_URL: https://brandstorm.ai
-      APP_URL: https://brandstorm.ai
-      NODE_OPTIONS: "--max-old-space-size=1024"
+      HOSTNAME: "0.0.0.0"
+      NEXT_TELEMETRY_DISABLED: 1
+      NEXT_PUBLIC_SITE_URL: "https://brandstorm.ai"
+      APP_URL: "https://brandstorm.ai"
+      NODE_OPTIONS: --max-old-space-size=1024
       TZ: America/New_York
       LOG_LEVEL: info
     ports:
+      # This allows both local and Dokploy port mapping; Dokploy will also use the internal 3000
       - "3000:3000"
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=dokploy-network
+
+      # HTTPS router
+      - traefik.http.routers.brandstorm.rule=Host(`brandstorm.ai`)
+      - traefik.http.routers.brandstorm.entrypoints=websecure
+      - traefik.http.routers.brandstorm.tls=true
+      - traefik.http.routers.brandstorm.tls.certresolver=letsencrypt
+      - traefik.http.services.brandstorm.loadbalancer.server.port=3000
+
+      # HTTP -> HTTPS redirect
+      - traefik.http.routers.brandstorm-http.rule=Host(`brandstorm.ai`)
+      - traefik.http.routers.brandstorm-http.entrypoints=web
+      - traefik.http.routers.brandstorm-http.middlewares=brandstorm-redirect
+      - traefik.http.middlewares.brandstorm-redirect.redirectscheme.scheme=https
     healthcheck:
-      test: ["CMD-SHELL","wget -qO- http://127.0.0.1:3000/ || exit 1"]
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:3000/ || exit 1"]
       interval: 10s
       timeout: 5s
       retries: 12
@@ -25,62 +42,14 @@ services:
     init: true
     logging:
       driver: json-file
-      options: { max-size: "10m", max-file: "3" }
+      options:
+        max-size: "10m"
+        max-file: "3"
+    # Uncomment if custom overlay is required:
+    networks:
+      - dokploy-network
 
-
-
-# services:
-#   brandstorm:
-#     build:
-#       context: .
-#       dockerfile: Dockerfile
-#     environment:
-#       NODE_ENV: production
-#       PORT: 3000
-#       HOSTNAME: "0.0.0.0"
-#       NEXT_TELEMETRY_DISABLED: 1
-#       NEXT_PUBLIC_SITE_URL: "https://brandstorm.ai"
-#       APP_URL: "https://brandstorm.ai"
-#       NODE_OPTIONS: --max-old-space-size=1024
-#       TZ: America/New_York
-#       LOG_LEVEL: info
-#     ports:
-#       # This allows both local and Dokploy port mapping; Dokploy will also use the internal 3000
-#       - "3000:3000"
-#     labels:
-#       - traefik.enable=true
-#       - traefik.docker.network=dokploy-network
-
-#       # HTTPS router
-#       - traefik.http.routers.brandstorm.rule=Host(`brandstorm.ai`)
-#       - traefik.http.routers.brandstorm.entrypoints=websecure
-#       - traefik.http.routers.brandstorm.tls=true
-#       - traefik.http.routers.brandstorm.tls.certresolver=letsencrypt
-#       - traefik.http.services.brandstorm.loadbalancer.server.port=3000
-
-#       # HTTP -> HTTPS redirect
-#       - traefik.http.routers.brandstorm-http.rule=Host(`brandstorm.ai`)
-#       - traefik.http.routers.brandstorm-http.entrypoints=web
-#       - traefik.http.routers.brandstorm-http.middlewares=brandstorm-redirect
-#       - traefik.http.middlewares.brandstorm-redirect.redirectscheme.scheme=https
-#     healthcheck:
-#       test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:3000/ || exit 1"]
-#       interval: 10s
-#       timeout: 5s
-#       retries: 12
-#       start_period: 30s
-#     restart: unless-stopped
-#     init: true
-#     logging:
-#       driver: json-file
-#       options:
-#         max-size: "10m"
-#         max-file: "3"
-#     # Uncomment if custom overlay is required:
-#     networks:
-#       - dokploy-network
-
-# # Uncomment if using external overlay:
-# networks:
-#   dokploy-network:
-#     external: true
+# Uncomment if using external overlay:
+networks:
+  dokploy-network:
+    external: true
