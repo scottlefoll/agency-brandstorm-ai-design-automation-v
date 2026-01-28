@@ -32,13 +32,13 @@ services:
       - traefik.http.routers.brandstorm-http.entrypoints=web
       - traefik.http.routers.brandstorm-http.middlewares=brandstorm-redirect
       - traefik.http.middlewares.brandstorm-redirect.redirectscheme.scheme=https
-    healthcheck:
-      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:3000/ || exit 1"]
-      interval: 10s
-      timeout: 5s
-      retries: 12
-      start_period: 30s
-    restart: unless-stopped
+    #healthcheck:
+      #test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:3000/ || exit 1"]
+      #interval: 10s
+      #timeout: 5s
+      #retries: 12
+      #start_period: 30s
+    #restart: unless-stopped
     init: true
     logging:
       driver: json-file

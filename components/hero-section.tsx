@@ -72,7 +72,7 @@ export function HeroSection() {
           <span
             className={`block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 animated-text ${isVisible ? "reveal-3" : ""}`}
           >
-            AI POWER
+            AI POWERZ
           </span>
         </h1>
 
