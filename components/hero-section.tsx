@@ -53,19 +53,11 @@ export function HeroSection() {
         >
           <span
             className={`block bg-gradient-to-r from-blue-500 via-purple-400 to-indigo-300 bg-clip-text text-transparent animated-text ${isVisible ? "reveal-1" : ""}`}
-            style={{
-              backgroundSize: "200% auto",
-              animation: isVisible ? "gradient 3s linear infinite" : "none",
-            }}
           >
             TRANSFORM YOUR
           </span>
           <span
             className={`block bg-gradient-to-r from-blue-500 via-purple-400 to-indigo-300 bg-clip-text text-transparent animated-text ${isVisible ? "reveal-2" : ""}`}
-            style={{
-              backgroundSize: "200% auto",
-              animation: isVisible ? "gradient 3s linear infinite" : "none",
-            }}
           >
             BUSINESS WITH
           </span>
